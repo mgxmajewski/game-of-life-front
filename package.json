@@ -30,5 +30,8 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "sass": "^1.35.2"
+  },
+  "devDependencies": {
+    "svg-react-loader": "^0.4.6"
   }
 }
