@@ -1,11 +1,14 @@
 import React from 'react'
+import Layout from "../components/Layout";
 import Cell from '../components/Cell.js'
 
 const Grid = () => {
     return (
-        <div>
-            <Cell/>
-        </div>
+        <Layout>
+            <div>
+                <Cell/>
+            </div>
+        </Layout>
     )
 }
 
