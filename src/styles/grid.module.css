@@ -1,0 +1,7 @@
+.row {
+    display: inline-block;
+}
+.cellGrid {
+    height: 50px;
+    width: 50px;
+}
