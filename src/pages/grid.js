@@ -2,10 +2,7 @@ import React from 'react'
 import Layout from "../components/Layout";
 import AliveCell from '../components/AliveCell.js'
 import DeadCell from '../components/DeadCell.js'
-import {createStage} from "../utils/CreateGrid";
 import {dummyState} from "../utils/DummyState";
-
-const cells = createStage()
 
 
 const Grid = () => {
