@@ -1,10 +1,10 @@
 import React from 'react'
 import Layout from "../components/Layout";
-import {row, cellGrid} from "../styles/grid.module.css"
+import {cellGrid} from "../styles/grid.module.css"
 import AliveCell from '../components/AliveCell.js'
 import DeadCell from '../components/DeadCell.js'
 import {gql, useSubscription} from "@apollo/client";
-import styled from "styled-components";
+
 
 const GET_STATE = gql`
     subscription {
@@ -24,17 +24,26 @@ const Grid = () => {
 
     const state = data.states[data.states.length-1].grid
     let numberOfColumns = state[0].length
-    const Row = styled.div`
-      display: grid;
-      grid-template-columns: repeat(${numberOfColumns},1fr);
-    `
+
+    const columnParser = () => {
+        let columns = ''
+        for(let i = 0; i <numberOfColumns; i++){
+            columns+='1fr '
+        }
+        return columns
+    }
+
+    const divStyle = {
+        display: 'grid',
+        gridTemplateColumns: `${columnParser()}`
+    };
 
     return (
         <Layout>
             <div>
                 {state.map((rows, x) => {
                     return (
-                        <Row key={x} className={row}>
+                        <div style={divStyle} key={x}>
                             {rows.map((cell, y) => {
                                 const cellCoordinates = `${y.toString()},${x.toString()}`
                                 return <div className={cellGrid} key={cellCoordinates}>{
@@ -43,7 +52,7 @@ const Grid = () => {
                                         : <DeadCell/>
                                 }</div> ;
                             })}
-                        </Row>
+                        </div>
                     );
                 })}
             </div>
