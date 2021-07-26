@@ -6,6 +6,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-sass",
     "gatsby-plugin-image",
+    "babel-plugin-styled-components",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {
