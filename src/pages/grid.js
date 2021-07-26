@@ -4,6 +4,7 @@ import {row, cellGrid} from "../styles/grid.module.css"
 import AliveCell from '../components/AliveCell.js'
 import DeadCell from '../components/DeadCell.js'
 import {gql, useSubscription} from "@apollo/client";
+import styled from "styled-components";
 
 const GET_STATE = gql`
     subscription {
@@ -20,13 +21,20 @@ const Grid = () => {
         return null;
     }
 
+
     const state = data.states[data.states.length-1].grid
+    let numberOfColumns = state[0].length
+    const Row = styled.div`
+      display: grid;
+      grid-template-columns: repeat(${numberOfColumns},1fr);
+    `
+
     return (
         <Layout>
             <div>
                 {state.map((rows, x) => {
                     return (
-                        <div key={x} className={row}>
+                        <Row key={x} className={row}>
                             {rows.map((cell, y) => {
                                 const cellCoordinates = `${y.toString()},${x.toString()}`
                                 return <div className={cellGrid} key={cellCoordinates}>{
@@ -35,7 +43,7 @@ const Grid = () => {
                                         : <DeadCell/>
                                 }</div> ;
                             })}
-                        </div>
+                        </Row>
                     );
                 })}
             </div>
