@@ -4,7 +4,6 @@ import {
     InMemoryCache,
     ApolloProvider,
     useSubscription,
-    useMutation,
     gql,
 } from "@apollo/client";
 import { WebSocketLink } from "@apollo/client/link/ws";
