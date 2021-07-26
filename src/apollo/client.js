@@ -16,40 +16,9 @@ const link = new WebSocketLink({
     },
 });
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
     link,
     uri: "http://localhost:4000/",
     cache: new InMemoryCache(),
 });
 
-const GET_STATE = gql`
-    subscription {
-        states{
-            id
-            grid
-        }
-    }
-`;
-
-const gridState = () => {
-    const { data } = useSubscription(GET_STATE);
-    if (!data) {
-        return null;
-    }
-
-    return (
-        <>
-        {data.states.map(({ id, grid }) => (
-            <div>
-                {grid}
-            </div>
-        ))}
-        </>
-    );
-};
-
-export default () => (
-    <ApolloProvider client={client}>
-        <gridState />
-    </ApolloProvider>
-);
