@@ -19,6 +19,7 @@ const Grid = () => {
     if (!data) {
         return null;
     }
+
     const state = data.states[data.states.length-1].grid
     return (
         <Layout>
