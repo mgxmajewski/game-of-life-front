@@ -23,12 +23,17 @@ const SET_STATE = gql`
 
 const Grid = () => {
     const [cell, setCell] = useState("")
-    useEffect(() => {
-        let x = Number(cell.charAt(0))
-        let y = Number(cell.charAt(2))
-        // stateOfGrid[`${x}`][`${y}`] = "#"
-        if(stateOfGrid){
-            stateOfGrid[x][y]= "#"
+
+    let x = Number(cell.charAt(0))
+    let y = Number(cell.charAt(2))
+    const gridUpdatingLogic = (stateOfGrid, setStateOfGrid) => {
+        if (stateOfGrid){
+            console.log(stateOfGrid[x][y])
+            if (stateOfGrid[x][y] === "#"){
+                stateOfGrid[x][y] = "_"
+            } else if (stateOfGrid[x][y] === "_"){
+                stateOfGrid[x][y] = "#"
+            }
             setStateOfGrid({
                 variables: {
                     user: "Michal",
@@ -36,14 +41,17 @@ const Grid = () => {
                 }
             })
         }
+    }
 
-        console.log(cell)
+    useEffect(() => {
+        gridUpdatingLogic(stateOfGrid, setStateOfGrid)
     },[cell]);
 
     const [setStateOfGrid] = useMutation(SET_STATE);
 
     const onUpdate = (e) => {
         setCell(e.target.id)
+        gridUpdatingLogic(stateOfGrid, setStateOfGrid)
     }
 
     const { data } = useSubscription(GET_STATE);
