@@ -24,8 +24,8 @@ const SET_STATE = gql`
 const Grid = () => {
     const [cell, setCell] = useState("")
 
-    let x = Number(cell.charAt(0))
-    let y = Number(cell.charAt(2))
+    let x = Number(cell.split(",")[0])
+    let y = Number(cell.split(",")[1])
     const gridUpdatingLogic = (stateOfGrid, setStateOfGrid) => {
         if (stateOfGrid){
             console.log(stateOfGrid[x][y])
@@ -45,6 +45,7 @@ const Grid = () => {
 
     useEffect(() => {
         gridUpdatingLogic(stateOfGrid, setStateOfGrid)
+        console.log(cell)
     },[cell]);
 
     const [setStateOfGrid] = useMutation(SET_STATE);
