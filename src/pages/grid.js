@@ -23,12 +23,16 @@ const SET_STATE = gql`
 
 const Grid = () => {
     const [cell, setCell] = useState("")
+    const [setStateOfGrid] = useMutation(SET_STATE);
+    const [isClicked, setIsClicked] = useState(0)
+    useEffect(()=>{
+        gridUpdatingLogic(stateOfGrid, setStateOfGrid);
+    }, [cell])
 
     let x = Number(cell.split(",")[0])
     let y = Number(cell.split(",")[1])
     const gridUpdatingLogic = (stateOfGrid, setStateOfGrid) => {
         if (stateOfGrid){
-            console.log(stateOfGrid[x][y])
             if (stateOfGrid[x][y] === "#"){
                 stateOfGrid[x][y] = "_"
             } else if (stateOfGrid[x][y] === "_"){
@@ -43,18 +47,6 @@ const Grid = () => {
         }
     }
 
-    useEffect(() => {
-        gridUpdatingLogic(stateOfGrid, setStateOfGrid)
-        console.log(cell)
-    },[cell]);
-
-    const [setStateOfGrid] = useMutation(SET_STATE);
-
-    const onUpdate = (e) => {
-        setCell(e.target.id)
-        gridUpdatingLogic(stateOfGrid, setStateOfGrid)
-    }
-
     const { data } = useSubscription(GET_STATE);
     if (!data) {
         return null;
@@ -62,6 +54,11 @@ const Grid = () => {
 
     const stateOfGrid = data.states[data.states.length-1].grid
     let numberOfColumns = stateOfGrid[0].length
+
+    let onUpdate =(e) => {
+        setIsClicked(isClicked+1)
+        setCell(`${e.target.id},${isClicked}`)
+    }
 
     const columnParser = () => {
         let columns = ''
