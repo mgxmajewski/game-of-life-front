@@ -29,6 +29,7 @@ const Grid = () => {
         gridUpdatingLogic(stateOfGrid, setStateOfGrid);
     }, [cell])
 
+    // Add logic to update grid (toggle from alive/dead)
     let x = Number(cell.split(",")[0])
     let y = Number(cell.split(",")[1])
     const gridUpdatingLogic = (stateOfGrid, setStateOfGrid) => {
@@ -54,6 +55,7 @@ const Grid = () => {
 
     const stateOfGrid = data.states[data.states.length-1].grid
     let numberOfColumns = stateOfGrid[0].length
+
 
     let onUpdate =(e) => {
         setIsClicked(isClicked+1)
