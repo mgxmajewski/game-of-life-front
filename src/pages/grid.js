@@ -52,10 +52,18 @@ const Grid = () => {
     if (loading) return <p>Waiting for Server Response</p>
     if (error) return <p>Server Down</p>
     if (!data) {
-        return ;
+        return null;
     }
 
-    const stateOfGrid = data.states[data.states.length-1].grid
+    // Handle case when there is no initial state sent by graphQL
+    let stateOfGrid
+    let graphQLInitialData = data.states[data.states.length-1]
+    if(graphQLInitialData === undefined){
+        stateOfGrid = [['#']]
+    } else {
+        stateOfGrid = graphQLInitialData.grid
+    }
+
     let numberOfColumns = stateOfGrid[0].length
 
 
