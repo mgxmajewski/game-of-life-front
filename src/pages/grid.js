@@ -48,9 +48,11 @@ const Grid = () => {
         }
     }
 
-    const { data } = useSubscription(GET_STATE);
+    const { loading, error, data } = useSubscription(GET_STATE);
+    if (loading) return <p>Waiting for Server Response</p>
+    if (error) return <p>Server Down</p>
     if (!data) {
-        return null;
+        return ;
     }
 
     const stateOfGrid = data.states[data.states.length-1].grid
