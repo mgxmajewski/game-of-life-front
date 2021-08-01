@@ -41,10 +41,9 @@ const Grid = () => {
     }
 
     // Handle case when there is no initial state sent by graphQL
-    let stateOfGrid
     let graphQLInitialData = data.states[data.states.length-1]
     const isGraphQlDefined = graphQLInitialData !== undefined
-    stateOfGrid = isGraphQlDefined ? graphQLInitialData.grid : dummyState
+    let stateOfGrid = isGraphQlDefined ? graphQLInitialData.grid : dummyState
 
 
     // Dynamically add right number of columns in cell grid
