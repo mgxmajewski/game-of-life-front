@@ -24,7 +24,7 @@ const SET_STATE = gql`
 const Grid = () => {
     const [cell, setCell] = useState("")
     const [setStateOfGrid] = useMutation(SET_STATE);
-    const [isClicked, setIsClicked] = useState(0)
+    const [isModified, setIsModified] = useState(false)
     useEffect(()=>{
         gridUpdatingLogic(stateOfGrid, setStateOfGrid);
     }, [cell])
@@ -68,8 +68,8 @@ const Grid = () => {
 
 
     let onUpdate =(e) => {
-        setIsClicked(isClicked+1)
-        setCell(`${e.target.id},${isClicked}`)
+        setIsModified(!isModified)
+        setCell(`${e.target.id},${isModified}`)
     }
 
     const columnParser = () => {
