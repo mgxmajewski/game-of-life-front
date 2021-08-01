@@ -4,7 +4,7 @@ import {cellGrid} from "../styles/grid.module.css"
 import AliveCell from '../components/AliveCell.js'
 import DeadCell from '../components/DeadCell.js'
 import {gql, useMutation, useSubscription} from "@apollo/client";
-import {columnParser} from '../utils/ColumnParser'
+import {dynamicColumns, divGridStyle} from '../utils/DynamicColumns'
 
 
 const GET_STATE = gql`
@@ -65,7 +65,11 @@ const Grid = () => {
         stateOfGrid = graphQLInitialData.grid
     }
 
-    let numberOfColumns = stateOfGrid[0].length
+    // Dynamically add right number of columns in cell grid
+    const numberOfColumns = stateOfGrid[0].length
+    const columnsToRender = dynamicColumns(numberOfColumns)
+    const addColumns = divGridStyle(columnsToRender)
+
 
 
     let onUpdate =(e) => {
@@ -74,17 +78,14 @@ const Grid = () => {
         setCell(`${e.target.id},${isModified}`)
     }
 
-    const divStyle = {
-        display: 'grid',
-        gridTemplateColumns: columnParser(numberOfColumns)
-    };
+
 
     return (
         <Layout>
             <div>
                 {stateOfGrid.map((rows, x) => {
                     return (
-                        <div style={divStyle} key={x}>
+                        <div style={addColumns} key={x}>
                             {rows.map((cell, y) => {
                                 const cellCoordinates = `${x},${y}`
                                 return <div  className={cellGrid} key={cellCoordinates}>{
