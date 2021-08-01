@@ -6,6 +6,7 @@ import DeadCell from '../components/DeadCell.js'
 import {gql, useMutation, useSubscription} from "@apollo/client";
 import {dynamicColumns, divGridStyle} from '../utils/DynamicColumns'
 import {frameModHandler} from "../utils/FrameModHandler";
+import {dummyState} from "../utils/InitialState"
 
 
 const GET_STATE = gql`
@@ -42,11 +43,9 @@ const Grid = () => {
     // Handle case when there is no initial state sent by graphQL
     let stateOfGrid
     let graphQLInitialData = data.states[data.states.length-1]
-    if(graphQLInitialData === undefined){
-        stateOfGrid = [['#']]
-    } else {
-        stateOfGrid = graphQLInitialData.grid
-    }
+    const isGraphQlDefined = graphQLInitialData !== undefined
+    stateOfGrid = isGraphQlDefined ? graphQLInitialData.grid : dummyState
+
 
     // Dynamically add right number of columns in cell grid
     const numberOfColumns = stateOfGrid[0].length
