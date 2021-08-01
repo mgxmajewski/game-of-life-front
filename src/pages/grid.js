@@ -4,6 +4,7 @@ import {cellGrid} from "../styles/grid.module.css"
 import AliveCell from '../components/AliveCell.js'
 import DeadCell from '../components/DeadCell.js'
 import {gql, useMutation, useSubscription} from "@apollo/client";
+import {columnParser} from '../utils/ColumnParser'
 
 
 const GET_STATE = gql`
@@ -68,21 +69,14 @@ const Grid = () => {
 
 
     let onUpdate =(e) => {
+        // Keep track
         setIsModified(!isModified)
         setCell(`${e.target.id},${isModified}`)
     }
 
-    const columnParser = () => {
-        let columns = ''
-        for(let i = 0; i <numberOfColumns; i++){
-            columns+='1fr '
-        }
-        return columns
-    }
-
     const divStyle = {
         display: 'grid',
-        gridTemplateColumns: `${columnParser()}`
+        gridTemplateColumns: columnParser(numberOfColumns)
     };
 
     return (
