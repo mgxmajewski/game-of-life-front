@@ -5,6 +5,7 @@ import AliveCell from '../components/AliveCell.js'
 import DeadCell from '../components/DeadCell.js'
 import {gql, useMutation, useSubscription} from "@apollo/client";
 import {dynamicColumns, divGridStyle} from '../utils/DynamicColumns'
+import {frameModHandler} from "../utils/FrameModHandler";
 
 
 const GET_STATE = gql`
@@ -27,27 +28,9 @@ const Grid = () => {
     const [setStateOfGrid] = useMutation(SET_STATE);
     const [isModified, setIsModified] = useState(false)
     useEffect(()=>{
-        gridUpdatingLogic(stateOfGrid, setStateOfGrid);
+        frameModHandler(stateOfGrid, setStateOfGrid, cell);
     }, [cell])
 
-    // Add logic to update grid (toggle from alive/dead)
-    let x = Number(cell.split(",")[0])
-    let y = Number(cell.split(",")[1])
-    const gridUpdatingLogic = (stateOfGrid, setStateOfGrid) => {
-        if (stateOfGrid){
-            if (stateOfGrid[x][y] === "#"){
-                stateOfGrid[x][y] = "_"
-            } else if (stateOfGrid[x][y] === "_"){
-                stateOfGrid[x][y] = "#"
-            }
-            setStateOfGrid({
-                variables: {
-                    user: "Michal",
-                    grid: stateOfGrid
-                }
-            })
-        }
-    }
 
     const { loading, error, data } = useSubscription(GET_STATE);
     if (loading) return <p>Waiting for Server Response</p>
@@ -70,15 +53,12 @@ const Grid = () => {
     const columnsToRender = dynamicColumns(numberOfColumns)
     const addColumns = divGridStyle(columnsToRender)
 
-
-
+    //
     let onUpdate =(e) => {
         // Keep track
         setIsModified(!isModified)
         setCell(`${e.target.id},${isModified}`)
     }
-
-
 
     return (
         <Layout>
