@@ -32,13 +32,10 @@ const Grid = () => {
         frameModHandler(stateOfGrid, setStateOfGrid, cell);
     }, [cell])
 
-
     const { loading, error, data } = useSubscription(GET_STATE);
     if (loading) return <p>Waiting for Server Response</p>
     if (error) return <p>Server Down</p>
-    if (!data) {
-        return null;
-    }
+
 
     // Handle case when there is no initial state sent by graphQL
     const graphQLInitialData = data.states[data.states.length-1]
