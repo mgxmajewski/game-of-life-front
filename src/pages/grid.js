@@ -28,11 +28,14 @@ const Grid = () => {
     const [cell, setCell] = useState("")
     const [setStateOfGrid] = useMutation(SET_STATE);
     const [isModified, setIsModified] = useState(false)
+
     useEffect(()=>{
         frameModHandler(stateOfGrid, setStateOfGrid, cell);
     }, [cell])
 
     const { loading, error, data } = useSubscription(GET_STATE);
+
+    // Handle subscription loading and error
     if (loading) return <p>Waiting for Server Response</p>
     if (error) return <p>Server Down</p>
 
