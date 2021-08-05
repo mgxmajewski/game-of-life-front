@@ -10,11 +10,20 @@ export const frameModHandler = (grid, gridMutation, cell) => {
     if (grid){
         const isAlive = grid[x][y] === "#"
         grid[x][y] = isAlive ? "_" : "#";
-        gridMutation({
-            variables: {
-                user: "Michal",
-                grid: grid
-            }
-        })
+        postFrameMod(grid, gridMutation)
     }
 }
+
+/** Handles sending mutation to graphQL with updated grid
+ * @param {function(MutationFunctionOptions<*, OperationVariables>=): Promise<FetchResult<*>>} gridMutation
+ */
+const postFrameMod = (grid, gridMutation) => {
+    gridMutation({
+        variables: {
+            user: "Michal",
+            grid: grid
+        }
+    })
+}
+
+
