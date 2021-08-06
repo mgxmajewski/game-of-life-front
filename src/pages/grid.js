@@ -50,9 +50,8 @@ const Grid = () => {
     const columnsToRender = dynamicColumns(numberOfColumns)
     const addColumns = divGridStyle(columnsToRender)
 
-    //
+    // Handles user changes to grid
     let onUpdate =(e) => {
-        // Keep track
         setIsModified(!isModified)
         setCell(`${e.target.id},${isModified}`)
     }
