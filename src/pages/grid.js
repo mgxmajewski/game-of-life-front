@@ -29,11 +29,13 @@ const Grid = () => {
     const [setStateOfGrid] = useMutation(SET_STATE);
     const [isModified, setIsModified] = useState(false)
 
-    useEffect(()=>{
+    // Add handler to flip state of the cell (to work from the first click)
+    useEffect(()=> {
         frameModHandler(stateOfGrid, setStateOfGrid, cell);
     }, [cell])
 
-    const { loading, error, data } = useSubscription(GET_STATE);
+    // Create useSubscription to get realtime state of graphql
+    const {loading, error,data} = useSubscription(GET_STATE);
 
     // Handle subscription loading and error
     if (loading) return <p>Waiting for Server Response</p>
@@ -64,11 +66,11 @@ const Grid = () => {
                         <div style={addColumns} key={x}>
                             {rows.map((cell, y) => {
                                 const cellCoordinates = `${x},${y}`
-                                return <div  className={cellGrid} key={cellCoordinates}>{
+                                return <div className={cellGrid} key={cellCoordinates}> {
                                     (cell === "#")
                                         ? <AliveCell id={cellCoordinates} onClick={(e) => onUpdate(e)}/>
                                         : <DeadCell id={cellCoordinates} onClick={(e) => onUpdate(e)}/>
-                                }</div> ;
+                                }</div>;
                             })}
                         </div>
                     );
