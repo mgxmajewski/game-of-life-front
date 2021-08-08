@@ -66,11 +66,15 @@ const Grid = () => {
                         <div style={addColumns} key={x}>
                             {rows.map((cell, y) => {
                                 const cellCoordinates = `${x},${y}`
-                                return <div className={cellGrid} key={cellCoordinates}> {
-                                    (cell === "#")
-                                        ? <AliveCell id={cellCoordinates} onClick={(e) => onUpdate(e)}/>
-                                        : <DeadCell id={cellCoordinates} onClick={(e) => onUpdate(e)}/>
-                                }</div>;
+                                return <div className={cellGrid}
+                                            key={cellCoordinates}
+                                            onClick={(e) => onUpdate(e)}>
+                                    {
+                                        (cell === "#")
+                                            ? <AliveCell id={cellCoordinates}/>
+                                            : <DeadCell id={cellCoordinates}/>
+                                    }
+                                </div>;
                             })}
                         </div>
                     );
