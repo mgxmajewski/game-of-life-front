@@ -2,9 +2,6 @@ import React from "react";
 import {
     ApolloClient,
     InMemoryCache,
-    ApolloProvider,
-    useSubscription,
-    gql,
 } from "@apollo/client";
 import { WebSocketLink } from "@apollo/client/link/ws";
 
