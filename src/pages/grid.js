@@ -7,7 +7,7 @@ import {gql, useMutation, useSubscription} from "@apollo/client";
 import {dynamicColumns, divGridStyle} from '../utils/DynamicColumns'
 import {frameModHandler} from "../utils/FrameModHandler";
 import {dummyState} from "../utils/InitialState"
-
+import {btn} from "../styles/home.module.css";
 
 const GET_STATE = gql`
     subscription {
@@ -80,8 +80,8 @@ const Grid = () => {
                     );
                 })}
             </div>
-            <button>+ column</button>
-            <button>+ row</button>
+            <button className={btn}>+ COLUMN</button>
+            <button className={btn}>+ ROW</button>
         </Layout>
     )
 }
