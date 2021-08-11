@@ -80,6 +80,8 @@ const Grid = () => {
                     );
                 })}
             </div>
+            <button>+ column</button>
+            <button>+ row</button>
         </Layout>
     )
 }
