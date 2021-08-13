@@ -59,6 +59,10 @@ const Grid = () => {
 
     return (
         <Layout>
+            <button className={rowBtn}>+ ROW</button>
+            <button className={rowBtn}>- ROW</button>
+            <button className={columnBtn}>+ COLUMN</button>
+            <button className={columnBtn}>- COLUMN</button>
             <div className={gridDiv}>
                 {stateOfGrid.map((rows, x) => {
                     return (
@@ -79,7 +83,9 @@ const Grid = () => {
                     );
                 })}
             </div>
+            <button className={columnBtn}>- COLUMN</button>
             <button className={columnBtn}>+ COLUMN</button>
+            <button className={rowBtn}>- ROW</button>
             <button className={rowBtn}>+ ROW</button>
         </Layout>
     )
