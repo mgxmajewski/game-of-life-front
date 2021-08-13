@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import Layout from "../components/Layout";
-import {cellGrid} from "../styles/grid.module.css"
+import {cellGrid, gridDiv, columnBtn, rowBtn} from "../styles/grid.module.css"
 import AliveCell from '../components/AliveCell.js'
 import DeadCell from '../components/DeadCell.js'
 import {gql, useMutation, useSubscription} from "@apollo/client";
 import {dynamicColumns, divGridStyle} from '../utils/DynamicColumns'
 import {frameModHandler} from "../utils/FrameModHandler";
 import {dummyState} from "../utils/InitialState"
-import {btn} from "../styles/home.module.css";
 
 const GET_STATE = gql`
     subscription {
@@ -60,7 +59,7 @@ const Grid = () => {
 
     return (
         <Layout>
-            <div>
+            <div className={gridDiv}>
                 {stateOfGrid.map((rows, x) => {
                     return (
                         <div style={addColumns} key={x}>
@@ -80,8 +79,8 @@ const Grid = () => {
                     );
                 })}
             </div>
-            <button className={btn}>+ COLUMN</button>
-            <button className={btn}>+ ROW</button>
+            <button className={columnBtn}>+ COLUMN</button>
+            <button className={rowBtn}>+ ROW</button>
         </Layout>
     )
 }

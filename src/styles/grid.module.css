@@ -1,5 +1,28 @@
+.gridDiv {
+    float: left;
+    max-width: 80%;
+}
 .cellGrid {
     height: 50px;
     width: 50px;
 }
+
+.columnBtn, .rowBtn{
+    display: inline-block;
+    background: #D42990;
+    padding: 10px 16px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.columnBtn{
+    float: left;
+}
+
+.rowBtn{
+    display: block;
+    clear: both;
+}
+
 
