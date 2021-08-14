@@ -3,9 +3,9 @@
  * @param {number} columnsToRender
  */
 export const dynamicColumns = (columnsToRender) => {
-    let columns = ''
+    let columns = 0
     for(let i = 0; i <columnsToRender; i++){
-        columns+='1fr '
+        columns+=1
     }
     return `${columns}`
 }
@@ -17,6 +17,6 @@ export const dynamicColumns = (columnsToRender) => {
 export const divGridStyle = (columns) => (
     {
         display: 'grid',
-        gridTemplateColumns: `${columns}`
+        gridTemplateColumns: `repeat(${columns}, 1fr)`
     }
 );
