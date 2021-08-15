@@ -5,11 +5,14 @@ const AliveCell = props => {
 
     const canvasRef = useRef(null)
 
-    const draw = (ctx, frameCount) => {
+    const draw = (ctx, canvas, frameCount) => {
+        const width = canvas.width/2
+        const height = canvas.height/2
+        const radius = canvas.height/2-canvas.height/2*.08
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
         ctx.fillStyle = '#00adff'
         ctx.beginPath()
-        ctx.arc(25, 25, 24*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
+        ctx.arc(width, height, radius*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI)
         // ctx.arc(0, 0, 99, 0, 6.283185307179586, false)
 
         ctx.fill()
@@ -29,7 +32,7 @@ const AliveCell = props => {
         //Our draw came here
         const render = () => {
             frameCount++
-            draw(context, frameCount)
+            draw(context, canvas,frameCount)
             animationFrameId = window.requestAnimationFrame(render)
         }
         render()
