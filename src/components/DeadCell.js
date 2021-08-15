@@ -9,7 +9,7 @@ const DeadCell = props => {
         ctx.fillStyle = '#000000'
         ctx.beginPath()
         ctx.moveTo(0,0)
-        ctx.arc(20, 20, 20, 0, 2*Math.PI)
+        ctx.arc(25, 25, 24, 0, 2*Math.PI, false)
         // ctx.arc(0, 0, 99, 0, 6.283185307179586, false)
         ctx.fill()
     }
