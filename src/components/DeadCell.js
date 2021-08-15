@@ -8,6 +8,7 @@ const DeadCell = props => {
     const draw = ctx => {
         ctx.fillStyle = '#000000'
         ctx.beginPath()
+        ctx.moveTo(0,0)
         ctx.arc(20, 20, 20, 0, 2*Math.PI)
         // ctx.arc(0, 0, 99, 0, 6.283185307179586, false)
         ctx.fill()
@@ -16,6 +17,10 @@ const DeadCell = props => {
     useEffect(() => {
 
         const canvas = canvasRef.current
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.width  = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
         const context = canvas.getContext('2d')
 
         //Our draw come here

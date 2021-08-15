@@ -18,6 +18,10 @@ const AliveCell = props => {
     useEffect(() => {
 
         const canvas = canvasRef.current
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.width  = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
         const context = canvas.getContext('2d')
         let frameCount = 0
         let animationFrameId
