@@ -15,10 +15,11 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@apollo/client": "^3.3.21",
+    "@apollo/client": "^3.4.7",
     "@reduxjs/toolkit": "^1.6.1",
     "babel-plugin-styled-components": "^1.13.2",
     "gatsby": "^3.10.1",
+    "gatsby-plugin-apollo": "^3.0.2",
     "gatsby-plugin-google-analytics": "^3.10.0",
     "gatsby-plugin-image": "^1.10.1",
     "gatsby-plugin-manifest": "^3.10.0",
