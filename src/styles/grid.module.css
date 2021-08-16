@@ -3,8 +3,8 @@
     max-width: 80%;
 }
 .cellGrid {
-    height: 50px;
-    width: 50px;
+    width: 100%;
+    aspect-ratio: 1/1;
 }
 
 .columnBtn, .rowBtn{
