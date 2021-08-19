@@ -15,19 +15,19 @@ const CanvasGrid = props => {
         ctx.fillStyle = '#5c5c5c'
         ctx.fillRect(0,0,width, height)
         ctx.fill()
-        console.log(gridState)
-        let xShift = 0
-        let yShift = 0
-        const cellWidth = width/gridState[0].length
+        let cellWidth;
+        let cellHeight;
+        cellWidth = cellHeight = width/gridState[0].length
         const cellRadius = cellWidth/2
-        console.log(cellWidth)
-        for(let col = 0; col<gridState[0].length; col++) {
-            for(let row = 0; row<gridState.length; row++) {
+        let xShift = 0;
+        let yShift = 0;
+        for(let col = 0; col < gridState[0].length; col++) {
+            for(let row = 0; row < gridState.length; row++) {
                 new Cell(ctx, cellRadius + xShift, cellRadius + yShift, cellRadius, '#000127FF').draw()
                 xShift+=cellWidth
             }
             xShift=0
-            yShift+=cellWidth
+            yShift+=cellHeight
         }
     }
 
