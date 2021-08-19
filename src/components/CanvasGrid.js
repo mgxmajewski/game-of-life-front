@@ -21,9 +21,16 @@ const CanvasGrid = props => {
         const cellRadius = cellWidth/2
         let xShift = 0;
         let yShift = 0;
+        let colorAlive = '#00adff'
+        let colorDead = '#000127FF'
         for(let col = 0; col < gridState[0].length; col++) {
             for(let row = 0; row < gridState.length; row++) {
-                new Cell(ctx, cellRadius + xShift, cellRadius + yShift, cellRadius, '#000127FF').draw()
+                console.log(gridState[col][row])
+                if(gridState[col][row] === "_"){
+                    new Cell(ctx, cellRadius + xShift, cellRadius + yShift, cellRadius, colorAlive, colorDead, false).draw()
+                } else if (gridState[col][row] === "#"){
+                    new Cell(ctx, cellRadius + xShift, cellRadius + yShift, cellRadius, colorAlive, colorDead, true).draw()
+                }
                 xShift+=cellWidth
             }
             xShift=0
