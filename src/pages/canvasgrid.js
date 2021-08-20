@@ -26,11 +26,26 @@ const CanvasGridPage = () => {
     const isGraphQlDefined = graphQLInitialData !== undefined
     const stateOfGrid = isGraphQlDefined ? graphQLInitialData.grid : dummyState
 
-    const getCellCoordinates =(e) => {
+
+    const isCell = (x, y) => {
+        if (y <= stateOfGrid.length - 1){
+            return x <= stateOfGrid[y].length - 1;
+        }
+    }
+
+    const getCellCoordinates = e => {
+        const width = e.target.width
+        const gridState = stateOfGrid
+        let cellWidth;
+        let cellHeight;
+        cellWidth = cellHeight = width/gridState[0].length
         const rect = e.target.getBoundingClientRect()
-        const x = Math.floor(e.clientX - rect.left)
-        const y = Math.floor(e.clientY - rect.top)
-        console.log(`X: ${x}, Y: ${y}`)
+        const x = Math.floor((e.clientX - rect.left)/cellWidth)
+        const y = Math.floor((e.clientY - rect.top)/cellHeight)
+        if (isCell(x,y)){
+            console.log(`X: ${x}, Y: ${y}`)
+        }
+        // console.log(e)
     }
 
     return (
