@@ -1,12 +1,11 @@
-import React, { useRef, useEffect } from 'react'
-import {dummyState} from "../utils/InitialState";
+import React, {useEffect, useRef} from 'react'
 import {Cell} from "../canvas/Cell";
 
 const CanvasGrid = props => {
 
     const canvasRef = useRef(null)
 
-    const gridState = dummyState
+    const gridState = props.state
 
     const draw = (ctx, canvas) => {
 
@@ -23,13 +22,17 @@ const CanvasGrid = props => {
         let yShift = 0;
         let colorAlive = '#00adff'
         let colorDead = '#000127FF'
-        for(let col = 0; col < gridState[0].length; col++) {
-            for(let row = 0; row < gridState.length; row++) {
-                console.log(gridState[col][row])
-                if(gridState[col][row] === "_"){
-                    new Cell(ctx, cellRadius + xShift, cellRadius + yShift, cellRadius, colorAlive, colorDead, false).draw()
-                } else if (gridState[col][row] === "#"){
-                    new Cell(ctx, cellRadius + xShift, cellRadius + yShift, cellRadius, colorAlive, colorDead, true).draw()
+        for(let row = 0; row < gridState.length; row++) {
+            for(let col = 0; col < gridState[row].length; col++) {
+                // console.log(gridState[col][row])
+                if(gridState[row][col] === "_"){
+                    new Cell(ctx, cellRadius + xShift, cellRadius + yShift,
+                        cellRadius, colorAlive, colorDead,
+                        false).draw()
+                } else if (gridState[row][col] === "#"){
+                    new Cell(ctx, cellRadius + xShift, cellRadius + yShift,
+                        cellRadius, colorAlive, colorDead,
+                        true).draw()
                 }
                 xShift+=cellWidth
             }
@@ -43,9 +46,8 @@ const CanvasGrid = props => {
         canvas.width  = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
         const context = canvas.getContext('2d')
-
         //Our draw come here
-        draw(context, canvas)
+        draw(context, canvas, gridState)
     }, [draw])
 
     return <canvas ref={canvasRef} {...props}/>
