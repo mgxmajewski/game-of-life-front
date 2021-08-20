@@ -28,13 +28,15 @@ const CanvasGridPage = () => {
 
     const getCellCoordinates =(e) => {
         const rect = e.target.getBoundingClientRect()
-        console.log(`X: ${e.clientX - rect.left}, Y: ${e.clientY - rect.top}`)
+        const x = Math.floor(e.clientX - rect.left)
+        const y = Math.floor(e.clientY - rect.top)
+        console.log(`X: ${x}, Y: ${y}`)
     }
 
     return (
         <Layout>
             <div>
-                <CanvasGrid state={stateOfGrid} onMouseMove={(e) => getCellCoordinates(e)}/>
+                <CanvasGrid state={stateOfGrid} onMouseDown={(e) => getCellCoordinates(e)}/>
             </div>
         </Layout>
     )
