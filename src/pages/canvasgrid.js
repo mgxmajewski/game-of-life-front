@@ -2,7 +2,9 @@ import * as React from "react";
 import Layout from "../components/Layout";
 import CanvasGrid from "../components/CanvasGrid";
 import {dummyState} from "../utils/InitialState";
-import {gql, useSubscription} from "@apollo/client";
+import {gql, useMutation, useSubscription} from "@apollo/client";
+import {useEffect, useState} from "react";
+import {frameModHandler} from "../utils/FrameModHandler";
 
 const GET_STATE = gql`
     subscription {
@@ -13,7 +15,21 @@ const GET_STATE = gql`
     }
 `;
 
+const SET_STATE = gql`
+    mutation ($user: String!, $grid:[[String]]!){
+        postState(user: $user, grid: $grid)
+    }
+`;
+
 const CanvasGridPage = () => {
+    const [cell, setCell] = useState("")
+    const [setStateOfGrid] = useMutation(SET_STATE);
+    const [isModified, setIsModified] = useState(false)
+
+    // Add handler to flip state of the cell (to work from the first click)
+    useEffect(()=> {
+        frameModHandler(stateOfGrid, setStateOfGrid, cell);
+    }, [cell])
 
     const {loading, error,data} = useSubscription(GET_STATE);
 
@@ -44,8 +60,10 @@ const CanvasGridPage = () => {
         const y = Math.floor((e.clientY - rect.top)/cellHeight)
         if (isCell(x,y)){
             console.log(`X: ${x}, Y: ${y}`)
+            setIsModified(!isModified)
+            setCell(`${y},${x},${isModified}`)
         }
-        // console.log(e)
+
     }
 
     return (
