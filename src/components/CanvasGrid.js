@@ -12,8 +12,7 @@ const CanvasGrid = props => {
 
         const width = canvas.width
         const height = canvas.height
-        ctx.fillStyle = '#5c5c5c'
-        ctx.fillRect(0,0,width, height)
+        ctx.clearRect(0,0,width, height)
         ctx.fill()
         let cellWidth;
         let cellHeight;
