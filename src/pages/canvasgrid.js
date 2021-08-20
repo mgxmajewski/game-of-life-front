@@ -26,10 +26,15 @@ const CanvasGridPage = () => {
     const isGraphQlDefined = graphQLInitialData !== undefined
     const stateOfGrid = isGraphQlDefined ? graphQLInitialData.grid : dummyState
 
+    const getCellCoordinates =(e) => {
+        const rect = e.target.getBoundingClientRect()
+        console.log(`X: ${e.clientX - rect.left}, Y: ${e.clientY - rect.top}`)
+    }
+
     return (
         <Layout>
             <div>
-                <CanvasGrid state={stateOfGrid}/>
+                <CanvasGrid state={stateOfGrid} onMouseMove={(e) => getCellCoordinates(e)}/>
             </div>
         </Layout>
     )
