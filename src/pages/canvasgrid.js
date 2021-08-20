@@ -5,6 +5,8 @@ import {dummyState} from "../utils/InitialState";
 import {gql, useMutation, useSubscription} from "@apollo/client";
 import {useEffect, useState} from "react";
 import {frameModHandler} from "../utils/FrameModHandler";
+import {getLongestRow} from "../utils/GetLongestRow";
+
 
 const GET_STATE = gql`
     subscription {
@@ -49,17 +51,18 @@ const CanvasGridPage = () => {
         }
     }
 
+
+
     const getCellCoordinates = e => {
         const width = e.target.width
         const gridState = stateOfGrid
         let cellWidth;
         let cellHeight;
-        cellWidth = cellHeight = width/gridState[0].length
+        cellWidth = cellHeight = width/getLongestRow(gridState)
         const rect = e.target.getBoundingClientRect()
         const x = Math.floor((e.clientX - rect.left)/cellWidth)
         const y = Math.floor((e.clientY - rect.top)/cellHeight)
         if (isCell(x,y)){
-            console.log(`X: ${x}, Y: ${y}`)
             setIsModified(!isModified)
             setCell(`${y},${x},${isModified}`)
         }

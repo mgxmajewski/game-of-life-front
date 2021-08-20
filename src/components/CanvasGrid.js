@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from 'react'
 import {Cell} from "../canvas/Cell";
+import {getLongestRow} from "../utils/GetLongestRow";
 
 const CanvasGrid = props => {
 
@@ -16,7 +17,7 @@ const CanvasGrid = props => {
         ctx.fill()
         let cellWidth;
         let cellHeight;
-        cellWidth = cellHeight = width/gridState[0].length
+        cellWidth = cellHeight = width/getLongestRow(gridState)
         const cellRadius = cellWidth/2
         let xShift = 0;
         let yShift = 0;
