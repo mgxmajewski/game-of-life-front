@@ -22,10 +22,18 @@ export class Cell {
 
         if (this.alive) {
             this.ctx.fillStyle = this.colorAlive;
+            this.ctx.strokeStyle = this.colorDead;
         } else {
             this.ctx.fillStyle = this.colorDead;
+            this.ctx.strokeStyle = this.colorAlive;
         }
 
+        this.ctx.fill();
+        this.ctx.closePath();
+        this.ctx.beginPath();
+        this.ctx.font = `${this.radius/3}px Arial`;
+        this.ctx.textAlign = 'center'
+        this.ctx.strokeText( `${this.col+1} | ${this.row+1}`, this.x+this.radius/this.x, this.y+this.radius/this.y*this.row);
         this.ctx.fill();
         this.ctx.closePath();
     }
