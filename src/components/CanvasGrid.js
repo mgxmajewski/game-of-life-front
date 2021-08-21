@@ -24,7 +24,6 @@ const CanvasGrid = props => {
         let colorDead = '#000127FF'
         for(let row = 0; row < gridState.length; row++) {
             for(let col = 0; col < gridState[row].length; col++) {
-                // console.log(gridState[col][row])
                 const x =  cellRadius + xShift
                 const y = cellRadius + yShift
                 const cell =
@@ -39,10 +38,12 @@ const CanvasGrid = props => {
                         col)
                 if(gridState[row][col] === "_"){
                     cell.isAlive = false
-                    cell.draw()
+                    cell.drawCell()
+                    cell.drawCoordinates()
                 } else if (gridState[row][col] === "#"){
                     cell.isAlive = true
-                    cell.draw()
+                    cell.drawCell()
+                    cell.drawCoordinates()
                 }
                 xShift+=cellWidth
             }
