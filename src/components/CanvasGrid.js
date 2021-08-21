@@ -25,14 +25,24 @@ const CanvasGrid = props => {
         for(let row = 0; row < gridState.length; row++) {
             for(let col = 0; col < gridState[row].length; col++) {
                 // console.log(gridState[col][row])
+                const x =  cellRadius + xShift
+                const y = cellRadius + yShift
+                const cell =
+                    new Cell(
+                        ctx,
+                        x,
+                        y,
+                        cellRadius ,
+                        colorAlive,
+                        colorDead,
+                        row,
+                        col)
                 if(gridState[row][col] === "_"){
-                    new Cell(ctx, cellRadius + xShift, cellRadius + yShift,
-                        cellRadius, colorAlive, colorDead,
-                        false).draw()
+                    cell.isAlive = false
+                    cell.draw()
                 } else if (gridState[row][col] === "#"){
-                    new Cell(ctx, cellRadius + xShift, cellRadius + yShift,
-                        cellRadius, colorAlive, colorDead,
-                        true).draw()
+                    cell.isAlive = true
+                    cell.draw()
                 }
                 xShift+=cellWidth
             }
