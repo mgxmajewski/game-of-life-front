@@ -6,9 +6,11 @@ const CanvasGrid = props => {
 
     const canvasRef = useRef(null)
 
-    const gridState = props.state
 
-    const draw = (ctx, canvas) => {
+    const draw = (ctx, canvas, props) => {
+
+        const gridState = props.state
+        const showCoordinates = props.coordinates
 
         const width = canvas.width
         const height = canvas.height
@@ -39,11 +41,13 @@ const CanvasGrid = props => {
                 if(gridState[row][col] === "_"){
                     cell.isAlive = false
                     cell.drawCell()
-                    cell.drawCoordinates()
+                    // cell.drawCoordinates()
                 } else if (gridState[row][col] === "#"){
                     cell.isAlive = true
                     cell.drawCell()
-                    cell.drawCoordinates()
+                    if (showCoordinates){
+                        cell.drawCoordinates()
+                    }
                 }
                 xShift+=cellWidth
             }
@@ -58,7 +62,7 @@ const CanvasGrid = props => {
         canvas.height = canvas.offsetHeight;
         const context = canvas.getContext('2d')
         //Our draw come here
-        draw(context, canvas, gridState)
+        draw(context, canvas, props)
     }, [draw])
 
     return <canvas ref={canvasRef} {...props}/>

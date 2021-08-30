@@ -6,7 +6,7 @@ import {gql, useMutation, useSubscription} from "@apollo/client";
 import {useEffect, useState} from "react";
 import {frameModHandler} from "../utils/FrameModHandler";
 import {getLongestRow} from "../utils/GetLongestRow";
-
+import {coordinatesBtn} from "../styles/grid.module.css"
 
 const GET_STATE = gql`
     subscription {
@@ -27,6 +27,7 @@ const CanvasGridPage = () => {
     const [cell, setCell] = useState("")
     const [setStateOfGrid] = useMutation(SET_STATE);
     const [isModified, setIsModified] = useState(false)
+    const [showCoordOnGrid, setShowCoordOnGrid] = useState(false)
 
     // Add handler to flip state of the cell (to work from the first click)
     useEffect(()=> {
@@ -51,7 +52,10 @@ const CanvasGridPage = () => {
         }
     }
 
-
+    const drawCoordinates = () => {
+        console.log(showCoordOnGrid)
+        setShowCoordOnGrid(!showCoordOnGrid)
+    }
 
     const getCellCoordinates = e => {
         const width = e.target.width
@@ -72,7 +76,8 @@ const CanvasGridPage = () => {
     return (
         <Layout>
             <div>
-                <CanvasGrid state={stateOfGrid} onMouseDown={(e) => getCellCoordinates(e)}/>
+                <button className={coordinatesBtn} onClick={() => drawCoordinates()}>Show Coordinates</button>
+                <CanvasGrid state={stateOfGrid} coordinates={showCoordOnGrid} onMouseDown={(e) => getCellCoordinates(e)}/>
             </div>
         </Layout>
     )
