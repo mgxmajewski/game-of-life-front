@@ -45,7 +45,7 @@ const CanvasGrid = props => {
                 } else if (gridState[row][col] === "#"){
                     cell.isAlive = true
                     cell.drawCell()
-                    if (showCoordinates){
+                    if (showCoordinates === 'true'){
                         cell.drawCoordinates()
                     }
                 }
