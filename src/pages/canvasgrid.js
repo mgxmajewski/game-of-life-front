@@ -57,7 +57,7 @@ const CanvasGridPage = () => {
         setShowCoordOnGrid(!showCoordOnGrid)
     }
 
-    const getCellCoordinates = e => {
+    const calculateWhichCellClicked = e => {
         const width = e.target.width
         const gridState = stateOfGrid
         let cellWidth;
@@ -66,18 +66,26 @@ const CanvasGridPage = () => {
         const rect = e.target.getBoundingClientRect()
         const x = Math.floor((e.clientX - rect.left)/cellWidth)
         const y = Math.floor((e.clientY - rect.top)/cellHeight)
-        if (isCell(x,y)){
+        if(isCell(x,y)){
+            return [x,y]
+        }
+    }
+
+    const changeCellState = e => {
+        const coordinates = calculateWhichCellClicked(e)
+        if (coordinates) {
+            const x = coordinates[0]
+            const y = coordinates[1]
             setIsModified(!isModified)
             setCell(`${y},${x},${isModified}`)
         }
-
     }
 
     return (
         <Layout>
             <div>
                 <button className={coordinatesBtn} onClick={() => drawCoordinates()}>Show Coordinates</button>
-                <CanvasGrid state={stateOfGrid} coordinates={showCoordOnGrid} onMouseDown={(e) => getCellCoordinates(e)}/>
+                <CanvasGrid state={stateOfGrid} coordinates={showCoordOnGrid} onMouseDown={(e) => changeCellState(e)}/>
             </div>
         </Layout>
     )
