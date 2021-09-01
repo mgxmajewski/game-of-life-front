@@ -1,11 +1,11 @@
 export class Cell {
-    constructor(ctx, x, y, radius, colorAlive,colorDead, row, col){
+    constructor(ctx, x, y, radius, row, col){
         this.ctx = ctx;
         this.x = x;
         this.y = y;
         this.radius = radius;
-        this.colorAlive = colorAlive;
-        this.colorDead = colorDead;
+        this.colorAlive = '#00adff';
+        this.colorDead = '#000127FF';
         this.row = row;
         this.col = col;
         this.radians = 0;

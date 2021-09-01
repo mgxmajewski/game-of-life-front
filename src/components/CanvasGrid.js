@@ -6,26 +6,24 @@ const CanvasGrid = props => {
 
     const canvasRef = useRef(null)
 
-
     const draw = (ctx, canvas, props) => {
 
-        const gridState = props.state
-        const showCoordinates = props.coordinates
+        // Destructure arguments
+        const {width, height} = canvas
+        const {state, coordinates} = props
 
-        const width = canvas.width
-        const height = canvas.height
+        // Draw transparent canvas
         ctx.clearRect(0,0,width, height)
-        // ctx.fill()
-        let cellWidth;
-        let cellHeight;
-        cellWidth = cellHeight = width/getLongestRow(gridState)
-        const cellRadius = cellWidth/2
-        let xShift = 0;
-        let yShift = 0;
-        let colorAlive = '#00adff'
-        let colorDead = '#000127FF'
-        for(let row = 0; row < gridState.length; row++) {
-            for(let col = 0; col < gridState[row].length; col++) {
+
+        // Declare size and position of cell
+        const cellDiameter = width/getLongestRow(state)
+        const cellRadius = cellDiameter/2
+        let xShift, yShift = 0;
+
+        // Iterate through all rows and columns to draw cells and conditionally coordinates.
+        state.forEach((cellsRow, rowIndex) => {
+            xShift = 0
+            cellsRow.forEach((cellCol, colIndex) => {
                 const x =  cellRadius + xShift
                 const y = cellRadius + yShift
                 const cell =
@@ -34,24 +32,17 @@ const CanvasGrid = props => {
                         x,
                         y,
                         cellRadius ,
-                        colorAlive,
-                        colorDead,
-                        row,
-                        col)
-                if(gridState[row][col] === "_"){
-                    cell.isAlive = false
-                } else if (gridState[row][col] === "#"){
-                    cell.isAlive = true
-                }
+                        rowIndex,
+                        colIndex)
+                cell.isAlive = cellCol === "#"
                 cell.drawCell()
-                if (showCoordinates === 'true'){
+                if (coordinates === 'true') {
                     cell.drawCoordinates()
                 }
-                xShift+=cellWidth
-            }
-            xShift=0
-            yShift+=cellHeight
-        }
+                xShift+=cellDiameter
+            })
+            yShift+=cellDiameter
+        })
     }
 
     useEffect(() => {
