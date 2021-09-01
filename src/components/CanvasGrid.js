@@ -15,7 +15,7 @@ const CanvasGrid = props => {
         const width = canvas.width
         const height = canvas.height
         ctx.clearRect(0,0,width, height)
-        ctx.fill()
+        // ctx.fill()
         let cellWidth;
         let cellHeight;
         cellWidth = cellHeight = width/getLongestRow(gridState)
@@ -40,14 +40,12 @@ const CanvasGrid = props => {
                         col)
                 if(gridState[row][col] === "_"){
                     cell.isAlive = false
-                    cell.drawCell()
-                    // cell.drawCoordinates()
                 } else if (gridState[row][col] === "#"){
                     cell.isAlive = true
-                    cell.drawCell()
-                    if (showCoordinates === 'true'){
-                        cell.drawCoordinates()
-                    }
+                }
+                cell.drawCell()
+                if (showCoordinates === 'true'){
+                    cell.drawCoordinates()
                 }
                 xShift+=cellWidth
             }
