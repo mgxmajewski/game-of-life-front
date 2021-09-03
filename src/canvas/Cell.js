@@ -12,7 +12,7 @@ export class Cell {
         this.alive = null;
     }
 
-    set isAlive(state) {
+    set setState(state) {
         this.alive = state
     }
 
