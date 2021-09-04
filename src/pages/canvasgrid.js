@@ -85,7 +85,7 @@ const CanvasGridPage = () => {
         <Layout>
             <div>
                 <button className={coordinatesBtn} onClick={() => drawCoordinates()}>Show Coordinates</button>
-                <CanvasGrid state={stateOfGrid} coordinates={showCoordOnGrid.toString()} onMouseDown={(e) => changeCellState(e)}/>
+                <CanvasGrid state={stateOfGrid} showCoordinates={showCoordOnGrid.toString()} onMouseDown={(e) => changeCellState(e)}/>
             </div>
         </Layout>
     )

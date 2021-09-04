@@ -10,7 +10,7 @@ const CanvasGrid = props => {
 
         // Destructure arguments
         const {width, height} = canvas
-        const {state, coordinates} = props
+        const {state, showCoordinates} = props
 
         // Draw transparent canvas
         ctx.clearRect(0,0,width, height)
@@ -37,7 +37,7 @@ const CanvasGrid = props => {
                 const isAlive = cellCol === "#";
                 cell.setState = isAlive
                 cell.drawCell()
-                if (coordinates === 'true') {
+                if (showCoordinates === 'true') {
                     cell.drawCoordinates()
                 }
                 xShift+=cellDiameter
