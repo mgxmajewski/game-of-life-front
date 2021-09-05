@@ -27,7 +27,7 @@ const CanvasGridPage = () => {
     const [cell, setCell] = useState("")
     const [setStateOfGrid] = useMutation(SET_STATE);
     const [isModified, setIsModified] = useState(false)
-    const [showCoordOnGrid, setShowCoordOnGrid] = useState(false)
+    const [areCoordinatesToDisplay, setareCoordinatesToDisplay] = useState(false)
 
     // Add handler to flip state of the cell (to work from the first click)
     useEffect(()=> {
@@ -52,9 +52,9 @@ const CanvasGridPage = () => {
         }
     }
 
-    const drawCoordinates = () => {
-        console.log(showCoordOnGrid)
-        setShowCoordOnGrid(!showCoordOnGrid)
+    const toggleDisplayCoordinates = () => {
+        console.log(areCoordinatesToDisplay)
+        setareCoordinatesToDisplay(!areCoordinatesToDisplay)
     }
 
     const calculateWhichCellClicked = e => {
@@ -84,8 +84,8 @@ const CanvasGridPage = () => {
     return (
         <Layout>
             <div>
-                <button className={coordinatesBtn} onClick={() => drawCoordinates()}>Show Coordinates</button>
-                <CanvasGrid state={stateOfGrid} showCoordinates={showCoordOnGrid.toString()} onMouseDown={(e) => changeCellState(e)}/>
+                <button className={coordinatesBtn} onClick={() => toggleDisplayCoordinates()}>Show Coordinates</button>
+                <CanvasGrid state={stateOfGrid} showCoordinates={areCoordinatesToDisplay.toString()} onMouseDown={(e) => changeCellState(e)}/>
             </div>
         </Layout>
     )
