@@ -18,7 +18,14 @@ export class Cell {
 
     drawCell = () => {
         this.ctx.beginPath();
-        this.ctx.arc(this.x, this.y, this.radius, 0, Math.PI *2, false);
+        this.ctx.arc(
+            this.x,
+            this.y, this.radius,
+            0,
+            Math.PI *2,
+            false
+        );
+
         if (this.alive) {
             this.ctx.fillStyle = this.colorAlive;
             this.ctx.strokeStyle = this.colorDead;
@@ -26,19 +33,27 @@ export class Cell {
             this.ctx.fillStyle = this.colorDead;
             this.ctx.strokeStyle = this.colorAlive;
         }
+
         this.ctx.fill();
         this.ctx.closePath();
     }
+
     drawCoordinates = () => {
         this.ctx.beginPath();
         this.ctx.font = `${this.radius/3}px Arial`;
         this.ctx.textAlign = 'center'
-        this.ctx.strokeText( `${this.col+1} | ${this.row+1}`, this.x+this.radius/this.x, this.y+this.radius/this.y*this.row);
+        this.ctx.strokeText(
+            `${this.col+1} | ${this.row+1}`,
+            this.x+this.radius/this.x,
+            this.y+this.radius/this.y*this.row
+        );
+
         if (this.alive) {
             this.ctx.strokeStyle = this.colorDead;
         } else {
             this.ctx.strokeStyle = this.colorAlive;
         }
+
         this.ctx.fill();
         this.ctx.closePath()
     }
