@@ -19,34 +19,45 @@ export class Cell {
     }
 
     cellCanvas = () => {
-        this.ctx.arc(
-            this.x,
-            this.y, this.radius,
+
+        const canvas = this.ctx
+        const cell = this
+
+        canvas.arc(
+            cell.x,
+            cell.y,
+            cell.radius,
             0,
             Math.PI *2,
             false
-        );
-        if (this.alive) {
-            this.ctx.fillStyle = this.colorAlive;
-            this.ctx.strokeStyle = this.colorDead;
+        )
+
+        if (cell.alive) {
+            canvas.fillStyle = cell.colorAlive;
+            canvas.strokeStyle = cell.colorDead;
         } else {
-            this.ctx.fillStyle = this.colorDead;
-            this.ctx.strokeStyle = this.colorAlive;
+            canvas.fillStyle = cell.colorDead;
+            canvas.strokeStyle = cell.colorAlive;
         }
     }
 
     coordinatesCanvas = ()=> {
-        this.ctx.font = `${this.radius/3}px Arial`;
-        this.ctx.textAlign = 'center'
-        this.ctx.strokeText(
-            `${this.col+1} | ${this.row+1}`,
-            this.x+this.radius/this.x,
-            this.y+this.radius/this.y*this.row
-        );
-        if (this.alive) {
-            this.ctx.strokeStyle = this.colorDead;
+
+        const canvas = this.ctx
+        const cell = this
+
+        canvas.font = `${cell.radius/3}px Arial`;
+        canvas.textAlign = 'center'
+        canvas.strokeText(
+            `${cell.col++} | ${cell.row++}`,
+            cell.x+cell.radius/cell.x,
+            cell.y+cell.radius/cell.y*cell.row
+        )
+
+        if (cell.alive) {
+            canvas.strokeStyle = cell.colorDead;
         } else {
-            this.ctx.strokeStyle = this.colorAlive;
+            canvas.strokeStyle = cell.colorAlive;
         }
     }
 
