@@ -1,3 +1,5 @@
+import {DrawHandler} from "./DrawHandler";
+
 export class Cell {
     constructor(ctx, x, y, radius, row, col){
         this.ctx = ctx;
@@ -16,8 +18,7 @@ export class Cell {
         this.alive = state
     }
 
-    drawCell = () => {
-        this.ctx.beginPath();
+    cellCanvas = () => {
         this.ctx.arc(
             this.x,
             this.y, this.radius,
@@ -25,7 +26,6 @@ export class Cell {
             Math.PI *2,
             false
         );
-
         if (this.alive) {
             this.ctx.fillStyle = this.colorAlive;
             this.ctx.strokeStyle = this.colorDead;
@@ -33,13 +33,9 @@ export class Cell {
             this.ctx.fillStyle = this.colorDead;
             this.ctx.strokeStyle = this.colorAlive;
         }
-
-        this.ctx.fill();
-        this.ctx.closePath();
     }
 
-    drawCoordinates = () => {
-        this.ctx.beginPath();
+    coordinatesCanvas = ()=> {
         this.ctx.font = `${this.radius/3}px Arial`;
         this.ctx.textAlign = 'center'
         this.ctx.strokeText(
@@ -47,14 +43,13 @@ export class Cell {
             this.x+this.radius/this.x,
             this.y+this.radius/this.y*this.row
         );
-
         if (this.alive) {
             this.ctx.strokeStyle = this.colorDead;
         } else {
             this.ctx.strokeStyle = this.colorAlive;
         }
-
-        this.ctx.fill();
-        this.ctx.closePath()
     }
+
+    drawCell = DrawHandler(this.cellCanvas)
+    drawCoordinates = DrawHandler(this.coordinatesCanvas)
 }
