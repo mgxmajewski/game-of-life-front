@@ -54,11 +54,14 @@ export class Cell {
             cell.y+cell.radius/cell.y*cell.row
         )
 
-        if (cell.alive) {
-            render.strokeStyle = cell.colorDead;
-        } else {
-            render.strokeStyle = cell.colorAlive;
-        }
+        // Flips coordinates font color to be visible according to cell state.
+        const flipColor = (style) => render.strokeStyle = style
+        const isAlive = cell.alive
+        const contrastAlive = cell.colorDead
+        const contrastDead = cell.colorAlive
+
+        isAlive ? flipColor(contrastAlive) : flipColor(contrastDead)
+
     }
 
     drawCell = DrawHandler(this.cellCanvas)
