@@ -1,5 +1,3 @@
-import {DrawHandler} from "./DrawHandler";
-
 export class Cell {
     constructor(ctx, x, y, radius, row, col){
         this.ctx = ctx;
@@ -18,11 +16,36 @@ export class Cell {
         this.alive = state
     }
 
-    cellCanvas = () => {
+    canvasWrapper = toDraw => {
+        return function () {
+            const cell = this
+            const render = this.ctx
+            this.ctx.beginPath();
+            toDraw(cell, render);
+            this.ctx.fill();
+            this.ctx.closePath();
+        }
+    }
 
-        const render = this.ctx
-        const cell = this
+    colorWrapper = toColor => {
+        return function () {
+            const isAlive = this.alive
+            const dead = this.colorDead
+            const alive = this.colorAlive
+            toColor(isAlive, dead, alive)
+        }
+    }
 
+    assignStateColors = (isAlive, dead, alive) => {
+        const fill = (color) => this.ctx.fillStyle = color
+        const stroke = (color) => this.ctx.strokeStyle = color
+        // Colors cells wi
+        isAlive ? fill(alive) : fill(dead)
+        isAlive ? stroke(dead) : stroke(alive)
+    }
+    cellColor = this.colorWrapper(this.assignStateColors)
+
+    renderCell = (cell, render) => {
         render.arc(
             cell.x,
             cell.y,
@@ -31,21 +54,10 @@ export class Cell {
             Math.PI *2,
             false
         )
-
-        if (cell.alive) {
-            render.fillStyle = cell.colorAlive;
-            render.strokeStyle = cell.colorDead;
-        } else {
-            render.fillStyle = cell.colorDead;
-            render.strokeStyle = cell.colorAlive;
-        }
+        this.cellColor()
     }
 
-    coordinatesCanvas = ()=> {
-
-        const render = this.ctx
-        const cell = this
-
+    renderCoordinates = (cell, render)=> {
         render.font = `${cell.radius/3}px Arial`;
         render.textAlign = 'center'
         render.strokeText(
@@ -53,17 +65,8 @@ export class Cell {
             cell.x+cell.radius/cell.x,
             cell.y+cell.radius/cell.y*cell.row
         )
-
-        // Flips coordinates font color to be visible according to cell state.
-        const flipColor = (style) => render.strokeStyle = style
-        const isAlive = cell.alive
-        const contrastAlive = cell.colorDead
-        const contrastDead = cell.colorAlive
-
-        isAlive ? flipColor(contrastAlive) : flipColor(contrastDead)
-
     }
 
-    drawCell = DrawHandler(this.cellCanvas)
-    drawCoordinates = DrawHandler(this.coordinatesCanvas)
+    drawCell = this.canvasWrapper(this.renderCell)
+    drawCoordinates = this.canvasWrapper(this.renderCoordinates)
 }
