@@ -20,10 +20,10 @@ export class Cell {
 
     cellCanvas = () => {
 
-        const canvas = this.ctx
+        const render = this.ctx
         const cell = this
 
-        canvas.arc(
+        render.arc(
             cell.x,
             cell.y,
             cell.radius,
@@ -33,31 +33,31 @@ export class Cell {
         )
 
         if (cell.alive) {
-            canvas.fillStyle = cell.colorAlive;
-            canvas.strokeStyle = cell.colorDead;
+            render.fillStyle = cell.colorAlive;
+            render.strokeStyle = cell.colorDead;
         } else {
-            canvas.fillStyle = cell.colorDead;
-            canvas.strokeStyle = cell.colorAlive;
+            render.fillStyle = cell.colorDead;
+            render.strokeStyle = cell.colorAlive;
         }
     }
 
     coordinatesCanvas = ()=> {
 
-        const canvas = this.ctx
+        const render = this.ctx
         const cell = this
 
-        canvas.font = `${cell.radius/3}px Arial`;
-        canvas.textAlign = 'center'
-        canvas.strokeText(
+        render.font = `${cell.radius/3}px Arial`;
+        render.textAlign = 'center'
+        render.strokeText(
             `${cell.col++} | ${cell.row++}`,
             cell.x+cell.radius/cell.x,
             cell.y+cell.radius/cell.y*cell.row
         )
 
         if (cell.alive) {
-            canvas.strokeStyle = cell.colorDead;
+            render.strokeStyle = cell.colorDead;
         } else {
-            canvas.strokeStyle = cell.colorAlive;
+            render.strokeStyle = cell.colorAlive;
         }
     }
 
