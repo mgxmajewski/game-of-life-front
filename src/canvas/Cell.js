@@ -4,12 +4,12 @@ export class Cell {
         this.x = x;
         this.y = y;
         this.radius = radius;
-        this.colorAlive = '#00adff';
-        this.colorDead = '#000127FF';
         this.row = row;
         this.col = col;
         this.radians = 0;
         this.alive = null;
+        this.colorAlive = '#00adff';
+        this.colorDead = '#000127FF';
     }
 
     set setState(state) {
@@ -38,12 +38,11 @@ export class Cell {
 
     assignStateColors = (isAlive, dead, alive) => {
         const fill = (color) => this.ctx.fillStyle = color
-        const stroke = (color) => this.ctx.strokeStyle = color
+        const stroke = (contrastColor) => this.ctx.strokeStyle = contrastColor
         // Colors cells wi
         isAlive ? fill(alive) : fill(dead)
         isAlive ? stroke(dead) : stroke(alive)
     }
-    cellColor = this.colorWrapper(this.assignStateColors)
 
     renderCell = (cell, render) => {
         render.arc(
@@ -54,19 +53,23 @@ export class Cell {
             Math.PI *2,
             false
         )
-        this.cellColor()
+        this.#colorCell()
     }
 
     renderCoordinates = (cell, render)=> {
-        render.font = `${cell.radius/3}px Arial`;
+        render.font = `${cell.radius/2}px Arial`;
         render.textAlign = 'center'
         render.strokeText(
             `${cell.col++} | ${cell.row++}`,
-            cell.x+cell.radius/cell.x,
-            cell.y+cell.radius/cell.y*cell.row
+            cell.x,
+            cell.y
         )
     }
 
+    // Private method to color cell according to state
+    #colorCell = this.colorWrapper(this.assignStateColors)
+
+    // Public methods to draw cell and coordinates
     drawCell = this.canvasWrapper(this.renderCell)
     drawCoordinates = this.canvasWrapper(this.renderCoordinates)
 }
