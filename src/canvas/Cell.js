@@ -6,7 +6,6 @@ export class Cell {
         this.radius = radius;
         this.row = row;
         this.col = col;
-        this.radians = 0;
         this.alive = null;
         this.colorAlive = '#00adff';
         this.colorDead = '#000127FF';
