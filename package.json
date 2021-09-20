@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@apollo/client": "^3.4.12",
-    "@reduxjs/toolkit": "^1.6.1",
     "babel-plugin-styled-components": "^1.13.2",
     "gatsby": "^3.14.0",
     "gatsby-plugin-apollo": "^3.0.2",
