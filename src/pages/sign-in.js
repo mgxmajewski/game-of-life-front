@@ -1,9 +1,7 @@
 import * as React from "react";
-import Layout from "../components/Layout";
 
 const SignIn = () => {
     return (
-        <Layout>
             <React.Fragment>
                 <input
                     id="emailAddress"
@@ -16,7 +14,6 @@ const SignIn = () => {
                     type="password"
                     placeholder="password"/>
             </React.Fragment>
-        </Layout>
     );
 };
 
