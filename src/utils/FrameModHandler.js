@@ -7,12 +7,12 @@
 export const frameModHandler = (grid, cell) => {
     let x = Number(cell.split(",")[0])
     let y = Number(cell.split(",")[1])
-    if (grid){
         const isAlive = grid[x][y] === "#"
         grid[x][y] = isAlive ? "_" : "#";
-        // postFrameMod(grid, gridMutation)
-    }
+        return grid
 }
+
+
 
 // /** Handles sending mutation to graphQL with updated grid
 //  * @param {function(MutationFunctionOptions<*, OperationVariables>=): Promise<FetchResult<*>>} gridMutation

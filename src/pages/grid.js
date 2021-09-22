@@ -1,68 +1,42 @@
 import * as React from "react";
-import Layout from "../components/Layout";
 import CanvasGrid from "../components/CanvasGrid";
 import {dummyState} from "../utils/InitialState";
-import {gql, useMutation, useSubscription} from "@apollo/client";
 import {useEffect, useState} from "react";
 import {frameModHandler} from "../utils/FrameModHandler";
 import {getLongestRow} from "../utils/GetLongestRow";
 import {coordinatesBtn} from "../styles/grid.module.css"
 
-const GET_STATE = gql`
-    subscription {
-        states{
-            id
-            grid
-        }
-    }
-`;
-
-const SET_STATE = gql`
-    mutation ($user: String!, $grid:[[String]]!){
-        postState(user: $user, grid: $grid)
-    }
-`;
 
 const CanvasGridPage = () => {
     const [cell, setCell] = useState("")
-    const [setStateOfGrid] = useMutation(SET_STATE);
     const [isModified, setIsModified] = useState(false)
-    const [areCoordinatesToDisplay, setareCoordinatesToDisplay] = useState(false)
+    const [areCoordinatesToDisplay, setAreCoordinatesToDisplay] = useState(false)
+    const [gridState, setGridState] = useState(dummyState)
+    const [isLoaded, setIsLoaded] = useState(false)
 
     // Add handler to flip state of the cell (to work from the first click)
     useEffect(()=> {
-        frameModHandler(stateOfGrid, setStateOfGrid, cell);
-    }, [cell])
-
-    const {loading, error,data} = useSubscription(GET_STATE);
-
-    // Handle subscription loading and error
-    if (loading) return <p>Waiting for Server Response</p>
-    if (error) return <p>Server Down</p>
-
-    // Handle case when there is no initial state sent by graphQL
-    const graphQLInitialData = data.states[data.states.length-1]
-    const isGraphQlDefined = graphQLInitialData !== undefined
-    const stateOfGrid = isGraphQlDefined ? graphQLInitialData.grid : dummyState
-
+        setGridState(frameModHandler(gridState, cell))
+        setIsLoaded(!isLoaded)
+    }, [cell, isModified])
 
     const isCell = (x, y) => {
-        if (y <= stateOfGrid.length - 1){
-            return x <= stateOfGrid[y].length - 1;
+        if (y <= gridState.length - 1){
+            return x <= gridState[y].length - 1;
         }
     }
 
     const toggleDisplayCoordinates = () => {
+        setAreCoordinatesToDisplay(!areCoordinatesToDisplay)
         console.log(areCoordinatesToDisplay)
-        setareCoordinatesToDisplay(!areCoordinatesToDisplay)
     }
 
     const calculateWhichCellClicked = e => {
         const width = e.target.width
-        const gridState = stateOfGrid
+        const gridStateToGet = gridState
         let cellWidth;
         let cellHeight;
-        cellWidth = cellHeight = width/getLongestRow(gridState)
+        cellWidth = cellHeight = width/getLongestRow(gridStateToGet)
         const rect = e.target.getBoundingClientRect()
         const x = Math.floor((e.clientX - rect.left)/cellWidth)
         const y = Math.floor((e.clientY - rect.top)/cellHeight)
@@ -72,31 +46,28 @@ const CanvasGridPage = () => {
     }
 
     const changeCellState = e => {
+        e.target.getBoundingClientRect()
         const coordinates = calculateWhichCellClicked(e)
-        if (coordinates) {
             const x = coordinates[0]
             const y = coordinates[1]
             setIsModified(!isModified)
             setCell(`${y},${x},${isModified}`)
-        }
     }
 
     return (
-        <Layout>
             <div>
                 <button
                     className={coordinatesBtn}
-                    onClick={() => toggleDisplayCoordinates()}
+                    onClick={toggleDisplayCoordinates}
                 >
                     Show Coordinates
                 </button>
                 <CanvasGrid
-                    state={stateOfGrid}
+                    state={gridState}
                     coordinates={areCoordinatesToDisplay.toString()}
-                    onMouseDown={(e) => changeCellState(e)}
+                    onMouseDown={changeCellState}
                 />
             </div>
-        </Layout>
     )
 }
 
