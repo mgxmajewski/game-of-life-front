@@ -47,7 +47,6 @@ const CanvasGrid = props => {
 
     useEffect(() => {
         const canvas = canvasRef.current
-        console.log(canvas)
         canvas.width  = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
         const context = canvas.getContext('2d')
