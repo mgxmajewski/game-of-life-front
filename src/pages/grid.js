@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import {frameModHandler} from "../utils/FrameModHandler";
 import {getLongestRow} from "../utils/GetLongestRow";
 import {coordinatesBtn} from "../styles/grid.module.css"
+import Provider from "../utils/Provider";
 
 
 const CanvasGridPage = () => {
@@ -55,6 +56,7 @@ const CanvasGridPage = () => {
     }
 
     return (
+        <Provider>
             <div>
                 <button
                     className={coordinatesBtn}
@@ -68,6 +70,7 @@ const CanvasGridPage = () => {
                     onMouseDown={changeCellState}
                 />
             </div>
+        </Provider>
     )
 }
 
