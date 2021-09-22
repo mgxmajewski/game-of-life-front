@@ -8,7 +8,7 @@ const testState = [
     ["_", "_"],
 ]
 
-const Provider = props => {
+const GridProvider = props => {
 
     const GET_STATE = gql`
         subscription {
@@ -37,16 +37,16 @@ const Provider = props => {
     const isGraphQlDefined = graphQLInitialData !== undefined
     const stateOfGrid = isGraphQlDefined ? graphQLInitialData.grid : testState
 
-    console.log(testState)
+    // console.log(testState)
 
     return (
-        <Context.Provider value={stateOfGrid}>
+        <Context.Provider value={stateOfGrid} grid={testState}>
             {props.children}
         </Context.Provider>
     );
 }
 
-export default Provider
+export default GridProvider
 
 
 //
