@@ -1,24 +1,22 @@
 import * as React from "react";
 import CanvasGrid from "../components/CanvasGrid";
-import {dummyState} from "../utils/InitialState";
 import {useEffect, useState} from "react";
 import {frameModHandler} from "../utils/FrameModHandler";
 import {getLongestRow} from "../utils/GetLongestRow";
 import {coordinatesBtn} from "../styles/grid.module.css"
 
 const CanvasGridPage = props => {
+    const apolloGrid = props.initialgrid
+    const setStateOfGrid = props.setter
     const [cell, setCell] = useState("")
     const [isModified, setIsModified] = useState(false)
     const [areCoordinatesToDisplay, setAreCoordinatesToDisplay] = useState(false)
-    const [gridState, setGridState] = useState(dummyState)
-    const [isLoaded, setIsLoaded] = useState(false)
-    console.log(props)
+    const [gridState, setGridState] = useState(apolloGrid)
 
     // Add handler to flip state of the cell (to work from the first click)
     useEffect(()=> {
-        setGridState(frameModHandler(gridState, cell))
-        setIsLoaded(!isLoaded)
-    }, [cell, isModified])
+        setGridState(frameModHandler(apolloGrid,setStateOfGrid, cell))
+    }, [isModified])
 
     const isCell = (x, y) => {
         if (y <= gridState.length - 1){
@@ -63,7 +61,7 @@ const CanvasGridPage = props => {
                     Show Coordinates
                 </button>
                 <CanvasGrid
-                    state={gridState}
+                    state={apolloGrid}
                     coordinates={areCoordinatesToDisplay.toString()}
                     onMouseDown={changeCellState}
                 />

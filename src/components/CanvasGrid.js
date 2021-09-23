@@ -5,12 +5,14 @@ import {getLongestRow} from "../utils/GetLongestRow";
 const CanvasGrid = props => {
 
     const canvasRef = useRef(null)
-
+    console.log('canvas '+ props.state)
     const draw = (ctx, canvas, props) => {
 
         // Destructure arguments
         const {width, height} = canvas
         const {state, coordinates} = props
+
+
 
         // Draw transparent canvas
         ctx.clearRect(0,0,width, height)
@@ -52,7 +54,7 @@ const CanvasGrid = props => {
         const context = canvas.getContext('2d')
         //Our draw come here
         draw(context, canvas, props)
-    }, [props])
+    }, [props.state, props.coordinates, props])
 
     return <canvas ref={canvasRef} {...props}/>
 }
