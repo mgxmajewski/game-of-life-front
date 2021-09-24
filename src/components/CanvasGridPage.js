@@ -7,7 +7,7 @@ import {coordinatesBtn} from "../styles/grid.module.css"
 
 const CanvasGridPage = props => {
     const apolloGrid = props.initialgrid
-    const setStateOfGrid = props.setter
+    const mutateGrid = props.setter
     const [cell, setCell] = useState("")
     const [isModified, setIsModified] = useState(false)
     const [areCoordinatesToDisplay, setAreCoordinatesToDisplay] = useState(false)
@@ -15,7 +15,7 @@ const CanvasGridPage = props => {
 
     // Add handler to flip state of the cell (to work from the first click)
     useEffect(()=> {
-        setGridState(frameModHandler(apolloGrid,setStateOfGrid, cell))
+        setGridState(frameModHandler(apolloGrid,mutateGrid, cell))
     }, [isModified])
 
     const isCell = (x, y) => {
