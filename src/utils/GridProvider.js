@@ -1,7 +1,6 @@
 import React from 'react';
-import {gql, useSubscription, useMutation} from "@apollo/client";
+import {gql, useSubscription} from "@apollo/client";
 import CanvasGridPage from "../components/CanvasGridPage";
-
 
 const testState = [
     ["_", "#"],
@@ -17,15 +16,8 @@ const GET_STATE = gql`
     }
 `;
 
-const SET_STATE = gql`
-    mutation ($user: String!, $grid:[[String]]!){
-        postState(user: $user, grid: $grid)
-    }
-`;
-
 const GridProvider = () => {
 
-    const [setStateOfGrid] = useMutation(SET_STATE);
     const {loading, error,data} = useSubscription(GET_STATE);
 
     if (loading) return <p>Waiting for Server Response</p>
@@ -37,7 +29,7 @@ const GridProvider = () => {
     let stateOfGrid = isGraphQlDefined ? graphQLInitialData.grid : testState
 
     return (
-        <CanvasGridPage initialgrid={stateOfGrid} setter={setStateOfGrid}/>
+        <CanvasGridPage initialgrid={stateOfGrid}/>
     );
 }
 

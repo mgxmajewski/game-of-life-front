@@ -12,8 +12,6 @@ const CanvasGrid = props => {
         const {width, height} = canvas
         const {state, coordinates} = props
 
-
-
         // Draw transparent canvas
         ctx.clearRect(0,0,width, height)
 
