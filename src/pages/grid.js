@@ -1,5 +1,5 @@
 import * as React from "react";
-import GridProvider from "../utils/GridProvider";
+import GridProvider from "../components/GridProvider";
 
 const CanvasGridPageWrapped = () => {
     return (

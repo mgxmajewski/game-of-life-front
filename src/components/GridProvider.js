@@ -1,6 +1,6 @@
 import React from 'react';
 import {gql, useSubscription} from "@apollo/client";
-import CanvasGridPage from "../components/CanvasGridPage";
+import CanvasGridPage from "./CanvasGridPage";
 
 const testState = [
     ["_", "#"],
