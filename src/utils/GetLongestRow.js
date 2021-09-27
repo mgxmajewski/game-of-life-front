@@ -7,3 +7,13 @@ export const getLongestRow = grid => {
     }
     return max
 }
+
+export const getLongestColumn = grid => {
+    let max = 0;
+    for (let column =0; column < grid.length; column++){
+        if(max < grid.length){
+            max = grid.length
+        }
+    }
+    return max
+}
