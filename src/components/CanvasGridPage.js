@@ -59,6 +59,7 @@ const CanvasGridPage = props => {
         const isAlreadyClicked = deepClone(currentHover) === deepClone(firstClick)
         const isAlreadyHovered = deepClone(currentHover) === deepClone(nextHover)
         if(!isAlreadyClicked && !isAlreadyHovered){
+            firstClick = []
             console.log(`nextHover: ${nextHover}`)
             nextHover = getCoordinates(e)
             frameModHandler(apolloGrid, nextHover)
