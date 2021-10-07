@@ -2,7 +2,7 @@ import * as React from "react";
 import CanvasGrid from "../components/CanvasGrid";
 import {useState} from "react";
 import {frameModHandler} from "../utils/FrameModHandler";
-import {getLongestColumn, getLongestRow} from "../utils/GetLongestRow";
+import {getLongestDimension} from "../utils/GetLongestDimension";
 import {coordinatesBtn} from "../styles/grid.module.css"
 
 const getNullCoords = () => new Array(2).fill(null)
@@ -35,9 +35,7 @@ const CanvasGridPage = props => {
         const width = getWidth(e)
         let cellWidth;
         let cellHeight;
-        const longestRow = getLongestRow(apolloGrid)
-        const longestColumn = getLongestColumn(apolloGrid)
-        let longestDimension = longestRow > longestColumn ? longestRow : longestColumn
+        let longestDimension = getLongestDimension(apolloGrid)
         cellWidth = cellHeight = width/longestDimension
         const rect = getBounding(e)
         const x = Math.floor((e.clientX - rect.left)/cellWidth)

@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react'
 import {Cell} from "../canvas/Cell";
-import {getLongestColumn, getLongestRow} from "../utils/GetLongestRow";
+import {getLongestDimension} from "../utils/GetLongestDimension";
 
 const CanvasGrid = props => {
 
@@ -16,9 +16,7 @@ const CanvasGrid = props => {
         ctx.clearRect(0,0,width, height)
 
         // Declare size and position of cell
-        const longestRow = getLongestRow(state)
-        const longestColumn = getLongestColumn(state)
-        let longestDimension = longestRow > longestColumn ? longestRow : longestColumn
+        let longestDimension = getLongestDimension(state)
 
         const cellDiameter = width/longestDimension
         const cellRadius = cellDiameter/2
