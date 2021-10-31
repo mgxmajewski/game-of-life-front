@@ -5,7 +5,7 @@
 
 export const frameModHandler = async (grid, coordinates) => {
     const myHeaders = await new Headers();
-    myHeaders.append("Authorization", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IkFudGhvbnkgVmFsaWQgVXNlciIsImlhdCI6MTQyNTQ3MzUzNX0.KA68l60mjiC8EXaC2odnjFwdIDxE__iDu5RwLdN1F2A");
+    myHeaders.append("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NzE4MzQ3fQ.mddFXMejjFMNh9bJv3zGNWT4N_cUKdqqcx9r-TkdFNs");
     myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
