@@ -1,4 +1,5 @@
 import React, {useEffect, useRef} from 'react'
+import PropTypes from 'prop-types';
 import {Cell} from "../canvas/Cell";
 import {getLongestDimension} from "../utils/GetLongestDimension";
 
@@ -59,5 +60,10 @@ const CanvasGrid = props => {
 
     return <canvas ref={canvasRef} {...props}/>
 }
+
+CanvasGrid.propTypes = {
+    state: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+    coordinates: PropTypes.arrayOf(PropTypes.number)
+};
 
 export default CanvasGrid
