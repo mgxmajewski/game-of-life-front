@@ -4,6 +4,7 @@ import {useState} from "react";
 import {frameModHandler} from "../utils/FrameModHandler";
 import {getLongestDimension} from "../utils/GetLongestDimension";
 import {coordinatesBtn} from "../styles/grid.module.css"
+import PropTypes from "prop-types";
 
 const getNullCoords = () => new Array(2).fill(null)
 
@@ -91,5 +92,9 @@ const CanvasGridPage = props => {
         </div>
     )
 }
+
+CanvasGridPage.propTypes = {
+    initialgrid: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
+};
 
 export default CanvasGridPage
