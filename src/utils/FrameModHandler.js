@@ -2,6 +2,7 @@
  * @param grid
  * @param coordinates
  */
+const fetch = require(`node-fetch`)
 
 export const frameModHandler = async (grid, coordinates) => {
     const myHeaders = {
