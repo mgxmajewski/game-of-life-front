@@ -4,10 +4,10 @@
  */
 
 export const frameModHandler = async (grid, coordinates) => {
-    const myHeaders = await new Headers();
-    myHeaders.append("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NzE4MzQ3fQ.mddFXMejjFMNh9bJv3zGNWT4N_cUKdqqcx9r-TkdFNs");
-    myHeaders.append("Content-Type", "application/json");
-
+    const myHeaders = {
+    "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjM1NzE4MzQ3fQ.mddFXMejjFMNh9bJv3zGNWT4N_cUKdqqcx9r-TkdFNs",
+    "Content-Type": "application/json"
+};
     const raw = JSON.stringify({
         "grid": grid,
         "cell": coordinates
