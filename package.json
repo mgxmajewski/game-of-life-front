@@ -40,6 +40,8 @@
     "subscriptions-transport-ws": "^0.9.19"
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint-plugin-react": "^7.26.1",
     "svg-react-loader": "^0.4.6"
   }
 }
