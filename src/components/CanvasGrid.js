@@ -63,7 +63,7 @@ const CanvasGrid = props => {
 
 CanvasGrid.propTypes = {
     state: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
-    coordinates: PropTypes.arrayOf(PropTypes.number)
+    coordinates: PropTypes.string
 };
 
 export default CanvasGrid
