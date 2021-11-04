@@ -2,11 +2,6 @@ import React from 'react';
 import {gql, useSubscription} from "@apollo/client";
 import CanvasGridPage from "./CanvasGridPage";
 
-const testState = [
-    ["_", "#"],
-    ["_", "_"],
-]
-
 const GET_STATE = gql`
     subscription {
         states{
@@ -18,22 +13,24 @@ const GET_STATE = gql`
 
 const GridProvider = () => {
 
-    const {loading, error,data} = useSubscription(GET_STATE);
 
-    if (loading) return <p>Waiting for Server Response</p>
-    if (error) return <p>Server Down</p>
+    const {loading, error, data} = useSubscription(GET_STATE);
 
-    // Handle case when there is no initial state sent by graphQL
-    const graphQLInitialData = data.states[data.states.length-1]
-    const isGraphQlDefined = graphQLInitialData !== undefined
-    let stateOfGrid = isGraphQlDefined ? graphQLInitialData.grid : testState
+    const mostRecentFrame = (data) => data.states.length - 1;
+    const getGrid = (data) => data.states[mostRecentFrame(data)].grid;
 
     return (
-        <CanvasGridPage initialgrid={stateOfGrid}/>
+        <>
+            {loading && <p>Waiting for Server Response</p>}
+            {error && <p>Error: ${error.message}</p>}
+            { data && getGrid(data) && (
+                <CanvasGridPage initialgrid={getGrid(data)}/>
+            )}
+        </>
     );
 }
 
-export default GridProvider
+export default GridProvider;
 
 
 
