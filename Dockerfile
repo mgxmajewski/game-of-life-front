@@ -8,5 +8,6 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN yarn install && yarn cache clean
 COPY . .
-EXPOSE 8000
-CMD ["yarn", "develop", "-H", "0.0.0.0"]
+EXPOSE 9000
+CMD ["gatsby", "build"]
+CMD ["gatsby", "serve", "-H", "0.0.0.0"]
