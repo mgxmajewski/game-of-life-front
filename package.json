@@ -10,7 +10,7 @@
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve -H 0.0.0.0",
     "clean": "gatsby clean"
   },
   "dependencies": {
@@ -23,8 +23,5 @@
     "react-helmet": "^6.1.0",
     "sass": "^1.41.1",
     "subscriptions-transport-ws": "^0.9.19"
-  },
-  "devDependencies": {
-    "svg-react-loader": "^0.4.6"
   }
 }
