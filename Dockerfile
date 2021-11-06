@@ -9,5 +9,3 @@ COPY package*.json ./
 RUN yarn install && yarn cache clean
 COPY . .
 EXPOSE 9000
-CMD ["gatsby", "build"]
-CMD ["gatsby", "serve", "-H", "0.0.0.0"]
