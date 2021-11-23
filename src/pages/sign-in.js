@@ -17,9 +17,9 @@ class Login extends React.Component {
     handleLogin(this.state)
   }
   render() {
-    if (isLoggedIn()) {
-      navigate(`/grid`)
-    }
+    // if (isLoggedIn()) {
+    //   navigate(`/grid`)
+    // }
     return (
       <>
         <h1>Log in</h1>
@@ -27,7 +27,7 @@ class Login extends React.Component {
           method="post"
           onSubmit={event => {
             this.handleSubmit(event)
-            navigate(`/grid`)
+            // navigate(`/grid`)
           }}
         >
           <label>
