@@ -2,16 +2,27 @@ import {
     ApolloClient,
     InMemoryCache,
 } from "@apollo/client";
-import { WebSocketLink } from "@apollo/client/link/ws";
+import {WebSocketLink} from "@apollo/client/link/ws";
+import {SubscriptionClient} from 'subscriptions-transport-ws' // <- import this
+import {authenticatedToken} from "../utils/cache";
 
-const link = typeof window !== "undefined"
-  ? new WebSocketLink({
-      uri: `ws://localhost:4000/`,
-      options: {
+export const getToken = () => {
+    return `${authenticatedToken()}`;
+};
+
+export const wsClient = typeof window !== "undefined"
+? new SubscriptionClient(
+    `ws://localhost:4000/`,
+    {
         reconnect: true,
-      },
-    })
-  : null;
+        connectionParams: () => ({
+            Authorization: getToken()
+        })
+    })  : null;
+
+export const link = typeof window !== "undefined"
+    ? new WebSocketLink(wsClient)
+    : null;
 
 export const client = new ApolloClient({
     link,
