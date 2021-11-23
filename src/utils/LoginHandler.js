@@ -32,6 +32,7 @@ export const handleLogin = (props) => {
         .then(result => authenticatedToken([result]))
         .then(() => console.log(`Login ${authenticatedToken()}`))
         .then(() => wsClient.close(true))
+        .then(() => navigate(`/grid`))
         .catch(error => console.log('error', error))
 
 
