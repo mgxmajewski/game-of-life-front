@@ -1,6 +1,7 @@
 // import client from '@apollo/client'
-import {authenticatedToken} from "./cache";
+import {authenticatedToken} from "../apollo/client";
 import {wsClient} from "../apollo/client";
+import {navigate} from "gatsby";
 // import {wsClient} from "../apollo/client";
 // import {client} from "../apollo/client";
 
@@ -8,9 +9,10 @@ import {wsClient} from "../apollo/client";
 const fetch = require(`node-fetch`)
 const {btoa} = require('abab');
 
-export const handleLogin = async (email, password) => {
+export const handleLogin = (props) => {
 
-    const authHeader = 'Basic ' + btoa('popo4@gmail.com:tester123')
+    const { email, password } = props
+    const authHeader = 'Basic ' + btoa(`${email}:${password}`)
     console.log(authHeader)
 
     const myHeaders = {
@@ -24,7 +26,7 @@ export const handleLogin = async (email, password) => {
         redirect: 'follow'
     };
 
-    await fetch("http://localhost:3000/user/login", requestOptions)
+    fetch("http://localhost:3000/user/login", requestOptions)
         .then(response => response.text())
         // .then(token => localStorage.setItem('Authorization', `${token}`))
         .then(result => authenticatedToken([result]))
