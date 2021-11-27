@@ -1,7 +1,7 @@
 // import client from '@apollo/client'
-import {authenticatedToken} from "../apollo/client";
 import {wsClient} from "../apollo/client";
 import {navigate} from "gatsby";
+import {authenticatedResponse, authenticatedToken, userIdVar} from "./cache";
 // import {wsClient} from "../apollo/client";
 // import {client} from "../apollo/client";
 
@@ -27,9 +27,11 @@ export const handleLogin = (props) => {
     };
 
     fetch("http://localhost:3000/user/login", requestOptions)
-        .then(response => response.text())
+        .then(response => response.json())
         // .then(token => localStorage.setItem('Authorization', `${token}`))
-        .then(result => authenticatedToken([result]))
+        .then(result => authenticatedResponse([result]))
+        .then(() => authenticatedToken([authenticatedResponse()[0].token]))
+        .then(() => userIdVar([authenticatedResponse()[0].userId]))
         .then(() => console.log(`Login ${authenticatedToken()}`))
         .then(() => wsClient.close(true))
         .then(() => navigate(`/grid`))
