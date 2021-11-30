@@ -8,22 +8,21 @@ import {userIdVar} from "../utils/cache";
 const GridProvider = () => {
 
     const userId = useReactiveVar(userIdVar)
+    const parseId = (id) => JSON.stringify(id[0])
+    const id = parseId(userId)
 
     const GET_STATE = gql`
         subscription {
-            states(userId: ${userId}) {
+            sessions(id: ${id}) {
                 id
-                grid
+                state
             }
         }
     `;
 
 
     const {loading, error, data} = useSubscription(GET_STATE);
-
-    const mostRecentFrame = (data) => data.states.length - 1;
-    const getGrid = (data) => data.states[mostRecentFrame(data)].grid;
-    console.log(userId)
+    const getGrid = (data) => data["sessions"].state;
     return (
         <>
             {loading && <p>Waiting for Server Response</p>}
