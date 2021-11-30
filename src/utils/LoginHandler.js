@@ -24,17 +24,13 @@ export const handleLogin = (props) => {
     };
 
     fetch("http://localhost:3000/user/login", requestOptions)
-        .then(response => response.json())
-        // .then(token => localStorage.setItem('Authorization', `${token}`))
-        .then(result => authenticatedResponse([result]))
-        .then(() => authenticatedToken([authenticatedResponse()[0].token]))
-        .then(() => userIdVar([authenticatedResponse()[0].userId]))
+        .then(response => response.text())
+        .then((response) => authenticatedToken([response]))
+        .then(() => userIdVar([jwt_decode(authenticatedToken()[0]).id]))
         .then(() => console.log(`Login ${authenticatedToken()}`))
         .then(() => wsClient.close(true))
         .then(() => navigate(`/grid`))
         .catch(error => console.log('error', error))
-
-
 }
 
 
