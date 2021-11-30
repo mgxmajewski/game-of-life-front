@@ -1,10 +1,7 @@
-// import client from '@apollo/client'
 import {wsClient} from "../apollo/client";
 import {navigate} from "gatsby";
-import {authenticatedResponse, authenticatedToken, userIdVar} from "./cache";
-// import {wsClient} from "../apollo/client";
-// import {client} from "../apollo/client";
-
+import { authenticatedToken, userIdVar} from "./cache";
+import jwt_decode from 'jwt-decode';
 
 const fetch = require(`node-fetch`)
 const {btoa} = require('abab');

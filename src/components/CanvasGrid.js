@@ -6,7 +6,7 @@ import {getLongestDimension} from "../utils/GetLongestDimension";
 const CanvasGrid = props => {
 
     const canvasRef = useRef(null)
-    console.log('canvas '+ props.state)
+    // console.log('canvas '+ props.state)
     const draw = (ctx, canvas, props) => {
 
         // Destructure arguments

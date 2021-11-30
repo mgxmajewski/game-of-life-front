@@ -7,10 +7,12 @@ import { authenticatedToken } from "./cache"
 const fetch = require(`node-fetch`)
 
 export const frameModHandler = async (grid, coordinates) => {
+
     const myHeaders = {
     "Authorization": `${authenticatedToken()}`,
     "Content-Type": "application/json"
-};
+    };
+
     const raw = JSON.stringify({
         "grid": grid,
         "cell": coordinates
