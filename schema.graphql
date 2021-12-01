@@ -7,19 +7,24 @@ schema {
 }
 
 type Mutation {
-    postState(grid: [[String]]!, user: String!): ID!
+    getStatesLength: String!
+    postState(grid: [[String]]!): ID!
 }
 
 type Query {
-    states: [State!]
+    sessions(id: String): Session
+}
+
+type Session {
+    id: Int!
+    state: [[String]]
 }
 
 type State {
     grid: [[String]]!
     id: ID!
-    user: String!
 }
 
 type Subscription {
-    states: [State!]
+    sessions(id: Int!): Session
 }
