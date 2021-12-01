@@ -1,6 +1,6 @@
 import {wsClient} from "../apollo/client";
 import {navigate} from "gatsby";
-import { authenticatedToken, userIdVar} from "./cache";
+import {authenticatedToken, userIdVar, userMailNameVar} from "./cache";
 import jwt_decode from 'jwt-decode';
 
 const fetch = require(`node-fetch`)
@@ -9,6 +9,7 @@ const {btoa} = require('abab');
 export const handleLogin = (props) => {
 
     const { email, password } = props
+    const userNameFromEmail = email.split("@")[0]
     const authHeader = 'Basic ' + btoa(`${email}:${password}`)
     console.log(authHeader)
 
@@ -28,24 +29,13 @@ export const handleLogin = (props) => {
         .then((response) => authenticatedToken([response]))
         .then(() => userIdVar([jwt_decode(authenticatedToken()[0]).id]))
         .then(() => console.log(`Login ${authenticatedToken()}`))
+        .then(()=> userMailNameVar([userNameFromEmail]))
         .then(() => wsClient.close(true))
         .then(() => navigate(`/grid`))
-        .catch(error => console.log('error', error))
+        .catch(error => console.log('error', error));
 }
-
 
 export const isLoggedIn = () => {
-    const user = getUser()
-    return !!user.username
+    const user = userMailNameVar()[0]
+    return !!user
 }
-
-export const isBrowser = () => typeof window !== "undefined"
-
-export const getUser = () =>
-    isBrowser() && window.localStorage.getItem("gatsbyUser")
-        ? JSON.parse(window.localStorage.getItem("gatsbyUser"))
-        : {}
-
-// const setUser = user =>
-//   window.localStorage.setItem("gatsbyUser", JSON.stringify(user))
-
