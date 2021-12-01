@@ -1,7 +1,7 @@
 import * as PropTypes from "prop-types";
 import React from "react";
 
-const GenericUserForm = props => <>
+const GenericUserForm = props => <div className="form--centered">
     <h1>Log in</h1>
     <form
         method="post"
@@ -19,9 +19,9 @@ const GenericUserForm = props => <>
                 onChange={props.onChange}
             />
         </label>
-        <input type="submit" value={`${props.purpose}`}/>
+        <input type="submit" className="btn" value={`${props.purpose}`}/>
     </form>
-</>;
+</div>;
 
 GenericUserForm.propTypes = {
     onSubmit: PropTypes.func,
