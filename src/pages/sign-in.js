@@ -1,10 +1,11 @@
 import React from "react"
 import {navigate} from "gatsby";
 import {handleLogin, isLoggedIn} from "../utils/LoginHandler"
+import GenericUserForm from "../components/GenericUserForm";
 
 class Login extends React.Component {
     state = {
-        email: ``, password: ``,
+        email: ``, password: ``, purpose: `Log In`
     }
     handleUpdate = event => {
         this.setState({
@@ -22,29 +23,9 @@ class Login extends React.Component {
             navigate(`/grid`)
         }
         return (
-            <>
-                <h1>Log in</h1>
-                <form
-                    method="post"
-                    onSubmit={event => {
-                        this.handleSubmit(event)
-                    }}
-                >
-                    <label>
-                        email
-                        <input type="text" name="email" onChange={this.handleUpdate}/>
-                    </label>
-                    <label>
-                        Password
-                        <input
-                            type="password"
-                            name="password"
-                            onChange={this.handleUpdate}
-                        />
-                    </label>
-                    <input type="submit" value="Log In"/>
-                </form>
-            </>
+            <GenericUserForm onSubmit={event => {
+                this.handleSubmit(event)
+            }} onChange={this.handleUpdate} purpose={this.state.purpose}/>
         )
     }
 }
