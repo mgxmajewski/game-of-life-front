@@ -7,6 +7,11 @@ class Login extends React.Component {
     state = {
         email: ``, password: ``, purpose: `Log In`
     }
+
+    handlePurpose = () => {
+        this.state.purpose = this.state.purpose === `Log In` ? `Sign In` : `Log In`
+    }
+
     handleUpdate = event => {
         this.setState({
             [event.target.name]: event.target.value,
@@ -25,7 +30,7 @@ class Login extends React.Component {
         return (
             <GenericUserForm onSubmit={event => {
                 this.handleSubmit(event)
-            }} onChange={this.handleUpdate} purpose={this.state.purpose}/>
+            }} onChange={this.handleUpdate} purpose={this.state.purpose} onTogglePurpose={this.handlePurpose}/>
         )
     }
 }

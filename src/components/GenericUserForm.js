@@ -21,6 +21,10 @@ const GenericUserForm = props => <div className="form--centered">
         </label>
         <input type="submit" className="btn" value={`${props.purpose}`}/>
     </form>
+    <p>
+        Don't have a user account? <strong style={{textDecorationLine: "underline"}} onClick={props.onTogglePurpose}>Click here</strong> to sign up!
+    </p>
+
 </div>;
 
 GenericUserForm.propTypes = {
