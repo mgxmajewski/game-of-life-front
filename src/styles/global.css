@@ -39,6 +39,12 @@ nav .links {
     text-align: right;
 }
 
+nav .hellouser {
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+}
+
 nav a {
     display: inline-block;
     margin-left: 20px;
