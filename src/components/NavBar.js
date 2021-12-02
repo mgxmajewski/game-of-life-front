@@ -13,7 +13,7 @@ const NavBar = () => {
                 {/*<Link to="/grid">Grid</Link>*/}
                 {userLogged ?
                     <React.Fragment>
-                        <span className="hellouser">Hi, {userMailNameVar()}!</span>
+                        <p className="hellouser">Hi, {userMailNameVar()}!</p>
                         <Link className="signout" to="/">Sign Out</Link>
                     </React.Fragment>
                     :
