@@ -2,13 +2,13 @@ import * as PropTypes from "prop-types";
 import React from "react";
 
 const GenericUserForm = props => <div className="form--centered">
-    <h1>Log in</h1>
+    <h1>Get access</h1>
     <form
         method="post"
         onSubmit={props.onSubmit}
     >
         <label>
-            email
+            Email
             <input type="text" name="email" onChange={props.onChange}/>
         </label>
         <label>
