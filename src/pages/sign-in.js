@@ -9,7 +9,7 @@ class Login extends React.Component {
     }
 
     handlePurpose = () => {
-        this.state.purpose = this.state.purpose === `Log In` ? `Sign In` : `Log In`
+        this.setState({purpose: this.state.purpose === `Log In` ? `Sign In` : `Log In`})
     }
 
     handleUpdate = event => {
