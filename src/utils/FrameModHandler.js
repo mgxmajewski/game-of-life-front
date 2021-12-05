@@ -3,14 +3,17 @@
  * @param coordinates
  */
 
-import { authenticatedToken } from "./cache"
+import {authenticatedToken} from "./cache"
+import {navigate} from "gatsby";
+
 const fetch = require(`node-fetch`)
 
 export const frameModHandler = async (grid, coordinates) => {
 
+    // console.log(`authenticatedToken(): ` + authenticatedToken());
     const myHeaders = {
-    "Authorization": `${authenticatedToken()}`,
-    "Content-Type": "application/json"
+        "Authorization": `${authenticatedToken()}`,
+        "Content-Type": "application/json"
     };
 
     const raw = JSON.stringify({
@@ -20,15 +23,23 @@ export const frameModHandler = async (grid, coordinates) => {
 
     const requestOptions = {
         method: 'POST',
-        headers:  myHeaders,
+        headers: myHeaders,
         body: raw,
-        redirect: 'follow'
+        // redirect: 'follow',
+        credentials: 'include'
     };
 
     fetch("http://localhost:3000/mutate-grid/", requestOptions)
+        .then(response => {
+            if (response.status === 401) {
+                authenticatedToken([])
+                navigate(`/sign-in`)
+            }
+            return response
+        })
         .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+        .then((text) => console.log(text))
+        .catch(error => console.log('Fetch error', error));
 }
 
 
