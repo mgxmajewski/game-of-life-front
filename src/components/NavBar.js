@@ -2,7 +2,9 @@ import React from 'react';
 import {Link} from "gatsby";
 import {userMailNameVar} from "../utils/cache";
 
-const userName = localStorage.getItem('userName');
+const userName = typeof window !== "undefined"
+    ? localStorage.getItem('userName')
+    : null;
 const userLogged = userName !== null;
 
 const NavBar = () => {
