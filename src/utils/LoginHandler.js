@@ -30,8 +30,8 @@ export const handleLogin = (props) => {
         .then((response) => authenticatedToken([response]))
         .then(() => userIdVar([jwt_decode(authenticatedToken()[0]).id]))
         .then(() => console.log(`Login ${authenticatedToken()}`))
-        .then(() => userMailNameVar([userNameFromEmail]))
-        .then(() => wsClient.close(true))
+        .then(() => localStorage.setItem('userName', `${userNameFromEmail}`))
+        .then(() => wsClient    .close(true))
         .then(() => navigate(`/grid`))
         .catch(error => console.log('error', error));
 }
