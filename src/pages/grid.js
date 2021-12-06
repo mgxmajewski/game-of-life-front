@@ -4,7 +4,9 @@ import AuthSync from "../components/AuthSync";
 
 const CanvasGridPageWrapped = () => {
     return (
-        <GridProvider/>
+        <AuthSync>
+            <GridProvider/>
+        </AuthSync>
     )
 }
 
