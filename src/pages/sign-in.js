@@ -24,9 +24,6 @@ class Login extends React.Component {
     }
 
     render() {
-        if (isLoggedIn()) {
-            navigate(`/grid`)
-        }
         return (
             <GenericUserForm onSubmit={event => {
                 this.handleSubmit(event)
