@@ -1,14 +1,15 @@
 import React from 'react';
 import {Link} from "gatsby";
-import {userMailNameVar} from "../utils/cache";
+import {handleLogout} from "../utils/LogoutHandler";
+
+
+const NavBar = () => {
 
 const userName = typeof window !== "undefined"
     ? localStorage.getItem('userName')
     : null;
 const userLogged = userName !== null;
 
-const NavBar = () => {
-    // console.log(`userMailNameVar(): ` + userMailNameVar().length);
     return (
         <nav>
             <h1>AgileCat.io</h1>
@@ -18,7 +19,7 @@ const NavBar = () => {
                 {userLogged ?
                     <React.Fragment>
                         <p className="hellouser">Hi, {userName}!</p>
-                        <Link className="signout" to="/">Sign Out</Link>
+                        <p className="signout" onClick={() => handleLogout()}>Sign Out</p>
                     </React.Fragment>
                     :
                     <React.Fragment>
