@@ -28,13 +28,14 @@ const AuthSync = (props) => {
     const [isFetching, setIsFetching] = useState(true)
 
     useEffect(() => {
-        // You need to restrict it at some point
-        // This is just dummy code and should be replaced by actual
         if (!isToken()) {
             asyncToken();
         } else {
             setIsFetching(false)
         }
+        window.addEventListener('storage', ()=>console.log('add storage changed'))
+
+        return window.removeEventListener('storage', ()=>console.log('Remove storage changed'))
     }, []);
 
     const asyncToken = async () => {
