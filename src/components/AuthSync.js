@@ -24,11 +24,19 @@ const isValidLongerThanMinute = (token) => {
         new Date()
 }
 
+const isExpired = (token) => {
+    const token_expiry = jwt_decode(token).exp * 1000
+    return new Date(token_expiry) <=
+        new Date()
+}
+
 const AuthSync = (props) => {
     const [isFetching, setIsFetching] = useState(true)
 
     useEffect(() => {
         if (!isToken()) {
+            asyncToken();
+        } else if (isExpired(authenticatedToken()[0])) {
             asyncToken();
         } else {
             setIsFetching(false)
