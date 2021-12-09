@@ -33,9 +33,9 @@ const AuthSync = (props) => {
         } else {
             setIsFetching(false)
         }
-        window.addEventListener('storage', ()=>console.log('add storage changed'))
+        window.addEventListener('storage', () => console.log('add storage changed'))
 
-        return window.removeEventListener('storage', ()=>console.log('Remove storage changed'))
+        return window.removeEventListener('storage', () => console.log('Remove storage changed'))
     }, []);
 
     const asyncToken = async () => {
