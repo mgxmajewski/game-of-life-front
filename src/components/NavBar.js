@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from "gatsby";
 import {handleLogout} from "../utils/LogoutHandler";
+import {navigate} from "gatsby";
 
 
 const NavBar = () => {
@@ -12,7 +13,7 @@ const userLogged = userName !== null;
 
     return (
         <nav>
-            <h1>AgileCat.io</h1>
+            <h1 onClick={() => navigate('/')}>AgileCat.io</h1>
             <div className="links">
                 {/*<Link to="/">Home</Link>*/}
                 {/*<Link to="/grid">Grid</Link>*/}
