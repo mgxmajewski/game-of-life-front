@@ -8,11 +8,10 @@ import {navigate} from "gatsby";
 
 const fetch = require(`node-fetch`)
 
-export const frameModHandler = async (grid, coordinates) => {
-
+export const frameModHandler = async (grid, coordinates, token) => {
     // console.log(`authenticatedToken(): ` + authenticatedToken());
     const myHeaders = {
-        "Authorization": `${authenticatedToken()}`,
+        "Authorization": `${token}`,
         "Content-Type": "application/json"
     };
 

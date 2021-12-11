@@ -5,6 +5,8 @@ import {frameModHandler} from "../utils/FrameModHandler";
 import {getLongestDimension} from "../utils/GetLongestDimension";
 import {coordinatesBtn} from "../styles/grid.module.css"
 import PropTypes from "prop-types";
+import {useReactiveVar} from "@apollo/client";
+import {authenticatedToken} from "../utils/cache";
 
 const getNullCoords = () => new Array(2).fill(null)
 
@@ -13,6 +15,7 @@ let currentHover = getNullCoords()
 let firstClick = getNullCoords()
 
 const CanvasGridPage = props => {
+    const currentToken = useReactiveVar(authenticatedToken)
     const apolloGrid = props.initialgrid
     const [areCoordinatesToDisplay, setAreCoordinatesToDisplay] = useState(false)
     const [isClicked, setIsClicked] = useState(false)
@@ -61,14 +64,14 @@ const CanvasGridPage = props => {
             firstClick = []
             console.log(`nextHover: ${nextHover}`)
             nextHover = getCoordinates(e)
-            frameModHandler(apolloGrid, nextHover)
+            frameModHandler(apolloGrid, nextHover, currentToken)
         }
     }
 
     const changeCellState = e => {
         setIsClicked(true)
         calculateWhichCellClicked(e)
-        frameModHandler(apolloGrid, firstClick)
+        frameModHandler(apolloGrid, firstClick, currentToken)
     }
 
     const endStroke = () => setIsClicked(false)
