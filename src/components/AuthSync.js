@@ -23,9 +23,9 @@ const isExpired = (token) => {
 const AuthSync = (props) => {
     const [isFetching, setIsFetching] = useState(true)
 
-    const currentToken = useReactiveVar(authenticatedToken)
+    // const currentToken = useReactiveVar(authenticatedToken)
     const isToken = () => {
-        return !!currentToken
+        return !!authenticatedToken()[0]
     }
 
     const isValidLongerThanMinute = (token) => {
@@ -35,16 +35,16 @@ const AuthSync = (props) => {
     }
     useEffect(() => {
 
+        window.addEventListener('storage', () => console.log('add storage changed'))
         if (isToken()) {
             setIsFetching(false)
         }
         asyncToken();
         const refreshInterval = setInterval(() => {
-            if (!isValidLongerThanMinute(currentToken)) {
+            if (!isValidLongerThanMinute(authenticatedToken()[0])) {
                 asyncToken()
             }
         }, 5000)
-        window.addEventListener('storage', () => console.log('add storage changed'))
         return () => {
             window.removeEventListener('storage', () => console.log('Remove storage changed'))
             clearInterval(refreshInterval)
@@ -74,7 +74,7 @@ const AuthSync = (props) => {
             })
             .then(response => response.text())
             .then((response) => authenticatedToken([response]))
-            .then(() => userIdVar([jwt_decode(authenticatedToken()[0]).id]))
+            .then(() => userIdVar([jwt_decode(JSON.stringify(authenticatedToken()[0])).id]))
             .then(() => console.log(userIdVar()))
             .then(() => wsClient.close(false))
             .then(() => setIsFetching(false))
@@ -84,7 +84,7 @@ const AuthSync = (props) => {
         <>
             {isFetching
                 ? <p>loading</p>
-                : <> {props.children} </>
+                : <> {React.cloneElement(props.children, { currToken: authenticatedToken()[0] })} </>
             }
         </>
     );
