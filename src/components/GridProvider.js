@@ -21,7 +21,7 @@ const GridProvider = () => {
     `;
 
 
-    const {loading, error, data} = useSubscription(GET_STATE);
+    const {loading, error, data} = useSubscription(GET_STATE, {shouldResubscribe: true});
     const getGrid = (data) => data["sessions"].state;
     return (
         <>

@@ -35,21 +35,22 @@ const AuthSync = (props) => {
     }
     useEffect(() => {
 
-        window.addEventListener('storage', () => console.log('add storage changed'))
         if (isToken()) {
             setIsFetching(false)
         }
         asyncToken();
         const refreshInterval = setInterval(() => {
             if (!isValidLongerThanMinute(authenticatedToken()[0])) {
+                console.log(`'is about to expire': `);
                 asyncToken()
             }
         }, 5000)
+        window.addEventListener('storage', () => console.log('add storage changed'))
         return () => {
             window.removeEventListener('storage', () => console.log('Remove storage changed'))
             clearInterval(refreshInterval)
         }
-    }, [isFetching]);
+    }, []);
 
     const asyncToken = async () => {
 
@@ -67,7 +68,7 @@ const AuthSync = (props) => {
         fetch("http://localhost:3000/user/refresh-token", requestOptions)
             .then(response => {
                 if (response.status === 401) {
-                    // authenticatedToken([])
+                    authenticatedToken([])
                     navigate(`/sign-in`)
                 }
                 return response
@@ -75,7 +76,7 @@ const AuthSync = (props) => {
             .then(response => response.text())
             .then((response) => authenticatedToken([response]))
             .then(() => userIdVar([jwt_decode(JSON.stringify(authenticatedToken()[0])).id]))
-            .then(() => console.log(userIdVar()))
+            .then(() => console.log(userIdVar()[0]))
             .then(() => wsClient.close(false))
             .then(() => setIsFetching(false))
             .catch(error => console.log('Fetch error', error));
@@ -84,7 +85,7 @@ const AuthSync = (props) => {
         <>
             {isFetching
                 ? <p>loading</p>
-                : <> {React.cloneElement(props.children, { currToken: authenticatedToken()[0] })} </>
+                : <> {props.children} </>
             }
         </>
     );
