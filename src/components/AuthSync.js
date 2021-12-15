@@ -1,28 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from "prop-types";
 import {navigate} from "gatsby";
-// import {fetchFreshToken} from "../utils/fetchFreshToken";
 import {authenticatedToken, userIdVar} from "../utils/cache";
-import jwt_decode from "jwt-decode";
+import jwt_decode from 'jwt-decode';
 import {wsClient} from "../apollo/client";
+import {useReactiveVar} from "@apollo/client";
 
 const fetch = require(`node-fetch`)
 
-
-const isToken = () => {
-    const token = authenticatedToken()[0]
-    return !!token
-}
 
 const subMinutes = function (dt, minutes) {
     return new Date(dt.getTime() - minutes * 60000);
 }
 
-const isValidLongerThanMinute = (token) => {
-    const token_expiry = jwt_decode(token).exp * 1000
-    return subMinutes(new Date(token_expiry), 1) >=
-        new Date()
-}
 
 const isExpired = (token) => {
     const token_expiry = jwt_decode(token).exp * 1000
@@ -33,23 +23,30 @@ const isExpired = (token) => {
 const AuthSync = (props) => {
     const [isFetching, setIsFetching] = useState(true)
 
+    const currentToken = useReactiveVar(authenticatedToken)
+    const isToken = () => {
+        return !!currentToken
+    }
+
+    const isValidLongerThanMinute = (token) => {
+        const token_expiry = jwt_decode(JSON.stringify(token)).exp * 1000
+        return subMinutes(new Date(token_expiry), 1) >=
+            new Date()
+    }
     useEffect(() => {
 
         if (isToken()) {
             setIsFetching(false)
         }
-
         asyncToken();
-
         const refreshInterval = setInterval(() => {
-            if (isExpired(authenticatedToken()[0])) {
+            if (!isValidLongerThanMinute(currentToken)) {
                 asyncToken()
             }
         }, 5000)
         window.addEventListener('storage', () => console.log('add storage changed'))
         return () => {
             window.removeEventListener('storage', () => console.log('Remove storage changed'))
-            console.log('cleared')
             clearInterval(refreshInterval)
         }
     }, [isFetching]);
@@ -79,7 +76,7 @@ const AuthSync = (props) => {
             .then((response) => authenticatedToken([response]))
             .then(() => userIdVar([jwt_decode(authenticatedToken()[0]).id]))
             .then(() => console.log(userIdVar()))
-            .then(() => wsClient.close(true))
+            .then(() => wsClient.close(false))
             .then(() => setIsFetching(false))
             .catch(error => console.log('Fetch error', error));
     }

@@ -24,7 +24,7 @@ export const handleLogout = () => {
         .then(() => authenticatedToken([]))
         .then(() => userIdVar([]))
         .then(() => localStorage.clear())
-        .then(() => wsClient    .close(true))
+        .then(() => wsClient.close(false))
         .then(() => navigate(`/`))
         .catch(error => console.log('error', error));
 }
