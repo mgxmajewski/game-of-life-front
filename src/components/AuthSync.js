@@ -34,26 +34,25 @@ const AuthSync = (props) => {
     const [isFetching, setIsFetching] = useState(true)
 
     useEffect(() => {
-        const refreshInterval = setInterval( () => {
-            if (!isToken()) {
-                asyncToken();
-            } else if (isExpired(authenticatedToken()[0])) {
-                console.log('was expired');
-                asyncToken()
-            } else {
-                setIsFetching(false)
-            }
-            console.log('refresh loop')
 
+        if (isToken()) {
+            setIsFetching(false)
+        }
+
+        asyncToken();
+
+        const refreshInterval = setInterval(() => {
+            if (isExpired(authenticatedToken()[0])) {
+                asyncToken()
+            }
         }, 5000)
         window.addEventListener('storage', () => console.log('add storage changed'))
-
         return () => {
             window.removeEventListener('storage', () => console.log('Remove storage changed'))
             console.log('cleared')
             clearInterval(refreshInterval)
         }
-    }, [authenticatedToken()[0]]);
+    }, [isFetching]);
 
     const asyncToken = async () => {
 
