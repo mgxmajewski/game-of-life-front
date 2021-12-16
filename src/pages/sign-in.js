@@ -2,13 +2,14 @@ import React from "react"
 import {navigate} from "gatsby";
 import {handleLogin, isLoggedIn} from "../utils/LoginHandler"
 import GenericUserForm from "../components/GenericUserForm";
+import {handleSignUp} from "../utils/SignUpHandler";
 
 class Login extends React.Component {
     state = {
         email: ``, password: ``, purpose: `Log In`
     }
 
-    handlePurpose = () => {
+    handlePurposeToggle = () => {
         this.setState({purpose: this.state.purpose === `Log In` ? `Sign In` : `Log In`})
     }
 
@@ -20,14 +21,19 @@ class Login extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault()
-        handleLogin(this.state)
+        if (this.state.purpose === `Log In`){
+            handleLogin(this.state)
+        } else if (this.state.purpose === `Sign In`) {
+            handleSignUp(this.state)
+            this.handlePurposeToggle()
+        }
     }
 
     render() {
         return (
             <GenericUserForm onSubmit={event => {
                 this.handleSubmit(event)
-            }} onChange={this.handleUpdate} purpose={this.state.purpose} onTogglePurpose={this.handlePurpose}/>
+            }} onChange={this.handleUpdate} purpose={this.state.purpose} onTogglePurpose={this.handlePurposeToggle}/>
         )
     }
 }
