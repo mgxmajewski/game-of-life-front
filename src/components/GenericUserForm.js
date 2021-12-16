@@ -4,18 +4,18 @@ import ServerMessages from "./ServerMessages";
 
 const GenericUserForm = props => {
 
-    const purposeParagraph = (question, suggestedAction) => {
-
-        return <p> {`${question}`} <strong style={{textDecorationLine: "underline"}}
-                                           onClick={props.onTogglePurpose}>Click here</strong> {`${suggestedAction}`}
-        </p>
-    }
 
     const noAccountQuestion = `Don't have a user account? `
     const signUpSuggestion = `to sign up!`
     const alreadyWithAccountQuestion = `Already have a user account? `
     const signInSuggestion = `to sign in!`
 
+    const purposeParagraph = (question, suggestedAction) => {
+
+        return <p> {`${question}`} <strong style={{textDecorationLine: "underline"}}
+                                           onClick={props.onTogglePurpose}>Click here</strong> {`${suggestedAction}`}
+        </p>
+    }
 
     return (
         <div className="form--centered">
@@ -28,7 +28,11 @@ const GenericUserForm = props => {
             >
                 <label>
                     Email
-                    <input type="text" name="email" onChange={props.onChange}/>
+                    <input
+                        type="text"
+                        name="email"
+                        onChange={props.onChange}
+                    />
                 </label>
                 <label>
                     Password
@@ -38,7 +42,11 @@ const GenericUserForm = props => {
                         onChange={props.onChange}
                     />
                 </label>
-                <input type="submit" className="btn" value={`${props.purpose}`}/>
+                <input
+                    type="submit"
+                    className="btn"
+                    value={`${props.purpose}`}
+                />
             </form>
             {props.purpose === `Log In`
                 ? purposeParagraph(noAccountQuestion, signUpSuggestion)

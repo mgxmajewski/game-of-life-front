@@ -38,7 +38,6 @@ class Login extends React.Component {
     render() {
         return (
             <>
-                {/*<ServerMessages messages={this.state.messages}/>*/}
                 <GenericUserForm
                     messages={this.state.messages}
                     onSubmit={event => {this.handleSubmit(event)}}
