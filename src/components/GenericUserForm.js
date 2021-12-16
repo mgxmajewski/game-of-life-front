@@ -1,31 +1,52 @@
 import * as PropTypes from "prop-types";
 import React from "react";
+import ServerMessages from "./ServerMessages";
 
-const GenericUserForm = props => <div className="form--centered">
-    <h1>Get access</h1>
-    <form
-        method="post"
-        onSubmit={props.onSubmit}
-    >
-        <label>
-            Email
-            <input type="text" name="email" onChange={props.onChange}/>
-        </label>
-        <label>
-            Password
-            <input
-                type="password"
-                name="password"
-                onChange={props.onChange}
-            />
-        </label>
-        <input type="submit" className="btn" value={`${props.purpose}`}/>
-    </form>
-        {props.purpose === `Log In`
-            ? <p>Don't have a user account? <strong style={{textDecorationLine: "underline"}} onClick={props.onTogglePurpose}>Click here</strong> to sign up!</p>
-            : <p>Already have a user account? <strong style={{textDecorationLine: "underline"}} onClick={props.onTogglePurpose}>Click here</strong> to sign in!</p>
-        }
-</div>;
+const GenericUserForm = props => {
+
+    const purposeParagraph = (question, suggestedAction) => {
+
+        return <p> {`${question}`} <strong style={{textDecorationLine: "underline"}}
+                                           onClick={props.onTogglePurpose}>Click here</strong> {`${suggestedAction}`}
+        </p>
+    }
+
+    const noAccountQuestion = `Don't have a user account? `
+    const signUpSuggestion = `to sign up!`
+    const alreadyWithAccountQuestion = `Already have a user account? `
+    const signInSuggestion = `to sign in!`
+
+
+    return (
+        <div className="form--centered">
+
+            <h1>Get access</h1>
+            <ServerMessages messages={props.messages}/>
+            <form
+                method="post"
+                onSubmit={props.onSubmit}
+            >
+                <label>
+                    Email
+                    <input type="text" name="email" onChange={props.onChange}/>
+                </label>
+                <label>
+                    Password
+                    <input
+                        type="password"
+                        name="password"
+                        onChange={props.onChange}
+                    />
+                </label>
+                <input type="submit" className="btn" value={`${props.purpose}`}/>
+            </form>
+            {props.purpose === `Log In`
+                ? purposeParagraph(noAccountQuestion, signUpSuggestion)
+                : purposeParagraph(alreadyWithAccountQuestion, signInSuggestion)
+            }
+        </div>
+    )
+}
 
 GenericUserForm.propTypes = {
     onSubmit: PropTypes.func,
