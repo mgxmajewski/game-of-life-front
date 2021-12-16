@@ -1,12 +1,14 @@
 import React from "react"
-import {navigate} from "gatsby";
-import {handleLogin, isLoggedIn} from "../utils/LoginHandler"
+import {handleLogin} from "../utils/LoginHandler"
 import GenericUserForm from "../components/GenericUserForm";
 import {handleSignUp} from "../utils/SignUpHandler";
 
 class Login extends React.Component {
     state = {
-        email: ``, password: ``, purpose: `Log In`
+        email: ``,
+        password: ``,
+        purpose: `Log In`,
+        messages: []
     }
 
     handlePurposeToggle = () => {
@@ -19,21 +21,32 @@ class Login extends React.Component {
         })
     }
 
-    handleSubmit = event => {
+    handleMessages = (event) => {
+        this.setState({messages: [`${event}`]})
+    }
+
+    handleSubmit = async event => {
         event.preventDefault()
-        if (this.state.purpose === `Log In`){
-            handleLogin(this.state)
+        if (this.state.purpose === `Log In`) {
+            await handleLogin(this.state)
         } else if (this.state.purpose === `Sign In`) {
-            handleSignUp(this.state)
+            this.handleMessages(await handleSignUp(this.state))
             this.handlePurposeToggle()
         }
     }
 
     render() {
         return (
-            <GenericUserForm onSubmit={event => {
-                this.handleSubmit(event)
-            }} onChange={this.handleUpdate} purpose={this.state.purpose} onTogglePurpose={this.handlePurposeToggle}/>
+            <>
+                {/*<ServerMessages messages={this.state.messages}/>*/}
+                <GenericUserForm
+                    messages={this.state.messages}
+                    onSubmit={event => {this.handleSubmit(event)}}
+                    onChange={this.handleUpdate}
+                    purpose={this.state.purpose}
+                    onTogglePurpose={this.handlePurposeToggle}
+                />
+            </>
         )
     }
 }
