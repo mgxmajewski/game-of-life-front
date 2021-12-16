@@ -84,7 +84,9 @@ label {
     margin-bottom: .25rem;
 }
 
+
 input, textarea {
+    color: white;
     display: block;
     width: 100%;
     /*color: #332a40;*/
@@ -96,13 +98,20 @@ input, textarea {
     font-size: .8rem;
 }
 
+textarea {
+    min-height: 300px;
+}
+
+input[type="text"] {
+    color: black;
+}
+
+
 input[type="text"]:disabled {
     background: #dddddd;
 }
 
-textarea {
-    min-height: 300px;
-}
+
 
 .btn {
     background: #D42990;
