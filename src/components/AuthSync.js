@@ -38,7 +38,9 @@ const AuthSync = (props) => {
         if (isToken()) {
             setIsFetching(false)
         }
-        asyncToken();
+        if (!isToken()) {
+            asyncToken();
+        }
         const refreshInterval = setInterval(() => {
             if (!isValidLongerThanMinute(authenticatedToken()[0])) {
                 console.log(`'is about to expire': `);

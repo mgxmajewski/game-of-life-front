@@ -15,7 +15,7 @@ export const wsClient = typeof window !== "undefined"
     `ws://localhost:4000/`,
     {
         reconnect: true,
-        // lazy: true,
+        lazy: true,
         connectionParams: () => ({
             Authorization: getToken()
         })
