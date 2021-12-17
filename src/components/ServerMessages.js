@@ -1,15 +1,18 @@
 import React from 'react';
 
 function ServerMessages(props) {
-    let messages = props.messages;
+    const {messages} = props;
 
     if (messages.length) {
         return (
             <div>
                 <h3>Server response</h3>
-                <ul>
-                    {messages.map((error, i) => <li key={i}>{error}</li>)}
-                </ul>
+                {messages.length === 1
+                    ? <p>{messages}</p>
+                    : <ul>
+                        {messages.map((message, i) => <li key={i}>{message}</li>)}
+                    </ul>
+                }
             </div>
         )
     } else {
