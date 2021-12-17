@@ -6,9 +6,9 @@ const GenericUserForm = props => {
 
 
     const noAccountQuestion = `Don't have a user account? `
-    const signUpSuggestion = `to sign up!`
+    const signUpSuggestion = ` to sign up!`
     const alreadyWithAccountQuestion = `Already have a user account? `
-    const signInSuggestion = `to sign in!`
+    const signInSuggestion = ` to sign in!`
 
     const purposeParagraph = (question, suggestedAction) => {
 
