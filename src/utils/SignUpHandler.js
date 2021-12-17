@@ -28,7 +28,7 @@ export const handleSignUp = (props) => {
     };
 
     return fetch("http://localhost:3000/user/create", requestOptions)
-        .then(response => response.text())
+        .then(response => response.json())
         // .then((response)=> console.log(response))
         // .then((response)=> messageHandler(JSON.stringify(response)))
         // .then(() => navigate(`/grid`))
