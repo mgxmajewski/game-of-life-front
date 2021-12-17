@@ -12,8 +12,13 @@ const GenericUserForm = props => {
 
     const purposeParagraph = (question, suggestedAction) => {
 
-        return <p> {`${question}`} <strong style={{textDecorationLine: "underline"}}
-                                           onClick={props.onTogglePurpose}>Click here</strong> {`${suggestedAction}`}
+        return <p>
+            {`${question}`}
+            <strong style={{textDecorationLine: "underline"}}
+                    onClick={props.onTogglePurpose}>
+                Click here
+            </strong>
+            {`${suggestedAction}`}
         </p>
     }
 
