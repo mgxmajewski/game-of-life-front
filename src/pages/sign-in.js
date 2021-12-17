@@ -21,17 +21,23 @@ class Login extends React.Component {
         })
     }
 
-    handleMessages = (event) => {
-        this.setState({messages: [`${event}`]})
+    handleMessages = (responseMessage) => {
+        this.setState({messages: responseMessage.messages})
     }
 
     handleSubmit = async event => {
         event.preventDefault()
         if (this.state.purpose === `Log In`) {
+
             await handleLogin(this.state)
         } else if (this.state.purpose === `Sign In`) {
-            this.handleMessages(await handleSignUp(this.state))
-            this.handlePurposeToggle()
+
+            const signUpResponse = await handleSignUp(this.state)
+            this.handleMessages(signUpResponse)
+            if (signUpResponse === 'Account successfully created') {
+
+                await handleLogin(this.state)
+            }
         }
     }
 
@@ -40,7 +46,9 @@ class Login extends React.Component {
             <>
                 <GenericUserForm
                     messages={this.state.messages}
-                    onSubmit={event => {this.handleSubmit(event)}}
+                    onSubmit={event => {
+                        this.handleSubmit(event)
+                    }}
                     onChange={this.handleUpdate}
                     purpose={this.state.purpose}
                     onTogglePurpose={this.handlePurposeToggle}
