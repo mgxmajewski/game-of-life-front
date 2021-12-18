@@ -9,7 +9,6 @@ const {btoa} = require('abab');
 export const handleLogin = (props) => {
 
     const {email, password} = props
-    const userNameFromEmail = email.split("@")[0]
     const authHeader = 'Basic ' + btoa(`${email}:${password}`)
     console.log(authHeader)
 
@@ -25,15 +24,18 @@ export const handleLogin = (props) => {
         credentials: 'include'
     };
 
-    fetch("http://localhost:3000/user/login", requestOptions)
+    return fetch("http://localhost:3000/user/login", requestOptions)
         .then(response => response.json())
-        .then((response) => authenticatedToken([response['accessToken']]))
-        .then(() => userIdVar([jwt_decode(authenticatedToken()[0]).id]))
-        .then(() => console.log(`Login ${authenticatedToken()}`))
-        .then(() => localStorage.setItem('userName', `${userNameFromEmail}`))
-        .then(() => wsClient.close(false))
-        .then(() => navigate(`/grid`))
         .catch(error => console.log('error', error));
+}
+
+export const loadAndRedirectLoggedUser = (response, email) => {
+    authenticatedToken([response['accessToken']])
+    userIdVar([jwt_decode(authenticatedToken()[0]).id])
+    console.log(`Login ${authenticatedToken()}`)
+    localStorage.setItem('userName', `${email}`)
+    wsClient.close(false)
+    navigate(`/grid`)
 }
 
 export const isLoggedIn = () => {
