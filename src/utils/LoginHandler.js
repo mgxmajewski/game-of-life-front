@@ -26,8 +26,8 @@ export const handleLogin = (props) => {
     };
 
     fetch("http://localhost:3000/user/login", requestOptions)
-        .then(response => response.text())
-        .then((response) => authenticatedToken([response]))
+        .then(response => response.json())
+        .then((response) => authenticatedToken([response['accessToken']]))
         .then(() => userIdVar([jwt_decode(authenticatedToken()[0]).id]))
         .then(() => console.log(`Login ${authenticatedToken()}`))
         .then(() => localStorage.setItem('userName', `${userNameFromEmail}`))
