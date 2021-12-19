@@ -5,6 +5,7 @@ import ServerMessages from "./ServerMessages";
 const GenericUserForm = props => {
 
 
+    const userWantsToSignIn = `Sign in`;
     const noAccountQuestion = `Don't have a user account? `
     const signUpSuggestion = ` to sign up!`
     const alreadyWithAccountQuestion = `Already have a user account? `
@@ -53,7 +54,7 @@ const GenericUserForm = props => {
                     value={`${props.purpose}`}
                 />
             </form>
-            {props.purpose === `Log In`
+            {props.purpose === userWantsToSignIn
                 ? purposeParagraph(noAccountQuestion, signUpSuggestion)
                 : purposeParagraph(alreadyWithAccountQuestion, signInSuggestion)
             }

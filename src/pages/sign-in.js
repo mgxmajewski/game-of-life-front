@@ -1,20 +1,23 @@
 import React from "react"
-import {handleLogin, loadAndRedirectLoggedUser} from "../utils/LoginHandler"
+import {handleSignIn, loadAndRedirectSignedInUser} from "../utils/LoginHandler"
 import GenericUserForm from "../components/GenericUserForm";
-import {handleSignUp} from "../utils/SignUpHandler";
+import {handleRegistration} from "../utils/SignUpHandler";
+
+const createAccount = `Create account`;
+const signIn = `Sign in`;
 
 class Login extends React.Component {
     state = {
         email: ``,
         password: ``,
-        purpose: `Log In`,
+        purpose: signIn,
         messages: []
     }
 
     getUserNameFromEmailState = () => this.state.email.split("@")[0]
 
     handlePurposeToggle = () => {
-        this.setState({purpose: this.state.purpose === `Log In` ? `Sign In` : `Log In`})
+        this.setState({purpose: this.state.purpose === signIn ? createAccount : signIn})
     }
 
     handleUpdate = event => {
@@ -28,33 +31,43 @@ class Login extends React.Component {
     }
 
     handleSubmit = async event => {
+
         event.preventDefault()
-        if (this.state.purpose === `Log In`) {
 
-            const logInResponse = await handleLogin(this.state)
+        const userWantsToSignIn = this.state.purpose === signIn;
+        const userWantsToCreateAccount = this.state.purpose === createAccount;
 
-            if ('accessToken' in logInResponse) {
+        if (userWantsToSignIn) {
+
+            const logInResponse = await handleSignIn(this.state)
+            const thereWasTokenInResponse = 'accessToken' in logInResponse
+
+            if (thereWasTokenInResponse) {
+
                 const userNameFromEmail = this.getUserNameFromEmailState()
-                loadAndRedirectLoggedUser(logInResponse, userNameFromEmail)
+                loadAndRedirectSignedInUser(logInResponse, userNameFromEmail)
             } else {
+
                 // Display server messages if auth was not successful.
                 this.handleMessages(logInResponse)
             }
 
+        } else if (userWantsToCreateAccount) {
 
+            const registrationResponse = await handleRegistration(this.state)
 
-        } else if (this.state.purpose === `Sign In`) {
+            this.handleMessages(registrationResponse)
 
-            const signUpResponse = await handleSignUp(this.state)
-            this.handleMessages(signUpResponse)
+            const wasSuccessfulRegistration = (response) =>
+                response.messages[0] === 'Account successfully created'
 
-            if (signUpResponse.messages[0] === 'Account successfully created') {
+            if (wasSuccessfulRegistration(registrationResponse)) {
 
                 // Leaving for now (it may be better to postpone redirect of new user)
                 // this.handlePurposeToggle()
-                const successfullyCreatedUser = await handleLogin(this.state)
+                const successfullyCreatedUser = await handleSignIn(this.state)
                 const userNameFromEmail = this.getUserNameFromEmailState()
-                loadAndRedirectLoggedUser(successfullyCreatedUser, userNameFromEmail)
+                loadAndRedirectSignedInUser(successfullyCreatedUser, userNameFromEmail)
             }
         }
     }

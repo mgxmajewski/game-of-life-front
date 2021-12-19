@@ -6,7 +6,7 @@ import jwt_decode from 'jwt-decode';
 const fetch = require(`node-fetch`)
 const {btoa} = require('abab');
 
-export const handleLogin = (props) => {
+export const handleSignIn = (props) => {
 
     const {email, password} = props
     const authHeader = 'Basic ' + btoa(`${email}:${password}`)
@@ -29,7 +29,7 @@ export const handleLogin = (props) => {
         .catch(error => console.log('error', error));
 }
 
-export const loadAndRedirectLoggedUser = (response, email) => {
+export const loadAndRedirectSignedInUser = (response, email) => {
     authenticatedToken([response['accessToken']])
     userIdVar([jwt_decode(authenticatedToken()[0]).id])
     console.log(`Login ${authenticatedToken()}`)

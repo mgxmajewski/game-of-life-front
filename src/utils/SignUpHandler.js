@@ -2,7 +2,7 @@ import {navigate} from "gatsby";
 
 const fetch = require(`node-fetch`)
 
-export const handleSignUp = (props) => {
+export const handleRegistration = (props) => {
 
     const {email, password} = props
     const userNameFromEmail = email.split("@")[0]
