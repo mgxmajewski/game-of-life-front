@@ -1,0 +1,135 @@
+.bottom-grid-controller {
+  display: flex;
+  font-family: "CaskaydiaCove Nerd Font", serif;
+  margin: 0 0 .5rem 0;
+  font-size: 1rem;
+  padding: .75rem 1.5rem;
+  border: 0;
+  max-height: 20vh;
+  max-width: 20vh;
+  /*height: 5rem;*/
+  /*width: 25rem;*/
+  text-align: center;
+  /*font-weight: bold;*/
+  transition: background 0.2s;
+}
+
+.side-grid-controller {
+  display: inline-block;
+  font-family: "CaskaydiaCove Nerd Font", serif;
+  margin: 0 0 .5rem 0;
+  font-size: 1rem;
+  /*padding: .75rem 1.5rem;*/
+  border: 0;
+  max-width: 20vh;
+  text-align: center;
+  overflow-wrap: break-word;
+  white-space: normal;
+  /*font-weight: bold;*/
+  transition: background 0.2s;
+}
+
+.btn {
+  background: #5d705b;
+}
+
+label, input {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+.row-affected-quantity {
+  overflow-wrap: break-word;
+  white-space: normal;
+  min-height: 20vh;
+  max-height: 20vh;
+  background: #37d429;
+}
+
+.col-affected-quantity {
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 20vh;
+  background: #37d429;
+}
+
+.btn.insert-first__col {
+  background: #37d429;
+  max-width: 20vh;
+  border-radius: 2rem 0 0 2rem;
+}
+
+.btn.delete-first__col {
+  max-width: 20vh;
+  background: #d4296d;
+  /*border-radius: 0 .5rem .5rem 0;*/
+}
+
+.btn.insert-last__col {
+  background: #d4296d;
+  max-width: 20vh;
+  /*border-radius: .5rem 0 0 .5rem;*/
+}
+
+.btn.delete-last__col {
+  background: #37d429;
+  border-radius: 0 2rem 2rem 0;
+  max-width: 20vh;
+}
+
+.btn.insert-first__col {
+  max-width: 20vh;
+  background: #37d429;
+  border-radius: 2rem 0 0 2rem;
+}
+
+.btn.delete-first__col {
+  max-width: 20vh;
+  background: #d4296d;
+  /*border-radius: 0 .5rem .5rem 0;*/
+}
+
+.btn.insert-last__col {
+  max-width: 20vh;
+  background: #d4296d;
+  /*border-radius: .5rem 0 0 .5rem;*/
+}
+
+.btn.delete-last__col {
+  max-width: 20vh;
+  background: #37d429;
+  border-radius: 0 2rem 2rem 0;
+}
+
+
+.btn.insert-first__row {
+  background: #37d429;
+  max-height: 20vh;
+  min-height: 20vh;
+  border-radius: 2rem 2rem 0 0;
+}
+
+.btn.delete-first__row {
+  background: #d4296d;
+  max-height: 20vh;
+  min-height: 20vh;
+  /*border-radius: 0 .5rem .5rem 0;*/
+}
+
+.btn.insert-last__row {
+  background: #d4296d;
+  max-height: 20vh;
+  /*border-radius: .5rem 0 0 .5rem;*/
+}
+
+.btn.delete-last__row {
+  background: #37d429;
+  max-height: 20vh;
+  border-radius: 0 0 2rem 2rem;
+}
