@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/buttons.module.css'
+import  '../styles/buttons.css'
 const BottomButtons = () => {
     return (
         <div className="bottom-grid-controller">
@@ -16,4 +16,4 @@ const BottomButtons = () => {
     );
 }
 
-export default BottomButtons
+export default BottomButtons;

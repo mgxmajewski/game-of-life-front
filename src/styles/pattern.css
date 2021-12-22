@@ -1,0 +1,4 @@
+.pattern-container {
+    grid-area: pattern;
+    background: #7387c4;
+}

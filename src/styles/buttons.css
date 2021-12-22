@@ -1,4 +1,8 @@
+.popo-popo__popo {
+  background: cornflowerblue;
+}
 .bottom-grid-controller {
+  grid-area: bottombtn;
   display: flex;
   font-family: "CaskaydiaCove Nerd Font", serif;
   margin: 0 0 .5rem 0;
@@ -15,6 +19,7 @@
 }
 
 .side-grid-controller {
+  grid-area: sidebtn;
   display: inline-block;
   font-family: "CaskaydiaCove Nerd Font", serif;
   margin: 0 0 .5rem 0;

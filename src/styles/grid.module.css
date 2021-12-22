@@ -1,3 +1,8 @@
+.golWrapper {
+    grid-area: gol;
+}
+
+
 .gridDiv {
     float: left;
     max-width: 80%;

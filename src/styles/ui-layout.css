@@ -1,0 +1,12 @@
+.ui-layout {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: 60% 10% 30%;
+    grid-template-rows: 10% 40% 40% 10%;
+    grid-template-areas:
+      "play      ....... ......."
+      "gol       sidebtn  replay"
+      "gol       sidebtn pattern"
+      "bottombtn ....... .......";
+}
+

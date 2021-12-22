@@ -3,7 +3,7 @@ import CanvasGrid from "../components/CanvasGrid";
 import {useState} from "react";
 import {frameModHandler} from "../utils/FrameModHandler";
 import {getLongestDimension} from "../utils/GetLongestDimension";
-import {coordinatesBtn} from "../styles/grid.module.css"
+import {golWrapper, coordinatesBtn} from "../styles/grid.module.css"
 import PropTypes from "prop-types";
 import {useReactiveVar} from "@apollo/client";
 import {authenticatedToken} from "../utils/cache";
@@ -77,7 +77,7 @@ const CanvasGridPage = props => {
     const endStroke = () => setIsClicked(false)
 
     return (
-        <div>
+        <div className={golWrapper}>
             <button
                 className={coordinatesBtn}
                 onClick={toggleDisplayCoordinates}
