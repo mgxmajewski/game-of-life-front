@@ -6,7 +6,7 @@ import {getLongestDimension} from "../utils/GetLongestDimension";
 import {golWrapper, coordinatesBtn} from "../styles/grid.module.css"
 import PropTypes from "prop-types";
 import {useReactiveVar} from "@apollo/client";
-import {authenticatedToken} from "../utils/cache";
+import {authenticatedToken, showCoordinates} from "../utils/cache";
 
 const getNullCoords = () => new Array(2).fill(null)
 
@@ -17,17 +17,13 @@ let firstClick = getNullCoords()
 const CanvasGridPage = props => {
     const currentToken = useReactiveVar(authenticatedToken)
     const apolloGrid = props.initialgrid
-    const [areCoordinatesToDisplay, setAreCoordinatesToDisplay] = useState(false)
+    const areCoordinatesToDisplay = useReactiveVar(showCoordinates)
     const [isClicked, setIsClicked] = useState(false)
 
     const isCell = ([x, y]) => {
         if (y <= apolloGrid.length - 1){
             return x <= apolloGrid[y].length - 1;
         }
-    }
-
-    const toggleDisplayCoordinates = () => {
-        setAreCoordinatesToDisplay(!areCoordinatesToDisplay)
     }
 
     const getBounding = (e) => e.target.getBoundingClientRect()
@@ -78,12 +74,6 @@ const CanvasGridPage = props => {
 
     return (
         <div className={golWrapper}>
-            <button
-                className={coordinatesBtn}
-                onClick={toggleDisplayCoordinates}
-            >
-                Show Coordinates
-            </button>
             <CanvasGrid
                 state={apolloGrid}
                 coordinates={areCoordinatesToDisplay.toString()}
