@@ -1,9 +1,12 @@
 .ui-layout {
     display: grid;
     grid-gap: .5em;
-    max-height: 80vh;
-    grid-template-columns: 60% 5% 35%;
-    grid-template-rows: 10% 40% 40% 10%;
+    height: 80vh;
+    grid-template-columns: auto 5% 45%;
+    grid-template-rows: 10% auto auto 10%;
+     object-fit: contain;
+    /*grid-template-columns: 52% 8% auto;*/
+    /*grid-template-rows: 8% 44% 44% 10%;*/
     grid-template-areas:
       "play      ....... ......."
       "gol       sidebtn  replay"
