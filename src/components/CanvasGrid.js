@@ -14,28 +14,28 @@ const CanvasGrid = props => {
         const {state, coordinates} = props
 
         // Draw transparent canvas
-        ctx.clearRect(0,0,width, height)
+        ctx.clearRect(0, 0, width, height)
 
         // Declare size and position of cell
         let longestDimension = getLongestDimension(state)
 
-        const cellDiameter = width/longestDimension
-        const cellRadius = cellDiameter/2
-        let xShift= 0;
+        const cellDiameter = width / longestDimension
+        const cellRadius = cellDiameter / 2
+        let xShift = 0;
         let yShift = 0;
 
         // Iterate through all rows and columns to draw cells and conditionally coordinates.
         state.forEach((cellsRow, rowIndex) => {
             xShift = 0
             cellsRow.forEach((cellCol, colIndex) => {
-                const x =  cellRadius + xShift
+                const x = cellRadius + xShift
                 const y = cellRadius + yShift
                 const cell =
                     new Cell(
                         ctx,
                         x,
                         y,
-                        cellRadius ,
+                        cellRadius,
                         rowIndex,
                         colIndex)
                 cell.setState = cellCol === "#"
@@ -43,15 +43,17 @@ const CanvasGrid = props => {
                 if (coordinates === 'true') {
                     cell.drawCoordinates()
                 }
-                xShift+=cellDiameter
+                xShift += cellDiameter
             })
-            yShift+=cellDiameter
+            yShift += cellDiameter
         })
     }
 
     useEffect(() => {
         const canvas = canvasRef.current
-        canvas.width  = canvas.offsetWidth;
+        // canvas.style.width = '100%';
+        // canvas.style.height = '100%';
+        canvas.width = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
         const context = canvas.getContext('2d')
         //Our draw come here

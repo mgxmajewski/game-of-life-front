@@ -2,12 +2,13 @@ import React from 'react';
 import '../styles/global.css'
 import NavBar from "./NavBar";
 import PropTypes from "prop-types";
+import '../styles/layout.css'
 
 const Layout = ({children}) => {
     return (
-        <div className='layout'>
+        <div className="layout">
             <NavBar/>
-            <div className ="content">
+            <div className="content">
                 {/*content for each page*/}
                 {children}
             </div>
