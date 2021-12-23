@@ -3,7 +3,7 @@ import CanvasGrid from "../components/CanvasGrid";
 import {useState} from "react";
 import {frameModHandler} from "../utils/FrameModHandler";
 import {getLongestDimension} from "../utils/GetLongestDimension";
-import {golWrapper, coordinatesBtn} from "../styles/grid.module.css"
+import {golWrapper, coordinatesBtn, canvasWrapper} from "../styles/grid.module.css"
 import PropTypes from "prop-types";
 import {useReactiveVar} from "@apollo/client";
 import {authenticatedToken, showCoordinates} from "../utils/cache";
@@ -21,7 +21,10 @@ const CanvasGridPage = props => {
     const [isClicked, setIsClicked] = useState(false)
 
     const isCell = ([x, y]) => {
-        if (y <= apolloGrid.length - 1){
+        if (apolloGrid[y] === undefined) {
+            return
+        }
+        if (y <= apolloGrid.length - 1) {
             return x <= apolloGrid[y].length - 1;
         }
     }
@@ -36,27 +39,29 @@ const CanvasGridPage = props => {
         let cellWidth;
         let cellHeight;
         let longestDimension = getLongestDimension(apolloGrid)
-        cellWidth = cellHeight = width/longestDimension
+        cellWidth = cellHeight = width / longestDimension
         const rect = getBounding(e)
-        const x = Math.floor((e.clientX - rect.left)/cellWidth)
-        const y = Math.floor((e.clientY - rect.top)/cellHeight)
-        return [x,y]
+        const x = Math.floor((e.clientX - rect.left) / cellWidth)
+        const y = Math.floor((e.clientY - rect.top) / cellHeight)
+        console.log(`x: ` + x);
+        console.log(`y: ` + y);
+        return [x, y]
     }
 
     const calculateWhichCellClicked = e => {
-        if(isCell(getCoordinates(e))){
+        if (isCell(getCoordinates(e))) {
             firstClick = getCoordinates(e)
         }
     }
 
     const calculateWhichCellHovered = e => {
-        if (!isClicked){
+        if (!isClicked) {
             return
         }
         currentHover = getCoordinates(e)
         const isAlreadyClicked = deepClone(currentHover) === deepClone(firstClick)
         const isAlreadyHovered = deepClone(currentHover) === deepClone(nextHover)
-        if(!isAlreadyClicked && !isAlreadyHovered){
+        if (!isAlreadyClicked && !isAlreadyHovered) {
             firstClick = []
             console.log(`nextHover: ${nextHover}`)
             nextHover = getCoordinates(e)
@@ -74,14 +79,17 @@ const CanvasGridPage = props => {
 
     return (
         <div className={golWrapper}>
-            <CanvasGrid
-                state={apolloGrid}
-                coordinates={areCoordinatesToDisplay.toString()}
-                onMouseUp={endStroke}
-                onMouseDown={changeCellState}
-                onMouseMove={calculateWhichCellHovered}
-                onMouseOut={endStroke}
-            />
+            {/*<div className={canvasWrapper}>*/}
+                <CanvasGrid
+                    state={apolloGrid}
+                    coordinates={areCoordinatesToDisplay.toString()}
+                    onMouseUp={endStroke}
+                    onMouseDown={changeCellState}
+                    onMouseMove={calculateWhichCellHovered}
+                    onMouseOut={endStroke}
+                />
+
+            {/*</div>*/}
         </div>
     )
 }
