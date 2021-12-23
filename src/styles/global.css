@@ -62,10 +62,15 @@ footer p {
 }
 
 canvas {
-    width: 100%;
+    display: flex;
+    /*width: 100%;*/
+    object-position: left;
+    height: 100%;
     aspect-ratio: 1/1;
-    display: block;
-    object-fit: contain;
+    margin: 0 auto 0 0;
+    /*!*display: block;*!*/
+    /*object-fit: contain;*/
+    background: cyan;
 }
 
 .form--centered {

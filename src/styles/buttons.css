@@ -4,21 +4,27 @@
 .bottom-grid-controller {
   grid-area: bottombtn;
   display: flex;
+  /*align-self: center;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+
   font-family: "CaskaydiaCove Nerd Font", serif;
   margin: 0 0 .5rem 0;
   font-size: 1rem;
   padding: .75rem 1.5rem;
   border: 0;
-  max-height: 20vh;
-  max-width: 20vh;
+  /*max-height: 20vh;*/
+  /*max-width: 20vh;*/
   /*height: 5rem;*/
   /*width: 25rem;*/
   text-align: center;
   /*font-weight: bold;*/
   transition: background 0.2s;
+  background: #d52828;
 }
 
 .side-grid-controller {
+    background: #d52828;
   grid-area: sidebtn;
   display: inline-block;
   font-family: "CaskaydiaCove Nerd Font", serif;

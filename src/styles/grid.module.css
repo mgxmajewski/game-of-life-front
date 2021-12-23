@@ -1,16 +1,19 @@
 .golWrapper {
     grid-area: gol;
+    display: flex;
+    /*align-content: flex-start;*/
+    background: cornsilk;
 }
 
 
-.gridDiv {
-    float: left;
-    max-width: 80%;
-}
-.cellGrid {
-    width: auto;
-    aspect-ratio: 1/1;
-}
+/*.gridDiv {*/
+/*    float: left;*/
+/*    max-width: 80%;*/
+/*}*/
+/*.cellGrid {*/
+/*    width: auto;*/
+/*    aspect-ratio: 1/1;*/
+/*}*/
 
 .coordinatesBtn {
     display: inline-block;
@@ -21,24 +24,24 @@
     font-weight: 500;
 }
 
-.columnBtn, .rowBtn{
-    display: inline-block;
-    background: #D42990;
-    padding: 10px 16px;
-    border-radius: 10px;
-    margin-top: 20px;
-    font-weight: 500;
-}
+/*.columnBtn, .rowBtn{*/
+/*    display: inline-block;*/
+/*    background: #D42990;*/
+/*    padding: 10px 16px;*/
+/*    border-radius: 10px;*/
+/*    margin-top: 20px;*/
+/*    font-weight: 500;*/
+/*}*/
 
-.columnBtn{
-    float: left;
-}
+/*.columnBtn{*/
+/*    float: left;*/
+/*}*/
 
-.rowBtn{
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    clear: both;
-}
+/*.rowBtn{*/
+/*    display: block;*/
+/*    margin-right: auto;*/
+/*    margin-left: auto;*/
+/*    clear: both;*/
+/*}*/
 
 
