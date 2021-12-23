@@ -7,6 +7,15 @@ const SideButtons = () => {
                 add row
                 </button>
             <button className="btn delete-first__row" type="submit" value="add row"> - delete row ></button>
+            <form>
+                <div className="row-affected-quantity">
+                    <label htmlFor="row-quantity">
+                        rows
+                        <input type="number" id="row-quantity" value="5" name="quantity" min="1" max="20"/>
+                        affected
+                    </label>
+                </div>
+            </form>
             <button className="btn insert-last__row" type="submit" value="add row">
                 delete row
                 </button>
