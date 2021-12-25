@@ -11,9 +11,8 @@ const BottomButtons = () => {
             <form>
                 <div className="col-affected-quantity">
                     <label htmlFor="col-quantity">
-                        columns
+                        columns affected
                         <input type="number" id="col-quantity" value="5" name="quantity" min="1" max="20"/>
-                            affected
                     </label>
                 </div>
             </form>
