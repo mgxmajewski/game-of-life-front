@@ -35,14 +35,18 @@
 }
 
 label, input {
-  text-align: center;
+ /* align-content: center;*/
+ /*justify-content: center;*/
+ /* text-align: center;*/
   display: flex;
   flex-direction: column;
+    align-items: center;
+  justify-content: center;
 }
 
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
-  width: auto;
+  /*width: auto;*/
   opacity: 1;
 }
 
@@ -59,11 +63,11 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .col-affected-quantity {
-  display: flex;
+  display: grid;
   overflow-wrap: break-word;
-  white-space: normal;
+  /*white-space: normal;*/
   font-size: .7em;
-  padding: 1em 2em 0 1em;
+  padding: 1em 2em 0;
   /*max-width: 20vh;*/
   background: #ff4f1e;
 }
