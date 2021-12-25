@@ -5,7 +5,7 @@
     /*height: 80vh;*/
     /*height: auto;*/
     grid-template-columns: auto 5% 45%;
-    grid-template-rows: 10% auto auto 10%;
+    /*grid-template-rows: 10% auto auto 10%;*/
     object-fit: contain;
     /*grid-template-columns: 52% 8% auto;*/
     /*grid-template-rows: 8% 44% 44% 10%;*/

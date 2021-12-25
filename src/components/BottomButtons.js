@@ -4,11 +4,11 @@ import '../styles/buttons.css'
 const BottomButtons = () => {
     return (
         <div className="bottom-grid-controller">
-            <button className="btn insert-first__col" type="submit" value="add column">
+            <button className="control-button insert-first__col" type="submit" value="add column">
                 add column
             </button>
-            <button className="btn delete-first__col" type="submit" value="add column"> - delete column ></button>
-            <form>
+            <button className="control-button delete-first__col" type="submit" value="add column"> - delete column ></button>
+            <form className="column-form">
                 <div className="col-affected-quantity">
                     <label htmlFor="col-quantity">
                         columns affected
@@ -16,11 +16,11 @@ const BottomButtons = () => {
                     </label>
                 </div>
             </form>
-            <button className="btn insert-last__col" type="submit" value="add column">
+            <button className="control-button insert-last__col" type="submit" value="add column">
                 delete column
                 -
             </button>
-            <button className="btn delete-last__col" type="submit" value="add column"> + add column</button>
+            <button className="control-button delete-last__col" type="submit" value="add column"> + add column</button>
         </div>
     );
 }
