@@ -1,131 +1,96 @@
-.popo-popo__popo {
-  background: cornflowerblue;
-}
-.bottom-grid-controller {
-  grid-area: bottombtn;
-  display: flex;
-  font-family: "CaskaydiaCove Nerd Font", serif;
-  /*margin: 0 0 .5rem 0;*/
-  font-size: 1rem;
-  /*padding: .75rem 1.5rem;*/
-  /*border: 0;*/
-  text-align: center;
-  /*transition: background 0.2s;*/
-  background: #d52828;
-  /*width: 100%;*/
-}
-
-.side-grid-controller {
-  background: #d52828;
-  grid-area: sidebtn;
-  display: grid;
-  font-family: "CaskaydiaCove Nerd Font", serif;
-  font-size: 1rem;
-  border: 0;
-  text-align: center;
-  overflow-wrap: break-word;
-  white-space: normal;
-  transition: background 0.2s;
-}
-
-.control-button {
-  background: #5d705b;
-  width: 100%;
-  /*height: auto;*/
-}
 
 label, input {
- /* align-content: center;*/
- /*justify-content: center;*/
- /* text-align: center;*/
-  display: flex;
-  flex-direction: column;
+    /* align-content: center;*/
+    /*justify-content: center;*/
+    /* text-align: center;*/
+    display: flex;
+    flex-direction: column;
     align-items: center;
-  justify-content: center;
+    align-content: center;
+    /*width: auto;*/
+    justify-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    margin-left: .5em;
+    margin-right: .5em;
+    padding-top: .2em;
+    padding-bottom: .2em;
 }
 
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
-  /*width: auto;*/
-  opacity: 1;
+    /*width: auto;*/
+    opacity: 1;
 }
 
-/*.row-affected-quantity {*/
-/*  overflow-wrap: break-word;*/
-/*  white-space: normal;*/
-/*  min-height: 20vh;*/
-/*  max-height: 20vh;*/
-/*  background: #37d429;*/
-/*}*/
+.bottom-grid-controller {
+    grid-area: bottombtn;
+    display: flex;
+    font-family: "CaskaydiaCove Nerd Font", serif;
+    font-size: 1rem;
+    text-align: center;
+    /*transition: background 0.2s;*/
+    background: #d52828;
+}
+
+.side-grid-controller {
+    background: #d52828;
+    grid-area: sidebtn;
+    display: flex;
+    flex-direction: column;
+    font-family: "CaskaydiaCove Nerd Font", serif;
+    font-size: 1rem;
+    border: 0;
+    text-align: center;
+    transition: background 0.2s;
+}
+
 
 .column-form {
-  margin-bottom: 0;
+    margin-bottom: 0;
+}
+
+.control-button {
+    background: #D42990;
+    width: 100%;
+    height: 100%;
+}
+
+.row-form {
+    margin-bottom: 0;
+}
+
+.row-affected-quantity {
+    padding: 0 1em 0;
+    font-size: .7em;
+    background: #ff4f1e;
 }
 
 .col-affected-quantity {
-  display: grid;
-  overflow-wrap: break-word;
-  /*white-space: normal;*/
-  font-size: .7em;
-  padding: 1em 2em 0;
-  /*max-width: 20vh;*/
-  background: #ff4f1e;
+    display: grid;
+    font-size: .7em;
+    padding: 0 1em 0;
+    background: #ff4f1e;
 }
 
 .control-button.insert-first__col {
-  background: #37d429;
-  border-radius: 2rem 0 0 2rem;
-}
-
-.control-button.delete-first__col {
-  background: #d4296d;
+    background: #37d429;
+    border-radius: 2rem 0 0 2rem;
 }
 
 .control-button.insert-last__col {
-  background: #d4296d;
+    /*max-width: 20vh;*/
+    background: #37d429;
+    border-radius: 0 2rem 2rem 0;
 }
-
-.control-button.delete-last__col {
-  background: #37d429;
-  border-radius: 0 2rem 2rem 0;
-}
-
-.control-button.insert-first__col {
-  background: #37d429;
-  border-radius: 2rem 0 0 2rem;
-}
-
-.control-button.delete-first__col {
-  background: #d4296d;
-}
-
-.control-button.insert-last__col {
-  background: #d4296d;
-}
-
-.control-button.delete-last__col {
-  /*max-width: 20vh;*/
-  background: #37d429;
-  border-radius: 0 2rem 2rem 0;
-}
-
 
 .control-button.insert-first__row {
-  background: #37d429;
-  border-radius: 2rem 2rem 0 0;
-}
-
-.control-button.delete-first__row {
-  background: #d4296d;
-  border-radius: 0 .5rem .5rem 0;
+    background: #37d429;
+    border-radius: 2rem 2rem 0 0;
 }
 
 .control-button.insert-last__row {
-  background: #d4296d;
-  border-radius: .5rem 0 0 .5rem;
-}
-
-.control-button.delete-last__row {
-  background: #37d429;
-  border-radius: 0 0 2rem 2rem;
+    background: #37d429;
+    border-radius: 0 0 2rem 2rem;
+    /*border-radius: .5rem 0 0 .5rem;*/
 }

@@ -106,8 +106,8 @@ footer p {
 canvas {
     display: flex;
     object-fit: contain;
-    background: cyan;
-    height: auto;
+    /*background: cyan;*/
+    /*height: auto;*/
     /*width: 100%;*/
 }
 

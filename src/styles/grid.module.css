@@ -2,11 +2,12 @@
     grid-area: gol;
     display: flex;
     object-fit: contain;
-    max-height: 100%;
-    max-width: 100%;
+    /*max-height: 100%;*/
+    /*max-width: 100%;*/
+    width: 100%;
     aspect-ratio: 1/1;
     margin: 0 auto;
-    background: cornsilk;
+    /*background: cornsilk;*/
 }
 
 /*.canvasWrapper {*/
