@@ -1,12 +1,19 @@
 import * as React from "react";
 import CanvasGrid from "../components/CanvasGrid";
 import {useState} from "react";
-import {frameModHandler} from "../utils/FrameModHandler";
+import {mutateGridState} from "../utils/MutateGridState";
 import {getLongestDimension} from "../utils/GetLongestDimension";
 import {golWrapper, coordinatesBtn, canvasWrapper} from "../styles/grid.module.css"
 import PropTypes from "prop-types";
 import {useReactiveVar} from "@apollo/client";
 import {authenticatedToken, showCoordinates} from "../utils/cache";
+import AuthSync from "../components/AuthSync";
+import BottomButtons from "../components/BottomButtons";
+import '../styles/ui-layout.css'
+import PlayControl from "../components/PlayControl";
+import PatternControl from "../components/PatternControl";
+import ReplayControl from "../components/ReplayControl";
+import SideButtons from "../components/SideButtons";
 
 const getNullCoords = () => new Array(2).fill(null)
 
@@ -65,21 +72,33 @@ const CanvasGridPage = props => {
             firstClick = []
             console.log(`nextHover: ${nextHover}`)
             nextHover = getCoordinates(e)
-            frameModHandler(apolloGrid, nextHover, currentToken)
+            mutateGridState(apolloGrid, nextHover, currentToken)
         }
     }
 
     const changeCellState = e => {
         setIsClicked(true)
         calculateWhichCellClicked(e)
-        frameModHandler(apolloGrid, firstClick, currentToken)
+        mutateGridState(apolloGrid, firstClick, currentToken)
+    }
+
+    const addFirstCol = e => {
+        setIsClicked(true)
+        calculateWhichCellClicked(e)
+        mutateGridState(apolloGrid, firstClick, currentToken)
     }
 
     const endStroke = () => setIsClicked(false)
 
     return (
-        <div className={golWrapper}>
-            {/*<div className={canvasWrapper}>*/}
+        <>
+            <PlayControl/>
+            <PatternControl/>
+            <ReplayControl/>
+            <SideButtons/>
+            <BottomButtons/>
+            <div className={golWrapper}>
+                {/*<div className={canvasWrapper}>*/}
                 <CanvasGrid
                     state={apolloGrid}
                     coordinates={areCoordinatesToDisplay.toString()}
@@ -89,8 +108,9 @@ const CanvasGridPage = props => {
                     onMouseOut={endStroke}
                 />
 
-            {/*</div>*/}
-        </div>
+                {/*</div>*/}
+            </div>
+        </>
     )
 }
 

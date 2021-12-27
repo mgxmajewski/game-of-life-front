@@ -5,7 +5,7 @@ const SideButtons = () => {
     return (
         <div className="side-grid-controller">
             <button className="control-button insert-first__row" type="submit" value="add row">
-                	&#8593;
+                &#8593;
             </button>
             <button className="control-button delete-first__row" type="submit" value="add row">
                 &#8595;
