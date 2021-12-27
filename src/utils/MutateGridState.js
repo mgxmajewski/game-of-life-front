@@ -8,7 +8,7 @@ import {navigate} from "gatsby";
 
 const fetch = require(`node-fetch`)
 
-export const mutateGridState = async (grid, coordinates, token) => {
+export const mutateGridState = async (api, token, grid, coordinates) => {
     // console.log(`authenticatedToken(): ` + authenticatedToken());
     const myHeaders = {
         "Authorization": `${token}`,
@@ -28,7 +28,7 @@ export const mutateGridState = async (grid, coordinates, token) => {
         credentials: 'include'
     };
 
-    fetch("http://localhost:3000/mutate-grid/", requestOptions)
+    fetch(`http://localhost:3000/${api}`, requestOptions)
         .then(response => {
             if (response.status === 401) {
                 authenticatedToken([])

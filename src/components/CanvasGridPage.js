@@ -72,21 +72,32 @@ const CanvasGridPage = props => {
             firstClick = []
             console.log(`nextHover: ${nextHover}`)
             nextHover = getCoordinates(e)
-            mutateGridState(apolloGrid, nextHover, currentToken)
+            mutateGridState('mutate-grid/', currentToken, apolloGrid, nextHover)
         }
     }
 
     const changeCellState = e => {
         setIsClicked(true)
         calculateWhichCellClicked(e)
-        mutateGridState(apolloGrid, firstClick, currentToken)
+        mutateGridState('mutate-grid/', currentToken, apolloGrid, firstClick)
     }
 
-    const addFirstCol = e => {
-        setIsClicked(true)
-        calculateWhichCellClicked(e)
-        mutateGridState(apolloGrid, firstClick, currentToken)
+    const addFirstCol = () => {
+        mutateGridState(`add-first-col/`, currentToken, apolloGrid)
     }
+
+    const addLastCol = () => {
+        mutateGridState(`add-last-col/`, currentToken, apolloGrid)
+    }
+
+    const addFirstRow = () => {
+        mutateGridState(`add-first-row/`, currentToken, apolloGrid)
+    }
+    const addLastRow = () => {
+        mutateGridState(`add-last-row/`, currentToken, apolloGrid)
+    }
+
+
 
     const endStroke = () => setIsClicked(false)
 
@@ -95,8 +106,14 @@ const CanvasGridPage = props => {
             <PlayControl/>
             <PatternControl/>
             <ReplayControl/>
-            <SideButtons/>
-            <BottomButtons/>
+            <SideButtons
+                addFirstRow={addFirstRow}
+                addLastRow={addLastRow}
+            />
+            <BottomButtons
+                addFirstCol={addFirstCol}
+                addLastCol={addLastCol}
+            />
             <div className={golWrapper}>
                 {/*<div className={canvasWrapper}>*/}
                 <CanvasGrid

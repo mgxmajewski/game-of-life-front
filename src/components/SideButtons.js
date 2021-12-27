@@ -1,10 +1,11 @@
 import React from 'react';
 import '../styles/buttons.css'
 
-const SideButtons = () => {
+const SideButtons = props => {
+    const {addFirstRow, addLastRow} = props
     return (
         <div className="side-grid-controller">
-            <button className="control-button insert-first__row" type="submit" value="add row">
+            <button className="control-button insert-first__row" type="submit" value="add row" onClick={addFirstRow}>
                 &#8593;
             </button>
             <button className="control-button delete-first__row" type="submit" value="add row">
@@ -22,7 +23,7 @@ const SideButtons = () => {
             <button className="control-button delete-last__row" type="submit" value="add row">
                 &#8593;
             </button>
-            <button className="control-button insert-last__row" type="submit" value="add row">
+            <button className="control-button insert-last__row" type="submit" value="add row" onClick={addLastRow}>
                 &#8595;
             </button>
         </div>
