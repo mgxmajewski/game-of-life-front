@@ -22,6 +22,7 @@ let currentHover = getNullCoords()
 let firstClick = getNullCoords()
 
 const CanvasGridPage = props => {
+
     const currentToken = useReactiveVar(authenticatedToken)
     const apolloGrid = props.initialgrid
     const areCoordinatesToDisplay = useReactiveVar(showCoordinates)
@@ -85,38 +86,10 @@ const CanvasGridPage = props => {
         mutateGridState('mutate-grid/', currentToken, apolloGrid, firstClick)
     }
 
-    const addFirstCol = () => {
-        mutateGridState(`add-first-col/`, currentToken, apolloGrid)
+    const changeSizeHandler = (e, routeString, numOfAffected) => {
+        e.preventDefault();
+        mutateGridState(`${routeString}/${numOfAffected}`, currentToken, apolloGrid)
     }
-
-    const addLastCol = () => {
-        mutateGridState(`add-last-col/`, currentToken, apolloGrid)
-    }
-
-    const addFirstRow = () => {
-        mutateGridState(`add-first-row/`, currentToken, apolloGrid)
-    }
-    const addLastRow = () => {
-        mutateGridState(`add-last-row/`, currentToken, apolloGrid)
-    }
-
-
-    const deleteFirstCol = () => {
-        mutateGridState(`delete-first-col/`, currentToken, apolloGrid)
-    }
-
-    const deleteLastCol = () => {
-        mutateGridState(`delete-last-col/`, currentToken, apolloGrid)
-    }
-
-    const deleteFirstRow = () => {
-        mutateGridState(`delete-first-row/`, currentToken, apolloGrid)
-    }
-    const deleteLastRow = () => {
-        mutateGridState(`delete-last-row/`, currentToken, apolloGrid)
-    }
-
-
 
     const endStroke = () => setIsClicked(false)
 
@@ -126,20 +99,14 @@ const CanvasGridPage = props => {
             <PatternControl/>
             <ReplayControl/>
             <SideButtons
+                changeSizeHandler={changeSizeHandler}
                 rowsAffected={rowsAffected}
                 setRowsAffected={setRowsAffected}
-                addFirstRow={addFirstRow}
-                addLastRow={addLastRow}
-                deleteFirstRow={deleteFirstRow}
-                deleteLastRow={deleteLastRow}
             />
             <BottomButtons
+                changeSizeHandler={changeSizeHandler}
                 columnsAffected={columnsAffected}
                 setColumnsAffected={setColumnsAffected}
-                addFirstCol={addFirstCol}
-                addLastCol={addLastCol}
-                deleteFirstCol={deleteFirstCol}
-                deleteLastCol={deleteLastCol}
             />
             <div className={golWrapper}>
                 {/*<div className={canvasWrapper}>*/}

@@ -2,13 +2,29 @@ import React from 'react';
 import '../styles/buttons.css'
 
 const SideButtons = props => {
-    const {addFirstRow, addLastRow, deleteFirstRow, deleteLastRow, rowsAffected, setRowsAffected} = props
+
+    const {
+        rowsAffected,
+        setRowsAffected,
+        changeSizeHandler
+    } = props
+    const addFirstRow = 'add-first-row'
+    const addLastRow = 'add-last-row'
+    const deleteFirstRow = 'delete-first-row'
+    const deleteLastRow = 'delete-last-row'
+
     return (
         <div className="side-grid-controller">
-            <button className="control-button insert-first__row" onClick={addFirstRow}>
+            <button
+                className="control-button insert-first__row"
+                onClick={e => changeSizeHandler(e, addFirstRow, rowsAffected)}
+            >
                 &#8593;
             </button>
-            <button className="control-button delete-first__row" onClick={deleteFirstRow}>
+            <button
+                className="control-button delete-first__row"
+                onClick={e => changeSizeHandler(e, deleteFirstRow, rowsAffected)}
+            >
                 &#8595;
             </button>
             <form className="row-form">
@@ -28,10 +44,16 @@ const SideButtons = props => {
                     </label>
                 </div>
             </form>
-            <button className="control-button delete-last__row" onClick={deleteLastRow}>
+            <button
+                className="control-button delete-last__row"
+                onClick={e => changeSizeHandler(e, deleteLastRow, rowsAffected)}
+            >
                 &#8593;
             </button>
-            <button className="control-button insert-last__row" onClick={addLastRow}>
+            <button
+                className="control-button insert-last__row"
+                onClick={e => changeSizeHandler(e, addLastRow, rowsAffected)}
+            >
                 &#8595;
             </button>
         </div>
