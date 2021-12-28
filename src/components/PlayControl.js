@@ -12,6 +12,10 @@ const PlayControl = props => {
     const [refreshInterval, setRefreshInterval] = useState('1000')
     const [isIntervalActive, setIsIntervalActive] = useState(false)
 
+    const sendIntervalToServer = (routeString)=> {
+        mutateGridState(`${routeString}`, currentToken)
+    }
+
     const startInterval = (e) => {
         setIsIntervalActive(true)
         playGridHandler(e, `state/${refreshInterval}`)
@@ -24,13 +28,13 @@ const PlayControl = props => {
 
     const playGridHandler = (e, routeString) => {
         e.preventDefault();
-        mutateGridState(`${routeString}`, currentToken)
+        sendIntervalToServer(`${routeString}`)
     }
 
     useEffect(()=> {
         console.log(isIntervalActive)
         if (isIntervalActive=== true) {
-            mutateGridState(`state/${refreshInterval}`, currentToken)
+            sendIntervalToServer(`state/${refreshInterval}`)
         }
     },[refreshInterval, isIntervalActive])
 
