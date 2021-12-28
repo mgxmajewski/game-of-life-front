@@ -4,7 +4,9 @@ import {coordinatesBtn} from "../styles/grid.module.css";
 import {showCoordinates} from "../utils/cache";
 
 
-const PlayControl = () => {
+const PlayControl = props => {
+
+    const { playGridHandler } = props
 
     const toggleDisplayCoordinates = () => {
         showCoordinates()[0] === false
@@ -19,6 +21,12 @@ const PlayControl = () => {
                 onClick={toggleDisplayCoordinates}
             >
                 Show Coordinates
+            </button>
+            <button
+                className={coordinatesBtn}
+                onClick={e => playGridHandler(e, 'next-state/')}
+            >
+                Next Frame
             </button>
         </div>
     );

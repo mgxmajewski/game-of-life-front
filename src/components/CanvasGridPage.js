@@ -27,8 +27,8 @@ const CanvasGridPage = props => {
     const apolloGrid = props.initialgrid
     const areCoordinatesToDisplay = useReactiveVar(showCoordinates)
     const [isClicked, setIsClicked] = useState(false)
-    const [rowsAffected, setRowsAffected] = useState(11)
-    const [columnsAffected, setColumnsAffected] = useState(12)
+    const [rowsAffected, setRowsAffected] = useState(5)
+    const [columnsAffected, setColumnsAffected] = useState(5)
 
 
     const isCell = ([x, y]) => {
@@ -43,7 +43,6 @@ const CanvasGridPage = props => {
     const getBounding = (e) => e.target.getBoundingClientRect()
     const getWidth = (e) => e.target.width
     const deepClone = value => JSON.stringify(value)
-
 
     const getCoordinates = (e) => {
         const width = getWidth(e)
@@ -91,11 +90,18 @@ const CanvasGridPage = props => {
         mutateGridState(`${routeString}/${numOfAffected}`, currentToken, apolloGrid)
     }
 
+    const playGridHandler = (e, routeString) => {
+        e.preventDefault();
+         mutateGridState(`${routeString}`, currentToken)
+    }
+
     const endStroke = () => setIsClicked(false)
 
     return (
         <>
-            <PlayControl/>
+            <PlayControl
+                playGridHandler={playGridHandler}
+            />
             <PatternControl/>
             <ReplayControl/>
             <SideButtons
@@ -109,7 +115,6 @@ const CanvasGridPage = props => {
                 setColumnsAffected={setColumnsAffected}
             />
             <div className={golWrapper}>
-                {/*<div className={canvasWrapper}>*/}
                 <CanvasGrid
                     state={apolloGrid}
                     coordinates={areCoordinatesToDisplay.toString()}
@@ -118,8 +123,6 @@ const CanvasGridPage = props => {
                     onMouseMove={calculateWhichCellHovered}
                     onMouseOut={endStroke}
                 />
-
-                {/*</div>*/}
             </div>
         </>
     )
