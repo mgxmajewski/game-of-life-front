@@ -90,17 +90,17 @@ const CanvasGridPage = props => {
         mutateGridState(`${routeString}/${numOfAffected}`, currentToken, apolloGrid)
     }
 
-    const playGridHandler = (e, routeString) => {
-        e.preventDefault();
-         mutateGridState(`${routeString}`, currentToken)
-    }
+    // const playGridHandler = (e, routeString) => {
+    //     e.preventDefault();
+    //      mutateGridState(`${routeString}`, currentToken)
+    // }
 
     const endStroke = () => setIsClicked(false)
 
     return (
         <>
             <PlayControl
-                playGridHandler={playGridHandler}
+                currentToken={currentToken}
             />
             <PatternControl/>
             <ReplayControl/>

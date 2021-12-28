@@ -1,4 +1,33 @@
 .play-container {
     grid-area: play;
+    display: flex;
     background: #8ad429;
+}
+
+.interval-form {
+    max-width: 5em;
+    margin-bottom: 0;
+    padding: 0 1em 0;
+    font-size: .7em;
+}
+
+/*label {*/
+/*    !*width: 100%;*!*/
+/*     display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    align-content: center;*/
+/*    !*width: auto;*!*/
+/*    justify-items: center;*/
+/*    justify-content: center;*/
+/*    margin-bottom: 0;*/
+/*    margin-left: .5em;*/
+/*    margin-right: .5em;*/
+/*    padding-top: .2em;*/
+/*    padding-bottom: .2em;*/
+/*}*/
+
+select, option {
+    border-radius: .5rem;
+    color: black;
 }
