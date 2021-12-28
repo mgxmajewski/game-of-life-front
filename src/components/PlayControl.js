@@ -43,13 +43,13 @@ const PlayControl = props => {
     return (
         <div className="play-container">
             <button
-                className={coordinatesBtn}
+                className="control-button"
                 onClick={toggleDisplayCoordinates}
             >
                 Show Coordinates
             </button>
             <button
-                className={coordinatesBtn}
+                className="control-button"
                 onClick={e => playGridHandler(e, 'next-state/')}
             >
                 Next Frame
@@ -72,13 +72,13 @@ const PlayControl = props => {
                     interval</label>
             </form>
             <button
-                className={coordinatesBtn}
+                className="control-button"
                 onClick={e => startInterval(e)}
             >
                 Start Interval
             </button>
             <button
-                className={coordinatesBtn}
+                className="control-button"
                 onClick={e => stopInterval(e)}
             >
                 Stop Interval
