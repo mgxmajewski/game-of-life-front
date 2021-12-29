@@ -11,8 +11,8 @@
     /*grid-template-rows: 8% 44% 44% 10%;*/
     grid-template-areas:
       "play      ....... ......."
-      "gol       sidebtn  replay"
       "gol       sidebtn pattern"
+      "gol       sidebtn replay"
       "bottombtn ....... .......";
 }
 
