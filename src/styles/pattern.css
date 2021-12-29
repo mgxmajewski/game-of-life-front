@@ -2,3 +2,9 @@
     grid-area: pattern;
     background: #7387c4;
 }
+
+.pattern-select {
+    display: flex;
+    height: 50%;
+    width: 100%;
+}
