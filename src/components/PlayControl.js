@@ -63,12 +63,14 @@ const PlayControl = props => {
                     <select
                         name="interval"
                         id="set-interval"
+                        value="1000"
                         onChange={e => setRefreshInterval(e.target.value)}
                     >
+                        <option value="50">.05s</option>
                         <option value="100">.1s</option>
                         <option value="200">.2s</option>
                         <option value="500">.5s</option>
-                        <option selected value="1000">1s</option>
+                        <option value="1000">1s</option>
                         <option value="2000">2s</option>
                         <option value="3000">3s</option>
                         <option value="5000">5s</option>
