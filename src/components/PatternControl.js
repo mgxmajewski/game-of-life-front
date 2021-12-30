@@ -17,7 +17,7 @@ const PatternControl = () => {
         fetchHandler(`pattern/${patternToLoad}`, 'GET', currentToken)
     }
 
-    const isListLoaded = !fetchPatterns.response
+    const isListLoading = !fetchPatterns.response
     const patternList = fetchPatterns.response;
 
     return (
@@ -28,7 +28,7 @@ const PatternControl = () => {
             >
                 Load Pattern
             </button>
-            {isListLoaded
+            {isListLoading
                 ? <p>Loading patterns from the server</p>
                 :
                 <select
