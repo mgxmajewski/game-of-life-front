@@ -9,19 +9,52 @@ import {authenticatedToken} from "../utils/cache";
 const PatternControl = () => {
 
     const currentToken = useReactiveVar(authenticatedToken);
+    const [freshGridSize, setFreshGridSize] = useState('25');
     const [patternToLoad, setPatternToLoad] = useState('0');
 
     const fetchPatterns = useFetch(`all-patterns/get`, 'GET', currentToken)
+
     const loadPattern = (e) => {
         e.preventDefault()
         fetchHandler(`pattern/${patternToLoad}`, 'GET', currentToken)
     }
 
-    const isListLoading = !fetchPatterns.response
+    const loadEmptyGrid = (e) => {
+        e.preventDefault()
+        fetchHandler(`initiate-clean-grid/${freshGridSize}`, 'GET', currentToken)
+    }
+
+
     const patternList = fetchPatterns.response;
+    const isListLoading = !patternList;
 
     return (
         <div className="pattern-container">
+            <div className="fresh-grid-container">
+                <button
+                    className={coordinatesBtn}
+                    onClick={(e) => loadEmptyGrid(e)}
+                >
+                    Load Empty Grid
+                </button>
+                <form className="fresh-grid-form">
+                    <div className="fresh-grid-size">
+                        <label htmlFor="col-quantity">
+                            grid
+                            <input
+                                onChange={e => setFreshGridSize(e.target.value)}
+                                type="number"
+                                id="col-quantity"
+                                defaultValue={`${freshGridSize}`}
+                                name="quantity"
+                                min="1"
+                                max="100"
+                            />
+                            size
+                        </label>
+                    </div>
+                </form>
+            </div>
             <button
                 className={coordinatesBtn}
                 onClick={(e) => loadPattern(e)}
