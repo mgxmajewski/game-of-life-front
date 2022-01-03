@@ -102,7 +102,8 @@ const CanvasGridPage = props => {
                 currentToken={currentToken}
             />
             <PatternControl/>
-            <ReplayControl/>
+            <ReplayControl
+                currentGridState={apolloGrid}/>
             <SideButtons
                 changeSizeHandler={changeSizeHandler}
                 rowsAffected={rowsAffected}
