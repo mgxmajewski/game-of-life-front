@@ -1,19 +1,18 @@
 import * as React from "react";
-import CanvasGrid from "../components/CanvasGrid";
 import {useState} from "react";
-import {mutateGridState} from "../utils/MutateGridState";
-import {getLongestDimension} from "../utils/GetLongestDimension";
-import {golWrapper, coordinatesBtn, canvasWrapper} from "../styles/grid.module.css"
-import PropTypes from "prop-types";
 import {useReactiveVar} from "@apollo/client";
-import {authenticatedToken, showCoordinates} from "../utils/cache";
-import AuthSync from "../components/AuthSync";
-import BottomButtons from "../components/BottomButtons";
+import {golWrapper} from "../styles/grid.module.css"
 import '../styles/ui-layout.css'
+import PropTypes from "prop-types";
+import CanvasGrid from "../components/CanvasGrid";
+import BottomButtons from "../components/BottomButtons";
 import PlayControl from "../components/PlayControl";
 import PatternControl from "../components/PatternControl";
 import ReplayControl from "../components/ReplayControl";
 import SideButtons from "../components/SideButtons";
+import {mutateGridState} from "../utils/MutateGridState";
+import {getLongestDimension} from "../utils/GetLongestDimension";
+import {authenticatedToken, showCoordinates} from "../utils/cache";
 
 const getNullCoords = () => new Array(2).fill(null)
 
