@@ -50,5 +50,20 @@ export const useFetch = (apiRoute, method, currentToken) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    return {response, error, isLoading};
+
+    const reFetch = async () => {
+        setIsLoading(true);
+        try {
+            const res = await fetchHandler(`${apiRoute}`, method, currentToken);
+            const json = await res.json();
+
+            setResponse(json);
+            setIsLoading(false);
+        } catch (error) {
+            setError(error);
+        }
+    }
+
+
+    return {response, error, isLoading, reFetch};
 };
