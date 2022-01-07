@@ -20,11 +20,14 @@ export const handleSignIn = (props) => {
     const requestOptions = {
         method: 'POST',
         headers: myHeaders,
+        // mode: 'no-cors', // no-cors, *cors, same-origin
+
         // redirect: 'follow',
         credentials: 'include'
     };
 
-    return fetch("http://localhost:3000/user/login", requestOptions)
+    // return fetch("http://localhost:3000/user/login", requestOptions)
+    return fetch(`${process.env.GATSBY_API_URL}/user/login`, requestOptions)
         .then(response => response.json())
         .catch(error => console.log('error', error));
 }

@@ -67,7 +67,7 @@ const AuthSync = (props) => {
             credentials: 'include'
         };
 
-        fetch("http://localhost:3000/user/refresh-token", requestOptions)
+        fetch(`${process.env.GATSBY_API_URL}/user/refresh-token`, requestOptions)
             .then(response => {
                 if (response.status === 401) {
                     authenticatedToken([])

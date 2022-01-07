@@ -27,7 +27,7 @@ export const handleRegistration = (props) => {
         // credentials: 'include'
     };
 
-    return fetch("http://localhost:3000/user/create", requestOptions)
+    return fetch(`${process.env.GATSBY_API_URL}/user/create`, requestOptions)
         .then(response => response.json())
         // .then((response)=> console.log(response))
         // .then((response)=> messageHandler(JSON.stringify(response)))

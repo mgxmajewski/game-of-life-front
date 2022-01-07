@@ -28,7 +28,7 @@ export const mutateGridState = async (api, token, grid, coordinates) => {
         credentials: 'include'
     };
 
-    fetch(`http://localhost:3000/${api}`, requestOptions)
+    fetch(`${process.env.GATSBY_API_URL}/${api}`, requestOptions)
         .then(response => {
             if (response.status === 401) {
                 authenticatedToken([])

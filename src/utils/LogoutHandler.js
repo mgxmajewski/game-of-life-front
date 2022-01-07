@@ -8,17 +8,19 @@ export const handleLogout = () => {
 
     const myHeaders = {
         // "Authorization": `${authHeader}`,
+        "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json"
     };
 
     const requestOptions = {
         method: 'POST',
         headers: myHeaders,
+        mode: 'no-cors', // no-cors, *cors, same-origin
         // redirect: 'follow',
         credentials: 'include'
     };
 
-    fetch("http://localhost:3000/user/logout", requestOptions)
+    fetch(`${process.env.GATSBY_API_URL}/user/logout`, requestOptions)
         .then(response => response.text())
         .then((response) => console.log(`Login ${response}`))
         .then(() => authenticatedToken([]))

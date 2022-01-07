@@ -33,7 +33,7 @@ export const saveGridSnapshot = async (api, token, creator, snapshotName, grid) 
         credentials: 'include'
     };
 
-    return fetch(`http://localhost:3000/${api}`, requestOptions)
+    return fetch(`${process.env.GATSBY_API_URL}/${api}`, requestOptions)
         .then(response => {
             if (response.status === 401) {
                 authenticatedToken([])

@@ -14,7 +14,7 @@ export const fetchHandler = async (apiRoute, method, currentToken) => {
         headers: myHeaders,
         credentials: 'include'
     };
-    return await fetch(`http://localhost:3000/${apiRoute}`, requestOptions)
+    return await fetch(`${process.env.GATSBY_API_URL}/${apiRoute}`, requestOptions)
         .then(response => {
             if (response.status === 401) {
                 authenticatedToken([])
