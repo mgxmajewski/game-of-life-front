@@ -1,4 +1,4 @@
-FROM node:16.13.0
+FROM node:16.13-alpine3.14
 
 RUN npm install -g gatsby-cli
 
@@ -6,6 +6,6 @@ RUN npm install -g gatsby-cli
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-RUN yarn install && yarn cache clean
+RUN yarn install
 COPY . .
 EXPOSE 9000
