@@ -4,26 +4,16 @@ import {navigate} from "gatsby";
 import {authenticatedToken, userIdVar} from "../utils/cache";
 import jwt_decode from 'jwt-decode';
 import {wsClient} from "../apollo/client";
-import {useReactiveVar} from "@apollo/client";
 
 const fetch = require(`node-fetch`)
-
 
 const subMinutes = function (dt, minutes) {
     return new Date(dt.getTime() - minutes * 60000);
 }
 
-
-const isExpired = (token) => {
-    const token_expiry = jwt_decode(token).exp * 1000
-    return new Date(token_expiry) <=
-        new Date()
-}
-
 const AuthSync = (props) => {
     const [isFetching, setIsFetching] = useState(true)
 
-    // const currentToken = useReactiveVar(authenticatedToken)
     const isToken = () => {
         return !!authenticatedToken()[0]
     }
