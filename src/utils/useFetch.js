@@ -2,6 +2,15 @@ import React, {useEffect} from "react";
 import {authenticatedToken} from "./cache";
 import {navigate} from "gatsby";
 
+/**
+ * fetchHandler constructs request options object and url string to asynchronously
+ * fetch data and return response as promise.
+ * @param apiRoute - api url parameter
+ * @param method - string http request method
+ * @param currentToken - auth token
+ * @returns {Promise<T>}
+ */
+
 export const fetchHandler = async (apiRoute, method, currentToken) => {
 
     const myHeaders = {
