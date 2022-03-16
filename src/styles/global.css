@@ -17,17 +17,22 @@
 }
 
 html, body {
+    min-width: 100%;
     min-height: 100%;
 }
 
 body {
+    width: 100%;
     background: radial-gradient(at top left, rgba(146, 43, 225, 1) 0%, rgba(43, 9, 197, 1) 100%) no-repeat;
 }
 
 /* layout & nav */
 .layout {
-    max-width: 1200px;
-    margin: 0 auto;
+    /*max-width: 1200px;*/
+    /*margin: 0 auto;*/
+    width: 100%;
+    padding-left: 5vw;
+    padding-right: 5vw;
     display: grid;
     grid-gap: .5em;
     grid-row-gap: .5em;
@@ -102,7 +107,14 @@ footer p {
 
 canvas {
     display: flex;
+    width: 50vw;
     object-fit: contain;
+}
+
+@media (max-aspect-ratio: 2/1){
+    canvas{
+        width: 80vw;
+    }
 }
 
 .form--centered {
