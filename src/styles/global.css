@@ -49,17 +49,23 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 40px auto;
-    padding-bottom: 8px;
 }
 
-nav .links {
+.links {
     display: grid;
-    grid-gap: 2vw;
+    font-size: 1.5em;
+    grid-gap: 4vw;
     justify-self: right;
+    text-align: center;
     align-content: center;
     grid-template-columns: max-content max-content;
     grid-template-areas: "username login-or-out"
+}
 
+.logo {
+    display: grid;
+    font-size: 2em;
+    align-self: center;
 }
 
 .hellouser {
@@ -68,6 +74,8 @@ nav .links {
 }
 
 .login-or-out {
+    cursor: pointer;
+    text-align: center;
     grid-area: login-or-out;
     display: inline-block;
     margin-left: 20px;
