@@ -13,8 +13,7 @@ html, body {
 }
 
 body {
-    background: radial-gradient(at top left, rgba(146, 43, 225, 1) 0%, rgba(43, 9, 197, 1) 100%);
-    background-repeat: no-repeat;
+    background: radial-gradient(at top left, rgba(146, 43, 225, 1) 0%, rgba(43, 9, 197, 1) 100%) no-repeat;
 }
 
 p {
@@ -27,22 +26,11 @@ p {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    /*gap: 20px;*/
     grid-gap: .5em;
     grid-row-gap: .5em;
     row-gap: .5em;
-
-
-
-    /*align-content: space-evenly;*/
-    /*justify-content: space-evenly;*/
-
-    /*height: 100vh;*/
     grid-template-columns: auto;
     grid-template-rows: auto;
-    /*object-fit: contain;*/
-    /*grid-template-columns: 52% 8% auto;*/
-    /*grid-template-rows: 8% 44% 44% 10%;*/
     grid-template-areas:
       "header"
       "content"
@@ -51,16 +39,13 @@ p {
 
 .content {
     grid-area: content;
-    /*min-height: 100%;*/
     object-fit: contain;
     height: auto;
-    /*padding-bottom: 2.5rem;*/
-    /*height: auto;*/
-    /*padding: 15px 5px 10px 5px;*/
 }
 
 nav {
     grid-area: header;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 40px auto;
@@ -68,19 +53,22 @@ nav {
 }
 
 nav .links {
+    display: grid;
+    grid-gap: 2vw;
+    justify-self: right;
+    align-content: center;
+    grid-template-columns: max-content max-content;
+    grid-template-areas: "username login-or-out"
+
+}
+
+.hellouser {
+    grid-area: username;
     display: inline-block;
-    text-align: right;
 }
 
-nav .hellouser {
-    display: inline-block;
-}
-
-nav h1 {
-    justify-items: left;
-}
-
-nav a {
+.login-or-out {
+    grid-area: login-or-out;
     display: inline-block;
     margin-left: 20px;
     font-weight: 300;
@@ -88,12 +76,12 @@ nav a {
     border-bottom: 3px solid transparent;
 }
 
-nav a:hover {
+.login-or-out:hover {
     border-color: white;
 }
 
 footer {
-        grid-area: footer;
+    grid-area: footer;
     padding-top: 5px;
 }
 
@@ -106,9 +94,6 @@ footer p {
 canvas {
     display: flex;
     object-fit: contain;
-    /*background: cyan;*/
-    /*height: auto;*/
-    /*width: 100%;*/
 }
 
 .form--centered {
@@ -127,17 +112,14 @@ label {
     margin-bottom: .25rem;
 }
 
-
 input, textarea {
     color: white;
     display: block;
     width: 100%;
-    /*color: #332a40;*/
     border-radius: .5rem;
     border: 1px solid #8c789b;
     padding: .5rem;
     margin-bottom: 1rem;
-    /*font-family: 'Work Sans', sans-serif;*/
     font-size: .8rem;
 }
 
@@ -148,7 +130,6 @@ textarea {
 input[type="text"], input[type="password"], input[type="number"] {
     color: black;
 }
-
 
 input[type="text"]:disabled {
     background: #dddddd;

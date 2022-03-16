@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "gatsby";
+// import {Link} from "gatsby";
 import {handleLogout} from "../utils/LogoutHandler";
 import {navigate} from "gatsby";
 
@@ -20,11 +20,11 @@ const userLogged = userName !== null;
                 {userLogged ?
                     <React.Fragment>
                         <p className="hellouser">Hi, {userName}!</p>
-                        <p className="signout" onClick={() => handleLogout()}>Sign Out</p>
+                        <p className="login-or-out" onClick={() => handleLogout()}>Sign Out</p>
                     </React.Fragment>
                     :
                     <React.Fragment>
-                        <Link to="/sign-in">Login</Link>
+                        <p className="login-or-out" onClick={() => navigate('/sign-in')}>Login</p>
                     </React.Fragment>
                 }
             </div>
