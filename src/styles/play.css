@@ -1,10 +1,19 @@
 .play-container {
     grid-area: play;
-    display: flex;
+    display: grid;
+    grid-template-columns: 16vw 16vw 16vw 16vw 16vw;
     background: #8ad429;
 }
 
+@media (min-aspect-ratio: 2/1) {
+    .play-container {
+        grid-template-columns: 11vw 11vw 6vw 11vw 11vw;
+    }
+}
+
 .interval-form {
+    margin-left: auto;
+    margin-right: auto;
     max-width: 5em;
     margin-bottom: 0;
     padding: 0 1em 0;

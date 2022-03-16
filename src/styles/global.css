@@ -1,11 +1,11 @@
 @import url("https://use.typekit.net/paj1wnf.css");
 
 :root {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 *, ::before, ::after {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 * {
@@ -31,8 +31,8 @@ body {
     /*max-width: 1200px;*/
     /*margin: 0 auto;*/
     width: 100%;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
     display: grid;
     grid-gap: .5em;
     grid-row-gap: .5em;
@@ -43,6 +43,13 @@ body {
       "header"
       "content"
       "footer"
+}
+
+@media (min-aspect-ratio: 2/1) {
+    .layout {
+        padding-left: 3vw;
+        padding-right: 3vw;
+    }
 }
 
 .content {
@@ -61,7 +68,7 @@ nav {
 
 .links {
     display: grid;
-    font-size: 1.5em;
+    font-size: 4vw;
     grid-gap: 4vw;
     justify-self: right;
     text-align: center;
@@ -70,9 +77,15 @@ nav {
     grid-template-areas: "username login-or-out"
 }
 
+@media (min-aspect-ratio: 2/1) {
+    .links {
+        font-size: 1.7vw;
+    }
+}
+
 .logo {
     display: grid;
-    font-size: 2em;
+    font-size: 1.5vw;
     align-self: center;
 }
 
@@ -111,8 +124,8 @@ canvas {
     object-fit: contain;
 }
 
-@media (max-aspect-ratio: 2/1){
-    canvas{
+@media (max-aspect-ratio: 2/1) {
+    canvas {
         width: 80vw;
     }
 }

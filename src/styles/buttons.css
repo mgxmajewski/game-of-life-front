@@ -1,4 +1,4 @@
-label , input {
+label, input {
     /* align-content: center;*/
     /*justify-content: center;*/
     /* text-align: center;*/
@@ -24,12 +24,19 @@ input[type='number']::-webkit-outer-spin-button {
 
 .bottom-grid-controller {
     grid-area: bottombtn;
-    display: flex;
+    display: grid;
+    grid-template-columns: 16vw 16vw 16vw 16vw 16vw;
     font-family: "CaskaydiaCove Nerd Font", serif;
     font-size: 1rem;
     text-align: center;
     /*transition: background 0.2s;*/
     /*background: #d52828;*/
+}
+
+@media (min-aspect-ratio: 2/1) {
+    .bottom-grid-controller {
+        grid-template-columns: 11vw 11vw 6vw 11vw 11vw;
+    }
 }
 
 .side-grid-controller {
@@ -44,6 +51,12 @@ input[type='number']::-webkit-outer-spin-button {
     transition: background 0.2s;
 }
 
+@media (min-aspect-ratio: 2/1){
+    .side-grid-controller {
+        width: 5vw;
+    }
+}
+
 .control-button {
     background: #D42990;
     width: 100%;
@@ -51,29 +64,51 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .column-form {
+        display: grid;
+    align-self: center;
+    justify-self: center;
     margin-bottom: 0;
 }
 
 .row-form {
+        display: grid;
+    align-self: center;
+    justify-self: center;
     margin-bottom: 0;
 }
 
 .row-affected-quantity {
-    padding: 0 1em 0;
+    /*display: grid;*/
+    /*align-self: center;*/
+    /*justify-self: center;*/
+    /*padding: 0 1em 0;*/
     font-size: .7em;
     /*background: #ff4f1e;*/
 }
 
 .col-affected-quantity {
-    display: grid;
+    /*display: grid;*/
+    /*align-self: center;*/
+    /*justify-self: center;*/
     font-size: .7em;
-    padding: 0 1em 0;
+    /*padding: 0 1em 0;*/
     /*background: #ff4f1e;*/
 }
 
 .col-affected-quantity input,
 .row-affected-quantity input {
-    width: 3vw;
+    /*display: grid;*/
+    /*align-self: center;*/
+    /*justify-self: center;*/
+    width: 11vw;
+}
+
+
+@media (min-aspect-ratio: 2/1) {
+    .col-affected-quantity input,
+    .row-affected-quantity input {
+        width: 5vw;
+    }
 }
 
 .control-button.insert-first__col {

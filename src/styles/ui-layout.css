@@ -1,31 +1,32 @@
 .ui-layout {
     display: grid;
-    grid-gap: .5em;
+    grid-gap: 2vw;
     /*min-height: 80vh;*/
     /*height: 80vh;*/
     /*height: auto;*/
-    grid-template-columns: 50vw 3vw 37vw;
-    /*grid-template-rows: 10% auto auto 10%;*/
-    /*object-fit: contain;*/
-    /*grid-template-columns: 52% 8% auto;*/
-    /*grid-template-rows: 8% 44% 44% 10%;*/
+    grid-template-columns: 80vw 11vw;
     grid-template-areas:
-      "play      ....... ......."
-      "gol       sidebtn pattern"
-      "gol       sidebtn replay"
-      "bottombtn ....... .......";
-}
-
-@media (max-aspect-ratio: 2/1) {
-    .ui-layout {
-        grid-template-columns: 80vw minmax(3em, 3vw);
-        grid-template-areas:
       "play      ......."
       "gol       sidebtn"
       "gol       sidebtn"
       "bottombtn ......."
       "pattern pattern"
       "replay replay";
+
+}
+
+@media (min-aspect-ratio: 2/1) {
+    .ui-layout {
+        grid-template-columns: 50vw 5vw 35vw;
+        /*grid-template-rows: 10% auto auto 10%;*/
+        /*object-fit: contain;*/
+        /*grid-template-columns: 52% 8% auto;*/
+        /*grid-template-rows: 8% 44% 44% 10%;*/
+        grid-template-areas:
+      "play      ....... ......."
+      "gol       sidebtn pattern"
+      "gol       sidebtn replay"
+      "bottombtn ....... .......";
     }
 }
 
