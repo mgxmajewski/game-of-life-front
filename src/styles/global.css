@@ -16,11 +16,6 @@ body {
     background: radial-gradient(at top left, rgba(146, 43, 225, 1) 0%, rgba(43, 9, 197, 1) 100%) no-repeat;
 }
 
-p {
-    margin: 16px auto;
-    line-height: 1.5em;
-}
-
 /* layout & nav */
 .layout {
     max-width: 1200px;
@@ -70,7 +65,6 @@ nav {
 
 .hellouser {
     grid-area: username;
-    display: inline-block;
 }
 
 .login-or-out {
@@ -80,7 +74,6 @@ nav {
     display: inline-block;
     margin-left: 20px;
     font-weight: 300;
-    padding-bottom: 8px;
     border-bottom: 3px solid transparent;
 }
 
