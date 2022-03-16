@@ -1,5 +1,13 @@
 @import url("https://use.typekit.net/paj1wnf.css");
 
+:root {
+  box-sizing: border-box;
+}
+
+*, ::before, ::after {
+  box-sizing: inherit;
+}
+
 * {
     margin: 0;
     padding: 0;
