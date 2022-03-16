@@ -71,6 +71,11 @@ input[type='number']::-webkit-outer-spin-button {
     /*background: #ff4f1e;*/
 }
 
+.col-affected-quantity input,
+.row-affected-quantity input {
+    width: 3vw;
+}
+
 .control-button.insert-first__col {
     background: #37d429;
     border-radius: 2rem 0 0 2rem;
