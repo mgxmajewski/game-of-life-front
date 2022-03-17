@@ -17,8 +17,9 @@
 }
 
 html, body {
-    min-width: 100%;
+    /*width: 100vw;*/
     min-height: 100%;
+    /*overflow-y: scroll;*/
 }
 
 body {
@@ -28,11 +29,10 @@ body {
 
 /* layout & nav */
 .layout {
-    /*max-width: 1200px;*/
-    /*margin: 0 auto;*/
+    scrollbar-gutter: stable both-edges;
     width: 100%;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
     display: grid;
     grid-gap: .5em;
     grid-row-gap: .5em;
@@ -60,8 +60,8 @@ body {
 
 nav {
     grid-area: header;
-    width: 100%;
     display: grid;
+    width: 100%;
     grid-template-columns: 1fr 1fr;
     margin: 40px auto;
 }
@@ -85,8 +85,15 @@ nav {
 
 .logo {
     display: grid;
-    font-size: 1.5vw;
+    font-size: 5vw;
+    justify-self: left;
     align-self: center;
+}
+
+@media (min-aspect-ratio: 2/1){
+    .logo{
+        font-size: 1.5vw;
+    }
 }
 
 .hellouser {
@@ -126,7 +133,7 @@ canvas {
 
 @media (max-aspect-ratio: 2/1) {
     canvas {
-        width: 80vw;
+        width: 75vw;
     }
 }
 

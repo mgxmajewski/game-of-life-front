@@ -25,10 +25,11 @@ input[type='number']::-webkit-outer-spin-button {
 .bottom-grid-controller {
     grid-area: bottombtn;
     display: grid;
-    grid-template-columns: 16vw 16vw 16vw 16vw 16vw;
+    grid-template-columns: 15vw 15vw 15vw 15vw 15vw;
     font-family: "CaskaydiaCove Nerd Font", serif;
     font-size: 1rem;
     text-align: center;
+    height: 10vw;
     /*transition: background 0.2s;*/
     /*background: #d52828;*/
 }
@@ -49,9 +50,10 @@ input[type='number']::-webkit-outer-spin-button {
     border: 0;
     text-align: center;
     transition: background 0.2s;
+    width: 10vw;
 }
 
-@media (min-aspect-ratio: 2/1){
+@media (min-aspect-ratio: 2/1) {
     .side-grid-controller {
         width: 5vw;
     }
@@ -64,14 +66,14 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .column-form {
-        display: grid;
+    display: grid;
     align-self: center;
     justify-self: center;
     margin-bottom: 0;
 }
 
 .row-form {
-        display: grid;
+    display: grid;
     align-self: center;
     justify-self: center;
     margin-bottom: 0;
@@ -86,6 +88,10 @@ input[type='number']::-webkit-outer-spin-button {
     /*background: #ff4f1e;*/
 }
 
+/*.row-affected-quantity input {*/
+/*    height: 10vw;*/
+/*}*/
+
 .col-affected-quantity {
     /*display: grid;*/
     /*align-self: center;*/
@@ -95,12 +101,12 @@ input[type='number']::-webkit-outer-spin-button {
     /*background: #ff4f1e;*/
 }
 
-.col-affected-quantity input,
-.row-affected-quantity input {
+.row-affected-quantity input,
+.col-affected-quantity input {
     /*display: grid;*/
     /*align-self: center;*/
     /*justify-self: center;*/
-    width: 11vw;
+    width: 10vw;
 }
 
 

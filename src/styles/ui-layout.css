@@ -4,7 +4,7 @@
     /*min-height: 80vh;*/
     /*height: 80vh;*/
     /*height: auto;*/
-    grid-template-columns: 80vw 11vw;
+    grid-template-columns: 75vw 10vw;
     grid-template-areas:
       "play      ......."
       "gol       sidebtn"

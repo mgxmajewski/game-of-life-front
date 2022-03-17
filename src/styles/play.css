@@ -1,7 +1,7 @@
 .play-container {
     grid-area: play;
     display: grid;
-    grid-template-columns: 16vw 16vw 16vw 16vw 16vw;
+    grid-template-columns: 15vw 15vw 15vw 15vw 15vw;
     background: #8ad429;
 }
 
