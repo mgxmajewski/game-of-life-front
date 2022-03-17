@@ -1,6 +1,7 @@
 .ui-layout {
     display: grid;
     grid-gap: 2vw;
+    row-gap: 2vw;
     /*min-height: 80vh;*/
     /*height: 80vh;*/
     /*height: auto;*/
@@ -15,7 +16,7 @@
 
 }
 
-@media (min-aspect-ratio: 2/1) {
+@media (min-aspect-ratio: 9/7) {
     .ui-layout {
         grid-template-columns: 50vw 5vw 35vw;
         /*grid-template-rows: 10% auto auto 10%;*/

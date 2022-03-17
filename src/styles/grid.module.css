@@ -9,8 +9,9 @@
 .coordinatesBtn {
     display: inline-block;
     background: #32d429;
-    padding: 10px 16px;
-    border-radius: 10px;
+    font-size: 3vw;
+    padding: 1vw 1.5vw;
+    border-radius: 1vw;
     /*margin-top: 20px;*/
     font-weight: 500;
 }

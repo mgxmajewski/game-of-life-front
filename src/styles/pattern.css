@@ -8,13 +8,14 @@
 
 .fresh-grid-size {
     display: grid;
-    font-size: .7em;
-    padding: 0 1em 0;
+    font-size: 2vw;
+    padding: 0 1vw 0;
     /*background: #ff4f1e;*/
 }
 
 .pattern-container {
     grid-area: pattern;
+    padding: 1vw 0;
     background: #7387c4;
 }
 
