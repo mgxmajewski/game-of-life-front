@@ -90,8 +90,8 @@ nav {
     align-self: center;
 }
 
-@media (min-aspect-ratio: 9/7){
-    .logo{
+@media (min-aspect-ratio: 9/7) {
+    .logo {
         font-size: 1.5vw;
     }
 }
@@ -127,7 +127,7 @@ footer p {
 
 canvas {
     display: flex;
-    width: 50vw;
+    width: 45vw;
     object-fit: contain;
 }
 
@@ -149,18 +149,33 @@ form {
 label {
     display: block;
     font-weight: 300;
-    margin-bottom: .25rem;
+    /*margin-bottom: .5vw;*/
+    font-size: 2vw;
+}
+
+@media (min-aspect-ratio: 9/7) {
+    label{
+        font-size: 1.1vw;
+    }
 }
 
 input, textarea {
+    display: grid;
+    justify-items: center;
+    align-items: center;
     color: white;
-    display: block;
     width: 100%;
     border-radius: 1vw;
     border: 1px solid #8c789b;
     padding: 1vw;
-    margin-bottom: 1vw;
     font-size: 3vw;
+}
+
+@media (min-aspect-ratio: 9/7) {
+    input, textarea {
+        padding: .5vw;
+        font-size: 1.2vw;
+    }
 }
 
 textarea {
@@ -177,20 +192,23 @@ input[type="text"]:disabled {
 
 .btn {
     background: #D42990;
-    font-size: 2vw;
-    padding: .75rem 1.5rem;
+    white-space: nowrap;
+    font-size: 3vw;
+    width: 24vw;
+    padding: 2vw 4vw;
     border: 0;
-    margin: 0 0 .5rem 0;
+    /*margin: 0 0 1vw 0;*/
     display: block;
-    width: 80px;
     text-align: center;
     border-radius: .5rem;
     font-weight: bold;
     transition: background 0.2s;
 }
 
-@media (min-aspect-ratio: 9/7){
-    .btn{
-
+@media (min-aspect-ratio: 9/7) {
+    .btn {
+        padding: 1vw 2vw;
+        font-size: 2vw;
+        width: 16vw;
     }
 }

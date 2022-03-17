@@ -7,11 +7,20 @@
 }
 
 .coordinatesBtn {
-    display: inline-block;
     background: #32d429;
+    height: 8vw;
     font-size: 3vw;
     padding: 1vw 1.5vw;
     border-radius: 1vw;
     /*margin-top: 20px;*/
     font-weight: 500;
+}
+
+@media (min-aspect-ratio: 9/7) {
+    .coordinatesBtn {
+        height: 5vw;
+        font-size: 1.5vw;
+        padding: .5vw .8vw;
+        border-radius: .5vw;
+    }
 }

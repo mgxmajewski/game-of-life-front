@@ -16,13 +16,13 @@ const SideButtons = props => {
     return (
         <div className="side-grid-controller">
             <button
-                className="control-button insert-first__row"
+                className="control-button control-button--side insert-first__row"
                 onClick={e => changeSizeHandler(e, addFirstRow, rowsAffected)}
             >
                 &#8593;
             </button>
             <button
-                className="control-button delete-first__row"
+                className="control-button control-button--side delete-first__row"
                 onClick={e => changeSizeHandler(e, deleteFirstRow, rowsAffected)}
             >
                 &#8595;
@@ -45,13 +45,13 @@ const SideButtons = props => {
                 </div>
             </form>
             <button
-                className="control-button delete-last__row"
+                className="control-button control-button--side delete-last__row"
                 onClick={e => changeSizeHandler(e, deleteLastRow, rowsAffected)}
             >
                 &#8593;
             </button>
             <button
-                className="control-button insert-last__row"
+                className="control-button control-button--side insert-last__row"
                 onClick={e => changeSizeHandler(e, addLastRow, rowsAffected)}
             >
                 &#8595;

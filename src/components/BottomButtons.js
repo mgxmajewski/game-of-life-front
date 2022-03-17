@@ -17,13 +17,13 @@ const BottomButtons = props => {
     return (
         <div className="bottom-grid-controller">
             <button
-                className="control-button insert-first__col"
+                className="control-button control-button--bottom insert-first__col"
                 onClick={e => changeSizeHandler(e, addFirstCol, columnsAffected)}
             >
                 &#8592;
             </button>
             <button
-                className="control-button delete-first__col"
+                className="control-button control-button--bottom delete-first__col"
                 onClick={e => changeSizeHandler(e, deleteFirstCol, columnsAffected)}
             >
                 &#8594;
@@ -46,13 +46,13 @@ const BottomButtons = props => {
                 </div>
             </form>
             <button
-                className="control-button delete-last__col"
+                className="control-button control-button--bottom delete-last__col"
                 onClick={e=> changeSizeHandler(e, deleteLastCol, columnsAffected)}
             >
                 &#8592;
             </button>
             <button
-                className="control-button insert-last__col"
+                className="control-button control-button--bottom insert-last__col"
                 onClick={e => changeSizeHandler(e, addLastCol, columnsAffected)}
             >
                 &#8594;

@@ -40,7 +40,7 @@ const PatternControl = () => {
                 <form className="fresh-grid-form">
                     <div className="fresh-grid-size">
                         <label htmlFor="col-quantity">
-                            grid
+                            grid size
                             <input
                                 onChange={e => setFreshGridSize(e.target.value)}
                                 type="number"
@@ -50,7 +50,6 @@ const PatternControl = () => {
                                 min="1"
                                 max="100"
                             />
-                            size
                         </label>
                     </div>
                 </form>

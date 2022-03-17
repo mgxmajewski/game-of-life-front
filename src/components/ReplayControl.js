@@ -44,14 +44,14 @@ const ReplayControl = (props) => {
                 </button>
                 <form className="fresh-grid-form">
                     <div className="fresh-grid-size">
-                        <label htmlFor="col-quantity">
+                        <label htmlFor="snapshot-name">
                             Snapshot Name
                             <input
                                 onChange={e => setSnapshotName(e.target.value)}
                                 type="text"
-                                id="col-quantity"
+                                id="snapshot-name"
                                 value={`${snapshotName}`}
-                                name="quantity"
+                                name="snapshot"
                             />
                         </label>
                     </div>

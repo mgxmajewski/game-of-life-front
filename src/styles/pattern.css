@@ -4,6 +4,7 @@
 
 .fresh-grid-container {
     display: flex;
+    align-items: end;
 }
 
 .fresh-grid-size {
@@ -12,6 +13,8 @@
     padding: 0 1vw 0;
     /*background: #ff4f1e;*/
 }
+
+
 
 .pattern-container {
     grid-area: pattern;

@@ -13,12 +13,11 @@
       "bottombtn ......."
       "pattern pattern"
       "replay replay";
-
 }
 
 @media (min-aspect-ratio: 9/7) {
     .ui-layout {
-        grid-template-columns: 50vw 5vw 35vw;
+        grid-template-columns: 45vw 5vw 35vw;
         /*grid-template-rows: 10% auto auto 10%;*/
         /*object-fit: contain;*/
         /*grid-template-columns: 52% 8% auto;*/
