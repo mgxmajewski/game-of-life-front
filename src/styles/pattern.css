@@ -19,11 +19,11 @@
 .pattern-container {
     grid-area: pattern;
     /*padding: 1vw 0;*/
-    background: #7387c4;
+    /*background: #7387c4;*/
 }
 
 .pattern-select {
     display: flex;
-    height: 50%;
+    height: 10vw;
     width: 100%;
 }
