@@ -17,7 +17,9 @@
 
 @media (min-aspect-ratio: 9/7) {
     .ui-layout {
-        grid-template-columns: 45vw 5vw 35vw;
+        grid-gap: .5vw;
+        row-gap: .5vw;
+        grid-template-columns: 33vw 4vw auto;
         /*grid-template-rows: 10% auto auto 10%;*/
         /*object-fit: contain;*/
         /*grid-template-columns: 52% 8% auto;*/

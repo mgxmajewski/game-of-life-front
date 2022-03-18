@@ -24,8 +24,8 @@ input[type='number']::-webkit-outer-spin-button {
 
 @media (min-aspect-ratio: 9/7) {
     .bottom-grid-controller {
-        height: 5vw;
-        grid-template-columns: 10vw 10vw 5vw 10vw 10vw;
+        height: 4vw;
+        grid-template-columns: 7vw 7vw 5vw 7vw 7vw;
     }
 }
 
@@ -43,8 +43,8 @@ input[type='number']::-webkit-outer-spin-button {
 
 @media (min-aspect-ratio: 9/7) {
     .side-grid-controller {
-        width: 5vw;
-        grid-template-rows: 10vw 10vw 5vw 10vw 10vw;
+        width: 4vw;
+        grid-template-rows: 7vw 7vw 5vw 7vw 7vw;
     }
 }
 
@@ -55,7 +55,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 @media (min-aspect-ratio: 9/7) {
     .control-button {
-        font-size: 1.5vw;
+        font-size: 1.2vw;
     }
 }
 
@@ -65,7 +65,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 @media (min-aspect-ratio: 9/7) {
     .control-button--bottom {
-        height: 5vw;
+        height: 4vw;
     }
 }
 
@@ -75,7 +75,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 @media (min-aspect-ratio: 9/7) {
     .control-button--side {
-        width: 5vw;
+        width: 4vw;
     }
 }
 
@@ -114,7 +114,7 @@ input[type='number']::-webkit-outer-spin-button {
 @media (min-aspect-ratio: 9/7) {
     .col-affected-quantity input,
     .row-affected-quantity input {
-        width: 5vw;
+        width: 4vw;
     }
 }
 
