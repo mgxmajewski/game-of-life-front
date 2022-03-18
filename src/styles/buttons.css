@@ -13,7 +13,7 @@ input[type='number']::-webkit-outer-spin-button {
 .bottom-grid-controller {
     grid-area: bottombtn;
     display: grid;
-    align-items: center;
+    align-self: self-start;
     grid-template-columns: 15vw 15vw 15vw 15vw 15vw;
     font-size: 3vw;
     text-align: center;
