@@ -10,7 +10,8 @@ export const handleRegistration = (props) => {
     // console.log(authHeader)
 
     const myHeaders = {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Referrer-Policy": "no-referrer"
     };
 
     const raw = JSON.stringify({
