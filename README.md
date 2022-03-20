@@ -1,3 +1,5 @@
+IMPORTANT: Leave .env structure as it is (in case they were absent gatsby concat given env variable with localhost by default)
+
 &nbsp;Agile<br><sup>></sup><sup>◊</sup>﬩<sup>◊</sup><sup><</sup><br>&nbsp;&nbsp;<sup>cat</sup>
   
 &nbsp;Agile<br><sup>></sup><sup>◊</sup>﬩<sup>◊</sup><sup><</sup><br>&nbsp;&nbsp;cat</div>
