@@ -23,8 +23,8 @@ export const handleRegistration = (props) => {
         method: 'POST',
         headers: myHeaders,
         body: raw,
-        // redirect: 'follow',
-        // credentials: 'include'
+        redirect: 'follow',
+        credentials: 'include'
     };
 
     return fetch(`${process.env.GATSBY_API_URL}/user/create`, requestOptions)
