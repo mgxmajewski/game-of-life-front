@@ -8,14 +8,14 @@ export const handleLogout = () => {
 
     const myHeaders = {
         // "Authorization": `${authHeader}`,
-        "Access-Control-Allow-Origin": "*",
+        // "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json"
     };
 
     const requestOptions = {
         method: 'POST',
         headers: myHeaders,
-        mode: 'no-cors', // no-cors, *cors, same-origin
+        // mode: 'no-cors', // no-cors, *cors, same-origin
         // redirect: 'follow',
         credentials: 'include'
     };
