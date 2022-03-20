@@ -47,11 +47,13 @@ const AuthSync = (props) => {
     const asyncToken = async () => {
 
         const myHeaders = {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': '*'
         };
 
         const requestOptions = {
             method: 'POST',
+
             headers: myHeaders,
             redirect: 'follow',
             credentials: 'include'
