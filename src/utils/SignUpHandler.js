@@ -11,7 +11,9 @@ export const handleRegistration = (props) => {
 
     const myHeaders = {
         "Content-Type": "application/json",
-        "Referrer-Policy": "no-referrer"
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT",
+        "Access-Control-Allow-Headers": "X-Token"
     };
 
     const raw = JSON.stringify({
