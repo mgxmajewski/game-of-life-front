@@ -52,6 +52,7 @@ const AuthSync = (props) => {
         };
 
         const requestOptions = {
+            mode: 'no-cors',
             method: 'POST',
 
             headers: myHeaders,
