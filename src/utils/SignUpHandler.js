@@ -23,7 +23,6 @@ export const handleRegistration = (props) => {
         method: 'POST',
         headers: myHeaders,
         body: raw,
-        // redirect: 'follow',
         credentials: 'include'
     };
 

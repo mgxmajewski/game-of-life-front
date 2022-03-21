@@ -20,8 +20,6 @@ export const handleSignIn = (props) => {
     const requestOptions = {
         method: 'POST',
         headers: myHeaders,
-        // mode: 'cors', // no-cors, *cors, same-origin
-        // redirect: 'follow',
         credentials: 'include'
     };
 

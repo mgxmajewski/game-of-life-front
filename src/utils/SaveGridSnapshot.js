@@ -29,7 +29,6 @@ export const saveGridSnapshot = async (api, token, creator, snapshotName, grid) 
         method: 'POST',
         headers: myHeaders,
         body: raw,
-        // redirect: 'follow',
         credentials: 'include'
     };
 
