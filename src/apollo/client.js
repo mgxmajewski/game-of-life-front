@@ -12,7 +12,7 @@ export const getToken = () => {
 
 export const wsClient = typeof window !== "undefined"
 ? new SubscriptionClient(
-    `ws://${process.env.GATSBY_GQL_URL}/`,
+    `${process.env.GATSBY_GQL_URL}`,
     {
         reconnect: true,
         lazy: true,
