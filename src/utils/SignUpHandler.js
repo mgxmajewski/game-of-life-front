@@ -11,7 +11,7 @@ export const handleRegistration = (props) => {
 
     const myHeaders = {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
+        
     };
 
     const raw = JSON.stringify({

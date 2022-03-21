@@ -16,7 +16,7 @@ export const fetchHandler = async (apiRoute, method, currentToken) => {
     const myHeaders = {
         "Authorization": `${currentToken}`,
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
+        
     };
 
     const requestOptions = {

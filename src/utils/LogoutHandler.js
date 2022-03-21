@@ -8,8 +8,8 @@ export const handleLogout = () => {
 
     const myHeaders = {
         // "Authorization": `${authHeader}`,
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
     };
 
     const requestOptions = {

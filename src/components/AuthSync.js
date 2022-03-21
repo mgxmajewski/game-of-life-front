@@ -47,8 +47,8 @@ const AuthSync = (props) => {
     const asyncToken = async () => {
 
         const myHeaders = {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*"
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
         };
 
         const requestOptions = {
