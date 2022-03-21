@@ -14,7 +14,8 @@ export const handleSignIn = (props) => {
 
     const myHeaders = {
         "Authorization": `${authHeader}`,
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Headers": "*"
     };
 
     const requestOptions = {
