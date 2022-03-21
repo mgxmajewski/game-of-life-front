@@ -1,5 +1,4 @@
-IMPORTANT: Leave .env structure as it is (in case they were absent gatsby concat given env variable with localhost by default). This seems to be true for GATSBY_GQL_URL and GATSBY_API_URL. Other variables seems to behave as regular .env variables (TBC).  
-
+IMPORTANT: Leave .env structure as it is (in case they were absent gatsby concat given env variable with localhost by default)
 
 &nbsp;Agile<br><sup>></sup><sup>◊</sup>﬩<sup>◊</sup><sup><</sup><br>&nbsp;&nbsp;<sup>cat</sup>
   

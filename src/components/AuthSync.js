@@ -47,10 +47,11 @@ const AuthSync = (props) => {
     const asyncToken = async () => {
 
         const myHeaders = {
-            "Content-Type": "application/json"
+            'Content-Type': 'application/json',
         };
 
         const requestOptions = {
+            mode: 'cors',
             method: 'POST',
             headers: myHeaders,
             redirect: 'follow',
