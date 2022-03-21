@@ -14,15 +14,14 @@ export const handleSignIn = (props) => {
 
     const myHeaders = {
         "Authorization": `${authHeader}`,
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Headers": "*"
+        "Content-Type": "application/json"
     };
 
     const requestOptions = {
         method: 'POST',
         headers: myHeaders,
-        mode: 'cors', // no-cors, *cors, same-origin
-        redirect: 'follow',
+        // mode: 'cors', // no-cors, *cors, same-origin
+        // redirect: 'follow',
         credentials: 'include'
     };
 

@@ -11,7 +11,6 @@ export const handleRegistration = (props) => {
 
     const myHeaders = {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Headers": "*"
     };
 
     const raw = JSON.stringify({
@@ -24,7 +23,7 @@ export const handleRegistration = (props) => {
         method: 'POST',
         headers: myHeaders,
         body: raw,
-        redirect: 'follow',
+        // redirect: 'follow',
         credentials: 'include'
     };
 
