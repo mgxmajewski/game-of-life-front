@@ -10,10 +10,7 @@ export const handleRegistration = (props) => {
     // console.log(authHeader)
 
     const myHeaders = {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT",
-        "Access-Control-Allow-Headers": "X-Token"
+        "Content-Type": "application/json"
     };
 
     const raw = JSON.stringify({
@@ -27,7 +24,7 @@ export const handleRegistration = (props) => {
         headers: myHeaders,
         body: raw,
         // redirect: 'follow',
-        // credentials: 'include'
+        credentials: 'include'
     };
 
     return fetch(`${process.env.GATSBY_API_URL}/user/create`, requestOptions)
