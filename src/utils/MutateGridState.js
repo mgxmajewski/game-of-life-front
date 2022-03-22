@@ -24,7 +24,7 @@ export const mutateGridState = async (api, token, grid, coordinates) => {
         method: 'POST',
         headers: myHeaders,
         body: raw,
-        // redirect: 'follow',
+        mode: 'cors',
         credentials: 'include'
     };
 
