@@ -12,6 +12,7 @@ const IndexPage = () => {
                 <h3>Discover Cellular Automata</h3>
                 <p>You can watch already discovered patterns or try to find new ones yourself.</p>
                 <Link className="btn" to="/grid">New Game</Link>
+                <p>popop new</p>
             </div>
         </section>
     )
