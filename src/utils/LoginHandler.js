@@ -20,8 +20,7 @@ export const handleSignIn = (props) => {
     const requestOptions = {
         method: 'POST',
         headers: myHeaders,
-        credentials: 'include',
-        mode: 'cors', // no-cors, *cors, same-origin
+        credentials: 'include'
     };
 
     // return fetch("http://localhost:3000/user/login", requestOptions)
