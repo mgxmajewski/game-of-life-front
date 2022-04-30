@@ -4,11 +4,36 @@
     grid-gap: 4vw;
     align-items: center;
 }
+
 .header h2 {
-    font-size: 4em;
+    font-size: 10vw;
 }
+
+@media (min-aspect-ratio: 9/7) {
+    .header h2 {
+        font-size: 5vw;
+    }
+}
+
+
 .header h3 {
-    font-size: 3em;
+    font-size: 8vw;
     font-weight: 300;
-    margin-bottom: 20px;
+    margin-bottom: 2vw;
+}
+
+@media (min-aspect-ratio: 9/7) {
+    .header h3 {
+        font-size: 4vw;
+    }
+}
+
+.copy-paragraph {
+    font-size: 3vw;
+}
+
+@media (min-aspect-ratio: 9/7) {
+    .copy-paragraph {
+        font-size: clamp(12px, 2.5vw, 20px);
+    }
 }
