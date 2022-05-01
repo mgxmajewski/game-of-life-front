@@ -21,7 +21,6 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-
 }
 
 @media (min-aspect-ratio: 9/7) {
