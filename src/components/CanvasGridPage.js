@@ -7,8 +7,8 @@ import PropTypes from "prop-types";
 import CanvasGrid from "../components/CanvasGrid";
 import BottomButtons from "../components/BottomButtons";
 import PlayControl from "../components/PlayControl";
-import PatternControl from "../components/PatternControl";
-import ReplayControl from "../components/ReplayControl";
+import DbPatternsControl from "./DbPatternsControl";
+import UserPatternsControl from "./UserPatternsControl";
 import SideButtons from "../components/SideButtons";
 import {mutateGridState} from "../utils/MutateGridState";
 import {getLongestDimension} from "../utils/GetLongestDimension";
@@ -101,8 +101,8 @@ const CanvasGridPage = props => {
             <PlayControl
                 currentToken={currentToken}
             />
-            <PatternControl/>
-            <ReplayControl
+            <DbPatternsControl/>
+            <UserPatternsControl
                 currentGridState={apolloGrid}/>
             <SideButtons
                 changeSizeHandler={changeSizeHandler}

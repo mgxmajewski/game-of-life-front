@@ -1,4 +1,5 @@
 .replay-container {
     grid-area: replay;
+    padding: 0 2vw;
     /*background: chocolate;*/
 }

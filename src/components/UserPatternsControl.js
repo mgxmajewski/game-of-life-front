@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {useReactiveVar} from "@apollo/client";
-import '../styles/replay.css'
+import '../styles/user-patterns-control.css'
 import {coordinatesBtn} from "../styles/grid.module.css";
 import {saveGridSnapshot} from "../utils/SaveGridSnapshot";
 import {fetchHandler, useFetch} from "../utils/useFetch";
 import {authenticatedToken, userIdVar} from "../utils/cache";
 
 
-const ReplayControl = (props) => {
+const UserPatternsControl = (props) => {
 
     const {currentGridState} = props
     const currentToken = useReactiveVar(authenticatedToken)[0];
@@ -34,7 +34,7 @@ const ReplayControl = (props) => {
     }
 
     return (
-        <div className="replay-container">
+        <div className="replay-container gradient-background-with-shadow">
             <div className="fresh-grid-container">
                 <button
                     className={coordinatesBtn}
@@ -57,12 +57,6 @@ const ReplayControl = (props) => {
                     </div>
                 </form>
             </div>
-            <button
-                className={coordinatesBtn}
-                onClick={(e) => loadPattern(e)}
-            >
-                Load Pattern
-            </button>
             {isListLoading
                 ? <p>Loading patterns from the server</p>
                 :
@@ -76,8 +70,14 @@ const ReplayControl = (props) => {
                     ))}
                 </select>
             }
+            <button
+                className={coordinatesBtn}
+                onClick={(e) => loadPattern(e)}
+            >
+                Load Pattern
+            </button>
         </div>
     );
 }
 
-export default ReplayControl;
+export default UserPatternsControl;

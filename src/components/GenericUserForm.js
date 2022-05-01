@@ -24,7 +24,7 @@ const GenericUserForm = props => {
     }
 
     return (
-        <div className="form--centered">
+        <div className="form--centered gradient-background-with-shadow">
 
             <h1>Get access</h1>
             <ServerMessages messages={props.messages}/>
