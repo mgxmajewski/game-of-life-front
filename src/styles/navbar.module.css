@@ -1,0 +1,64 @@
+nav {
+    padding: 2vw 0;
+    grid-area: header;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (min-aspect-ratio: 9/7) {
+    nav {
+        padding: 1vw 0;
+    }
+}
+
+
+.links {
+    display: grid;
+    font-size: 4vw;
+    grid-gap: 4vw;
+    justify-self: right;
+    text-align: center;
+    align-content: center;
+    grid-template-columns: max-content max-content;
+    grid-template-areas: "username login-or-out"
+}
+
+@media (min-aspect-ratio: 9/7) {
+    .links {
+        font-size: 1.3vw;
+    }
+}
+
+.logo {
+    display: grid;
+    font-size: 5vw;
+    justify-self: left;
+    align-self: center;
+    margin-top: 1vw;
+    margin-bottom: 0;
+}
+
+@media (min-aspect-ratio: 9/7) {
+    .logo {
+        font-size: 1.5vw;
+    }
+}
+
+.hellouser {
+    grid-area: username;
+}
+
+.login-or-out {
+    cursor: pointer;
+    text-align: center;
+    grid-area: login-or-out;
+    display: inline-block;
+    margin-left: 20px;
+    font-weight: 300;
+    border-bottom: 3px solid transparent;
+}
+
+.login-or-out:hover {
+    border-color: white;
+}
