@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useReactiveVar} from "@apollo/client";
-import '../styles/user-patterns-control.css'
+import '../styles/patterns-control-container.css'
 import {coordinatesBtn} from "../styles/grid.module.css";
 import {saveGridSnapshot} from "../utils/SaveGridSnapshot";
 import {fetchHandler, useFetch} from "../utils/useFetch";
@@ -35,6 +35,7 @@ const UserPatternsControl = (props) => {
 
     return (
         <div className="replay-container gradient-background-with-shadow">
+            <h2>Your own patterns DB.</h2>
             <div className="fresh-grid-container">
                 <button
                     className={coordinatesBtn}

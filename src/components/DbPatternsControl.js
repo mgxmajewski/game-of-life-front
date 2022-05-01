@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../styles/db-patterns-control.css'
+import '../styles/patterns-control-container.css'
 import {coordinatesBtn} from "../styles/grid.module.css";
 import {useReactiveVar} from "@apollo/client";
 import {fetchHandler, useFetch} from "../utils/useFetch";
@@ -31,6 +31,7 @@ const DbPatternsControl = () => {
 
     return (
         <div className="pattern-container gradient-background-with-shadow">
+            <h2>Patterns from conwaylife.com DB or fresh start =></h2>
             <div className="fresh-grid-container">
                 <button
                     className={coordinatesBtn}
