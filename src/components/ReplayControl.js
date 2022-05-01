@@ -34,7 +34,7 @@ const ReplayControl = (props) => {
     }
 
     return (
-        <div className="replay-container">
+        <div className="replay-container gradient-background-with-shadow">
             <div className="fresh-grid-container">
                 <button
                     className={coordinatesBtn}
@@ -57,12 +57,6 @@ const ReplayControl = (props) => {
                     </div>
                 </form>
             </div>
-            <button
-                className={coordinatesBtn}
-                onClick={(e) => loadPattern(e)}
-            >
-                Load Pattern
-            </button>
             {isListLoading
                 ? <p>Loading patterns from the server</p>
                 :
@@ -76,6 +70,12 @@ const ReplayControl = (props) => {
                     ))}
                 </select>
             }
+            <button
+                className={coordinatesBtn}
+                onClick={(e) => loadPattern(e)}
+            >
+                Load Pattern
+            </button>
         </div>
     );
 }

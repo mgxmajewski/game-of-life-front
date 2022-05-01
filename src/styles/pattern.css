@@ -4,26 +4,24 @@
 
 .fresh-grid-container {
     display: flex;
+    gap: 1vw;
     align-items: end;
 }
 
 .fresh-grid-size {
     display: grid;
     font-size: 2vw;
-    /*padding: 0 1vw 0;*/
-    /*background: #ff4f1e;*/
+    padding-top: .5vw;
 }
-
-
 
 .pattern-container {
     grid-area: pattern;
-    /*padding: 1vw 0;*/
-    /*background: #7387c4;*/
+    padding: 0 2vw;
 }
 
 .pattern-select {
+    margin: .5vw 0;
     display: flex;
-    height: 10vw;
+    height: 9vw;
     width: 100%;
 }

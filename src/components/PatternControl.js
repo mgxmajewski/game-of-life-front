@@ -4,6 +4,7 @@ import {coordinatesBtn} from "../styles/grid.module.css";
 import {useReactiveVar} from "@apollo/client";
 import {fetchHandler, useFetch} from "../utils/useFetch";
 import {authenticatedToken} from "../utils/cache";
+import {patternControlButton} from "../styles/buttons.module.css"
 
 
 const PatternControl = () => {
@@ -29,7 +30,7 @@ const PatternControl = () => {
     const isListLoading = !patternList;
 
     return (
-        <div className="pattern-container">
+        <div className="pattern-container gradient-background-with-shadow">
             <div className="fresh-grid-container">
                 <button
                     className={coordinatesBtn}
@@ -54,12 +55,6 @@ const PatternControl = () => {
                     </div>
                 </form>
             </div>
-            <button
-                className={coordinatesBtn}
-                onClick={(e) => loadPattern(e)}
-            >
-                Load Pattern
-            </button>
             {isListLoading
                 ? <p>Loading patterns from the server</p>
                 :
@@ -73,6 +68,12 @@ const PatternControl = () => {
                     ))}
                 </select>
             }
+            <button
+                className={coordinatesBtn}
+                onClick={(e) => loadPattern(e)}
+            >
+                Load Pattern
+            </button>
         </div>
     );
 }
