@@ -11,7 +11,7 @@
 .fresh-grid-size {
     display: grid;
     font-size: 2vw;
-    /*padding-top: .5vw;*/
+    padding-top: .5vw;
 }
 
 .pattern-container {
