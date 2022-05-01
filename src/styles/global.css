@@ -217,7 +217,7 @@ input[type="text"]:disabled {
 
 .form--centered {
     margin: 10vw auto;
-    border: 1px solid rgb(145, 42, 224);
+    /*border: 1px solid rgb(145, 42, 224);*/
     padding: 5vw;
     width: 70vw;
     border-radius: 3vw;
