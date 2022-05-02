@@ -4,9 +4,10 @@ import {
     freshGridContainer,
     freshGridForm,
     freshGridSizeInput,
-    patternSelect, replayContainer
+    patternSelect,
+    replayContainer,
+    coordinatesBtn
 } from '../styles/patterns-control.module.css'
-import {coordinatesBtn} from "../styles/grid.module.css";
 import {useReactiveVar} from "@apollo/client";
 import {fetchHandler, useFetch} from "../utils/useFetch";
 import {authenticatedToken} from "../utils/cache";

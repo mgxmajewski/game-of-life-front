@@ -5,9 +5,9 @@ import {
     freshGridContainer,
     freshGridForm,
     freshGridSizeInput,
-    patternSelect
+    patternSelect,
+    coordinatesBtn
 } from '../styles/patterns-control.module.css'
-import {coordinatesBtn} from "../styles/grid.module.css";
 import {genericButton, gradientBackgroundWithShadow} from "../styles/global.module.css";
 import {saveGridSnapshot} from "../utils/SaveGridSnapshot";
 import {fetchHandler, useFetch} from "../utils/useFetch";

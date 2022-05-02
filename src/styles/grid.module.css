@@ -5,37 +5,3 @@
     aspect-ratio: 1/1;
     margin: 0 auto;
 }
-
-.coordinatesBtn {
-    background-color: #EA4C89;
-    height: 6vw;
-    width: auto;
-    font-size: 2.5vw;
-    padding: 1vw 1.5vw;
-    border-radius: 1vw;
-    /*margin-top: 20px;*/
-    transition: color 100ms;
-    font-weight: 500;
-    border-style: none;
-    cursor: pointer;
-    outline: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    margin-top: 0;
-}
-
-@media (min-aspect-ratio: 9/7) {
-    .coordinatesBtn {
-        height: 2.2vw;
-        font-size: 1vw;
-        padding: .3vw .5vw;
-        border-radius: 1vw;
-    }
-}
-
-/*!*.coordinatesBtn:focus,*!*/
-/*.coordinatesBtn:hover {*/
-/*    background-color: #F082AC;*/
-/*}*/
-
