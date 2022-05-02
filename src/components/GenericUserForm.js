@@ -1,6 +1,8 @@
 import * as PropTypes from "prop-types";
 import React from "react";
 import ServerMessages from "./ServerMessages";
+import {genericForm} from "../styles/generic-user-form.module.css"
+import {gradientBackgroundWithShadow, btn} from "../styles/global.module.css"
 
 const GenericUserForm = props => {
 
@@ -24,7 +26,7 @@ const GenericUserForm = props => {
     }
 
     return (
-        <div className="form--centered gradient-background-with-shadow">
+        <div className={`${genericForm} ${gradientBackgroundWithShadow}`}>
 
             <h1>Get access</h1>
             <ServerMessages messages={props.messages}/>
@@ -50,7 +52,7 @@ const GenericUserForm = props => {
                 </label>
                 <input
                     type="submit"
-                    className="btn"
+                    className={btn}
                     value={`${props.purpose}`}
                 />
             </form>
