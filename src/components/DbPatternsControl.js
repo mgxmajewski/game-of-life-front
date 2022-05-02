@@ -10,6 +10,7 @@ import {coordinatesBtn} from "../styles/grid.module.css";
 import {useReactiveVar} from "@apollo/client";
 import {fetchHandler, useFetch} from "../utils/useFetch";
 import {authenticatedToken} from "../utils/cache";
+import {genericButton} from "../styles/global.module.css";
 
 const DbPatternsControl = () => {
 
@@ -41,7 +42,7 @@ const DbPatternsControl = () => {
             <h2>Patterns from conwaylife.com DB or fresh start =></h2>
             <div className={freshGridContainer}>
                 <button
-                    className={coordinatesBtn}
+                     className={`${genericButton} ${coordinatesBtn}`}
                     onClick={(e) => loadEmptyGrid(e)}
                 >
                     Load Empty Grid
@@ -77,7 +78,7 @@ const DbPatternsControl = () => {
                 </select>
             }
             <button
-                className={coordinatesBtn}
+                 className={`${genericButton} ${coordinatesBtn}`}
                 onClick={(e) => loadPattern(e)}
             >
                 Load Pattern

@@ -9,6 +9,7 @@
 .coordinatesBtn {
     background-color: #EA4C89;
     height: 6vw;
+    width: auto;
     font-size: 2.5vw;
     padding: 1vw 1.5vw;
     border-radius: 1vw;
@@ -21,6 +22,7 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    margin-top: 0;
 }
 
 @media (min-aspect-ratio: 9/7) {
@@ -32,8 +34,8 @@
     }
 }
 
-/*.coordinatesBtn:focus,*/
-.coordinatesBtn:hover {
-    background-color: #F082AC;
-}
+/*!*.coordinatesBtn:focus,*!*/
+/*.coordinatesBtn:hover {*/
+/*    background-color: #F082AC;*/
+/*}*/
 

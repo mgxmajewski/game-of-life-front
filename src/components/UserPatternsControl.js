@@ -8,6 +8,7 @@ import {
     patternSelect
 } from '../styles/patterns-control.module.css'
 import {coordinatesBtn} from "../styles/grid.module.css";
+import {genericButton} from "../styles/global.module.css";
 import {saveGridSnapshot} from "../utils/SaveGridSnapshot";
 import {fetchHandler, useFetch} from "../utils/useFetch";
 import {authenticatedToken, userIdVar} from "../utils/cache";
@@ -44,7 +45,8 @@ const UserPatternsControl = (props) => {
             <h2>Your own patterns DB.</h2>
             <div className={freshGridContainer}>
                 <button
-                    className={coordinatesBtn}
+                    // className={coordinatesBtn}
+                    className={`${genericButton} ${coordinatesBtn}`}
                     onClick={(e) => sendSnapshotToDb(e)}
                 >
                     Save Grid Snapshot
@@ -78,7 +80,7 @@ const UserPatternsControl = (props) => {
                 </select>
             }
             <button
-                className={coordinatesBtn}
+                className={`${genericButton} ${coordinatesBtn}`}
                 onClick={(e) => loadPattern(e)}
             >
                 Load Pattern
