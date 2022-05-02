@@ -91,3 +91,8 @@
         border-radius: 1vw;
     }
 }
+
+.coordinatesBtn:focus {
+    outline: none;
+    border: none;
+}
