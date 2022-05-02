@@ -9,7 +9,7 @@ import {bottomGridController,
 
 } from '../styles/grid-edit-controls.module.css'
 
-const BottomButtons = props => {
+const GridEditBottomButtons = props => {
 
     const {
         changeSizeHandler,
@@ -69,4 +69,4 @@ const BottomButtons = props => {
     );
 }
 
-export default BottomButtons;
+export default GridEditBottomButtons;

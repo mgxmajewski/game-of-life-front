@@ -9,7 +9,7 @@ import {
     rowForm,
 } from '../styles/grid-edit-controls.module.css'
 
-const SideButtons = props => {
+const GridEditSideButtons = props => {
 
     const {
         rowsAffected,
@@ -69,4 +69,4 @@ const SideButtons = props => {
     );
 }
 
-export default SideButtons;
+export default GridEditSideButtons;

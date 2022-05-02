@@ -5,11 +5,11 @@ import {golWrapper} from "../styles/grid.module.css"
 import '../styles/grid-editor-ui-layout.module.css'
 import PropTypes from "prop-types";
 import CanvasGrid from "../components/CanvasGrid";
-import BottomButtons from "../components/BottomButtons";
+import GridEditBottomButtons from "./GridEditBottomButtons";
 import PlayControl from "../components/PlayControl";
 import DbPatternsControl from "./DbPatternsControl";
 import UserPatternsControl from "./UserPatternsControl";
-import SideButtons from "../components/SideButtons";
+import GridEditSideButtons from "./GridEditSideButtons";
 import {mutateGridState} from "../utils/MutateGridState";
 import {getLongestDimension} from "../utils/GetLongestDimension";
 import {authenticatedToken, showCoordinates} from "../utils/cache";
@@ -104,12 +104,12 @@ const CanvasGridPage = props => {
             <DbPatternsControl/>
             <UserPatternsControl
                 currentGridState={apolloGrid}/>
-            <SideButtons
+            <GridEditSideButtons
                 changeSizeHandler={changeSizeHandler}
                 rowsAffected={rowsAffected}
                 setRowsAffected={setRowsAffected}
             />
-            <BottomButtons
+            <GridEditBottomButtons
                 changeSizeHandler={changeSizeHandler}
                 columnsAffected={columnsAffected}
                 setColumnsAffected={setColumnsAffected}
