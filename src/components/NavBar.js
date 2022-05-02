@@ -1,8 +1,8 @@
 import React from 'react';
-// import {Link} from "gatsby";
 import {handleLogout} from "../utils/LogoutHandler";
 import {navigate} from "gatsby";
 import {hellouser, links, loginOrOut, logo} from "../styles/navbar.module.css"
+import {buttonNotChangingAppearance} from "../styles/global.module.css"
 
 
 const NavBar = () => {
@@ -14,33 +14,30 @@ const NavBar = () => {
 
     return (
         <nav>
-            <h1
-                className={logo}
-                onClick={() => navigate('/')}
-            >
-                AgileCat.io
-            </h1>
+            <button className={`${logo} ${buttonNotChangingAppearance}`}
+                    onClick={() => navigate('/')}
+                >
+                GameOfLife.live
+            </button>
             <div className={links}>
-                {/*<Link to="/">Home</Link>*/}
-                {/*<Link to="/grid">Grid</Link>*/}
                 {userLogged ?
                     <>
-                        <p className={hellouser}>Hi, {userName}!</p>
-                        <p
-                            className={loginOrOut}
+                        <p className={`${hellouser}`}>Hi, {userName}!</p>
+                        <button
+                            className={`${loginOrOut} ${buttonNotChangingAppearance}`}
                             onClick={() => handleLogout()}
                         >
                             Sign Out
-                        </p>
+                        </button>
                     </>
                     :
                     <>
-                        <p
-                            className={loginOrOut}
+                        <button
+                            className={`${loginOrOut} ${buttonNotChangingAppearance}`}
                             onClick={() => navigate('/sign-in')}
                         >
                             Login
-                        </p>
+                        </button>
                     </>
                 }
             </div>

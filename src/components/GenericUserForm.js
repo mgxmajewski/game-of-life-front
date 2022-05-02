@@ -2,7 +2,7 @@ import * as PropTypes from "prop-types";
 import React from "react";
 import ServerMessages from "./ServerMessages";
 import {genericForm, genericFormButton} from "../styles/generic-user-form.module.css"
-import {gradientBackgroundWithShadow, genericButton} from "../styles/global.module.css"
+import {genericButton, gradientBackgroundWithShadow, buttonNotChangingAppearance} from "../styles/global.module.css"
 
 const GenericUserForm = props => {
 
@@ -17,10 +17,10 @@ const GenericUserForm = props => {
 
         return <p>
             {`${question}`}
-            <strong style={{textDecorationLine: "underline"}}
+            <button className={buttonNotChangingAppearance} style={{textDecorationLine: "underline"}}
                     onClick={props.onTogglePurpose}>
                 Click here
-            </strong>
+            </button>
             {`${suggestedAction}`}
         </p>
     }
@@ -49,11 +49,11 @@ const GenericUserForm = props => {
                         onChange={props.onChange}
                     />
                 </label>
-                <input
+                <button
                     type="submit"
                     className={`${genericButton} ${genericFormButton}`}
-                    value={`${props.purpose}`}
-                />
+                    // value={`${props.purpose}`}
+                >{props.purpose}</button>
             </form>
             {props.purpose === userWantsToSignIn
                 ? purposeParagraph(noAccountQuestion, signUpSuggestion)

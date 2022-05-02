@@ -31,9 +31,10 @@ nav {
 }
 
 .logo {
-    display: grid;
+    /*display: grid;*/
     font-size: 5vw;
     justify-self: left;
+    font-weight: 600;
     align-self: center;
     margin-top: 1vw;
     margin-bottom: 0;
