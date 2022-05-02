@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {playContainer, intervalForm} from '../styles/play.module.css'
-import {coordinatesBtn} from "../styles/grid.module.css";
-import {controlButton} from "../styles/grid-edit-controls.module.css"
+import {playGridButton, playContainer, intervalForm} from '../styles/play.module.css'
 import {showCoordinates} from "../utils/cache";
 import {mutateGridState} from "../utils/MutateGridState";
+import {genericButton} from "../styles/global.module.css";
+
 
 
 const PlayControl = props => {
@@ -48,13 +48,13 @@ const PlayControl = props => {
     return (
         <div className={playContainer}>
             <button
-                className={controlButton}
+                className={`${genericButton} ${playGridButton}`}
                 onClick={toggleDisplayCoordinates}
             >
                 Show Coordinates
             </button>
             <button
-                className={controlButton}
+                className={`${genericButton} ${playGridButton}`}
                 onClick={e => playGridHandler(e, 'next-state/')}
             >
                 Next Frame
@@ -80,13 +80,13 @@ const PlayControl = props => {
                 </label>
             </form>
             <button
-                className={controlButton}
+                className={`${genericButton} ${playGridButton}`}
                 onClick={e => startInterval(e)}
             >
                 Start Interval
             </button>
             <button
-                className={controlButton}
+                className={`${genericButton} ${playGridButton}`}
                 onClick={e => stopInterval(e)}
             >
                 Stop Interval
