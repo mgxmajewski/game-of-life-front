@@ -1,6 +1,12 @@
 import React, {useState} from 'react';
 import {useReactiveVar} from "@apollo/client";
-import '../styles/patterns-control-container.css'
+import {
+    replayContainer,
+    freshGridContainer,
+    freshGridForm,
+    freshGridSizeInput,
+    patternSelect
+} from '../styles/patterns-control.module.css'
 import {coordinatesBtn} from "../styles/grid.module.css";
 import {saveGridSnapshot} from "../utils/SaveGridSnapshot";
 import {fetchHandler, useFetch} from "../utils/useFetch";
@@ -34,17 +40,17 @@ const UserPatternsControl = (props) => {
     }
 
     return (
-        <div className="replay-container gradient-background-with-shadow">
+        <div className={replayContainer}>
             <h2>Your own patterns DB.</h2>
-            <div className="fresh-grid-container">
+            <div className={freshGridContainer}>
                 <button
                     className={coordinatesBtn}
                     onClick={(e) => sendSnapshotToDb(e)}
                 >
                     Save Grid Snapshot
                 </button>
-                <form className="fresh-grid-form">
-                    <div className="fresh-grid-size">
+                <form className={freshGridForm}>
+                    <div className={freshGridSizeInput}>
                         <label htmlFor="snapshot-name">
                             Snapshot Name
                             <input
@@ -62,7 +68,7 @@ const UserPatternsControl = (props) => {
                 ? <p>Loading patterns from the server</p>
                 :
                 <select
-                    className="pattern-select"
+                    className={patternSelect}
                     size="3"
                     onChange={e => setPatternToLoad(e.target.value)}
                 >

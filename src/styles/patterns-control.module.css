@@ -8,7 +8,7 @@
     align-items: end;
 }
 
-.fresh-grid-size {
+.fresh-grid-size-input {
     display: grid;
     font-size: 2vw;
     padding-top: .5vw;

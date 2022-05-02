@@ -1,11 +1,15 @@
 import React, {useState} from 'react';
-import '../styles/patterns-control-container.css'
+import {
+    patternContainer,
+    freshGridContainer,
+    freshGridForm,
+    freshGridSizeInput,
+    patternSelect
+} from '../styles/patterns-control.module.css'
 import {coordinatesBtn} from "../styles/grid.module.css";
 import {useReactiveVar} from "@apollo/client";
 import {fetchHandler, useFetch} from "../utils/useFetch";
 import {authenticatedToken} from "../utils/cache";
-import {patternControlButton} from "../styles/buttons.module.css"
-
 
 const DbPatternsControl = () => {
 
@@ -30,17 +34,20 @@ const DbPatternsControl = () => {
     const isListLoading = !patternList;
 
     return (
-        <div className="pattern-container gradient-background-with-shadow">
+        <div
+            // className="pattern-container gradient-background-with-shadow"
+            className={patternContainer}
+        >
             <h2>Patterns from conwaylife.com DB or fresh start =></h2>
-            <div className="fresh-grid-container">
+            <div className={freshGridContainer}>
                 <button
                     className={coordinatesBtn}
                     onClick={(e) => loadEmptyGrid(e)}
                 >
                     Load Empty Grid
                 </button>
-                <form className="fresh-grid-form">
-                    <div className="fresh-grid-size">
+                <form className={freshGridForm}>
+                    <div className={freshGridSizeInput}>
                         <label htmlFor="col-quantity">
                             grid size
                             <input
@@ -60,7 +67,7 @@ const DbPatternsControl = () => {
                 ? <p>Loading patterns from the server</p>
                 :
                 <select
-                    className="pattern-select"
+                    className={patternSelect}
                     size="3"
                     onChange={e => setPatternToLoad(e.target.value)}
                 >
