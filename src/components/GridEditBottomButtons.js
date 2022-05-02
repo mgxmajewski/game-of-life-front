@@ -1,13 +1,15 @@
 import React from 'react';
-import {bottomGridController,
+import {
+    bottomGridController,
     controlButton,
     controlButtonBottom,
     insertFirst__col,
     columnForm,
     colAffectedQuantity,
     insertLast__col,
-
 } from '../styles/grid-edit-controls.module.css'
+import {genericButton} from "../styles/global.module.css";
+
 
 const GridEditBottomButtons = props => {
 
@@ -25,13 +27,13 @@ const GridEditBottomButtons = props => {
     return (
         <div className={bottomGridController}>
             <button
-                className={`${controlButton} ${controlButtonBottom} ${insertFirst__col}`}
+                className={`${genericButton} ${controlButton} ${controlButtonBottom} ${insertFirst__col}`}
                 onClick={e => changeSizeHandler(e, addFirstCol, columnsAffected)}
             >
                 &#8592;
             </button>
             <button
-                className={`${controlButton} ${controlButtonBottom}`}
+                className={`${genericButton} ${controlButton} ${controlButtonBottom}`}
                 onClick={e => changeSizeHandler(e, deleteFirstCol, columnsAffected)}
             >
                 &#8594;
@@ -54,13 +56,13 @@ const GridEditBottomButtons = props => {
                 </div>
             </form>
             <button
-                className={`${controlButton} ${controlButtonBottom}`}
+                className={`${genericButton} ${controlButton} ${controlButtonBottom}`}
                 onClick={e=> changeSizeHandler(e, deleteLastCol, columnsAffected)}
             >
                 &#8592;
             </button>
             <button
-                className={`${controlButton} ${controlButtonBottom} ${insertLast__col}`}
+                className={`${genericButton} ${controlButton} ${controlButtonBottom} ${insertLast__col}`}
                 onClick={e => changeSizeHandler(e, addLastCol, columnsAffected)}
             >
                 &#8594;

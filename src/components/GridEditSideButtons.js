@@ -8,6 +8,8 @@ import {
     rowAffectedQuantity,
     rowForm,
 } from '../styles/grid-edit-controls.module.css'
+import {genericButton} from "../styles/global.module.css";
+
 
 const GridEditSideButtons = props => {
 
@@ -24,13 +26,13 @@ const GridEditSideButtons = props => {
     return (
         <div className={sideGridController}>
             <button
-                className={`${controlButton} ${controlButtonSide} ${insertFirst__row}`}
+                className={`${genericButton} ${controlButton} ${controlButtonSide} ${insertFirst__row}`}
                 onClick={e => changeSizeHandler(e, addFirstRow, rowsAffected)}
             >
                 &#8593;
             </button>
             <button
-                className={`${controlButton} ${controlButtonSide}`}
+                className={`${genericButton} ${controlButton} ${controlButtonSide}`}
                 onClick={e => changeSizeHandler(e, deleteFirstRow, rowsAffected)}
             >
                 &#8595;
@@ -53,14 +55,14 @@ const GridEditSideButtons = props => {
                 </div>
             </form>
             <button
-                className={`${controlButton} ${controlButtonSide}`}
+                className={`${genericButton} ${controlButton} ${controlButtonSide}`}
 
                 onClick={e => changeSizeHandler(e, deleteLastRow, rowsAffected)}
             >
                 &#8593;
             </button>
             <button
-                className={`${controlButton} ${controlButtonSide} ${insertLast__row}`}
+                className={`${genericButton} ${controlButton} ${controlButtonSide} ${insertLast__row}`}
                 onClick={e => changeSizeHandler(e, addLastRow, rowsAffected)}
             >
                 &#8595;

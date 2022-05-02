@@ -2,7 +2,8 @@
     grid-area: bottombtn;
     display: grid;
     align-self: self-start;
-    grid-template-columns: 15vw 15vw 15vw 15vw 15vw;
+    grid-template-columns: 14vw 14vw 14vw 14vw 14vw;
+    grid-gap: 1.25vw;
     font-size: 3vw;
     text-align: center;
     height: 10vw;
@@ -13,7 +14,8 @@
 @media (min-aspect-ratio: 9/7) {
     .bottom-grid-controller {
         height: 4vw;
-        grid-template-columns: 7vw 7vw 5vw 7vw 7vw;
+        grid-template-columns: 6.5vw 6.5vw 5.5vw 6.5vw 6.5vw;
+        grid-gap: .4vw;
     }
 }
 
@@ -22,7 +24,8 @@
     display: grid;
     justify-content: center;
     align-content: center;
-    grid-template-rows: 15vw 15vw 15vw 15vw 15vw;;
+     grid-template-rows: 14vw 14vw 14vw 14vw 14vw;
+    grid-gap: 1.25vw;
     font-size: 3vw;
     text-align: center;
     /*transition: background 0.2s;*/
@@ -32,13 +35,21 @@
 @media (min-aspect-ratio: 9/7) {
     .side-grid-controller {
         width: 4vw;
-        grid-template-rows: 7vw 7vw 5vw 7vw 7vw;
+        grid-template-rows: 6.5vw 6.5vw 5.5vw 6.5vw 6.5vw;
+        grid-gap: .4vw;
     }
 }
 
 .control-button {
     background: #D42990;
     font-size: 3vw;
+    height: auto;
+    border-radius: .5rem;
+}
+
+.control-button:focus {
+    outline: none;
+    border: none;
 }
 
 @media (min-aspect-ratio: 9/7) {
@@ -108,20 +119,28 @@
 
 .control-button.insert-first__col {
     background: #37d429;
-    border-radius: 2rem 0 0 2rem;
+    border-radius: 2rem .5rem .5rem 2rem;
 }
 
 .control-button.insert-last__col {
     background: #37d429;
-    border-radius: 0 2rem 2rem 0;
+    border-radius: .5rem 2rem 2rem .5rem;
 }
 
 .control-button.insert-first__row {
     background: #37d429;
-    border-radius: 2rem 2rem 0 0;
+    border-radius: 2rem 2rem .5rem .5rem;
 }
 
 .control-button.insert-last__row {
     background: #37d429;
-    border-radius: 0 0 2rem 2rem;
+    border-radius: .5rem .5rem 2rem 2rem;
 }
+
+.control-button.insert-first__col:hover,
+.control-button.insert-last__col:hover,
+.control-button.insert-first__row:hover,
+.control-button.insert-last__row:hover {
+    background: #44f430;
+}
+
