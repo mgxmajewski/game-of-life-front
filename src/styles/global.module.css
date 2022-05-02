@@ -158,7 +158,6 @@ input[type='number']::-webkit-outer-spin-button {
     text-align: center;
     border-radius: 3vw;
     font-weight: bold;
-    margin-top: 3vw;
     align-items: center;
     appearance: none;
     border-style: none;
@@ -183,7 +182,6 @@ input[type='number']::-webkit-outer-spin-button {
 
 @media (min-aspect-ratio: 9/7) {
     .generic-button {
-        margin-top: 1vw;
         padding: .5vw 2vw;
         font-size: 1.2vw;
         width: 16vw;
