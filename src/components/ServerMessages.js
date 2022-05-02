@@ -1,4 +1,5 @@
 import React from 'react';
+import {signInOutErrors} from "../styles/server-messeges.module.css"
 
 function ServerMessages(props) {
     const {messages} = props;
@@ -8,9 +9,9 @@ function ServerMessages(props) {
             <div>
                 <h3>Server response</h3>
                 {messages.length === 1
-                    ? <p>{messages}</p>
+                    ? <p className={signInOutErrors}>{messages}</p>
                     : <ul>
-                        {messages.map((message, i) => <li key={i}>{message}</li>)}
+                        {messages.map((message, i) => <li className={signInOutErrors} key={i}>{message}</li>)}
                     </ul>
                 }
             </div>
