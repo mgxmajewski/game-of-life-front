@@ -3,7 +3,7 @@ import '../styles/normalize.css'
 import {layout, content} from '../styles/global.module.css'
 import NavBar from "./NavBar";
 import PropTypes from "prop-types";
-import '../styles/layout.css'
+// import '../styles/layout.css'
 
 const Layout = ({children}) => {
     return (

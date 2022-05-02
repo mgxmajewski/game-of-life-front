@@ -26,31 +26,3 @@
         font-size: 1vw;
     }
 }
-
-
-/*label {*/
-/*    !*width: 100%;*!*/
-/*     display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    align-content: center;*/
-/*    !*width: auto;*!*/
-/*    justify-items: center;*/
-/*    justify-content: center;*/
-/*    margin-bottom: 0;*/
-/*    margin-left: .5em;*/
-/*    margin-right: .5em;*/
-/*    padding-top: .2em;*/
-/*    padding-bottom: .2em;*/
-/*}*/
-
-.play-button {
-    background: #D42990;
-    width: 100%;
-    height: 100%;
-}
-
-select, option {
-    border-radius: .5rem;
-    color: black;
-}

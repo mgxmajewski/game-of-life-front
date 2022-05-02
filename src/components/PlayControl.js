@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import '../styles/play.css'
+import {playContainer, intervalForm} from '../styles/play.module.css'
 import {coordinatesBtn} from "../styles/grid.module.css";
 import {showCoordinates} from "../utils/cache";
 import {mutateGridState} from "../utils/MutateGridState";
@@ -45,7 +45,7 @@ const PlayControl = props => {
     }
 
     return (
-        <div className="play-container">
+        <div className={playContainer}>
             <button
                 className="control-button"
                 onClick={toggleDisplayCoordinates}
@@ -58,7 +58,7 @@ const PlayControl = props => {
             >
                 Next Frame
             </button>
-            <form className="interval-form">
+            <form className={intervalForm}>
                 <label htmlFor="set-interval">Set
                     <select
                         name="interval"
@@ -75,7 +75,8 @@ const PlayControl = props => {
                         <option value="3000">3s</option>
                         <option value="5000">5s</option>
                     </select>
-                    interval</label>
+                    interval
+                </label>
             </form>
             <button
                 className="control-button"
