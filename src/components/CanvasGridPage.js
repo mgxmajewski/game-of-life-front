@@ -2,7 +2,7 @@ import * as React from "react";
 import {useState} from "react";
 import {useReactiveVar} from "@apollo/client";
 import {golWrapper} from "../styles/grid.module.css"
-import '../styles/ui-layout.css'
+import '../styles/grid-editor-ui-layout.module.css'
 import PropTypes from "prop-types";
 import CanvasGrid from "../components/CanvasGrid";
 import BottomButtons from "../components/BottomButtons";
