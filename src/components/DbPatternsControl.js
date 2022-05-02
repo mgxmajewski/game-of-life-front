@@ -4,13 +4,13 @@ import {
     freshGridContainer,
     freshGridForm,
     freshGridSizeInput,
-    patternSelect
+    patternSelect, replayContainer
 } from '../styles/patterns-control.module.css'
 import {coordinatesBtn} from "../styles/grid.module.css";
 import {useReactiveVar} from "@apollo/client";
 import {fetchHandler, useFetch} from "../utils/useFetch";
 import {authenticatedToken} from "../utils/cache";
-import {genericButton} from "../styles/global.module.css";
+import {genericButton, gradientBackgroundWithShadow} from "../styles/global.module.css";
 
 const DbPatternsControl = () => {
 
@@ -37,7 +37,7 @@ const DbPatternsControl = () => {
     return (
         <div
             // className="pattern-container gradient-background-with-shadow"
-            className={patternContainer}
+            className={`${patternContainer} ${gradientBackgroundWithShadow}`}
         >
             <h2>Patterns from conwaylife.com DB or fresh start =></h2>
             <div className={freshGridContainer}>

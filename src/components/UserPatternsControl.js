@@ -8,7 +8,7 @@ import {
     patternSelect
 } from '../styles/patterns-control.module.css'
 import {coordinatesBtn} from "../styles/grid.module.css";
-import {genericButton} from "../styles/global.module.css";
+import {genericButton, gradientBackgroundWithShadow} from "../styles/global.module.css";
 import {saveGridSnapshot} from "../utils/SaveGridSnapshot";
 import {fetchHandler, useFetch} from "../utils/useFetch";
 import {authenticatedToken, userIdVar} from "../utils/cache";
@@ -41,7 +41,7 @@ const UserPatternsControl = (props) => {
     }
 
     return (
-        <div className={replayContainer}>
+        <div className={`${replayContainer} ${gradientBackgroundWithShadow}`}>
             <h2>Your own patterns DB.</h2>
             <div className={freshGridContainer}>
                 <button
