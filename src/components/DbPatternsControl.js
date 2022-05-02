@@ -5,7 +5,6 @@ import {
     freshGridForm,
     freshGridSizeInput,
     patternSelect,
-    replayContainer,
     coordinatesBtn
 } from '../styles/patterns-control.module.css'
 import {useReactiveVar} from "@apollo/client";

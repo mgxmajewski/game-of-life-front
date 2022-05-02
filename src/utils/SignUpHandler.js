@@ -1,4 +1,4 @@
-import {navigate} from "gatsby";
+// import {navigate} from "gatsby";
 
 const fetch = require(`node-fetch`)
 

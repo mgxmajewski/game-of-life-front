@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import {playGridButton, playContainer, intervalForm} from '../styles/play.module.css'
 import {showCoordinates} from "../utils/cache";
 import {mutateGridState} from "../utils/MutateGridState";
@@ -13,9 +13,9 @@ const PlayControl = props => {
     const [refreshInterval, setRefreshInterval] = useState('1000')
     const [isIntervalActive, setIsIntervalActive] = useState(false)
 
-    const sendIntervalToServer = (routeString)=> {
+    const sendIntervalToServer = useCallback((routeString)=> {
         mutateGridState(`${routeString}`, currentToken)
-    }
+    }, [currentToken])
 
     const startInterval = (e) => {
         setIsIntervalActive(true)
@@ -37,7 +37,7 @@ const PlayControl = props => {
         if (isIntervalActive=== true) {
             sendIntervalToServer(`state/${refreshInterval}`)
         }
-    },[refreshInterval, isIntervalActive])
+    },[refreshInterval, isIntervalActive, sendIntervalToServer])
 
     const toggleDisplayCoordinates = () => {
         showCoordinates()[0] === false

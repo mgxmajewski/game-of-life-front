@@ -23,7 +23,10 @@ const UserPatternsControl = (props) => {
 
     const userId = userIdVar()[0]
 
-    const {response, error, isLoading, reFetch} = useFetch(`all-pattern-records/get/${userId}`, 'GET', currentToken)
+    const {response,
+         // error,
+        // isLoading,
+        reFetch} = useFetch(`all-pattern-records/get/${userId}`, 'GET', currentToken)
 
     const loadPattern = (e) => {
         e.preventDefault()

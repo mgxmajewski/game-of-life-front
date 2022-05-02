@@ -1,6 +1,6 @@
 import {wsClient} from "../apollo/client";
 import {navigate} from "gatsby";
-import {authenticatedToken, userIdVar, userMailNameVar} from "./cache";
+import {authenticatedToken, userIdVar} from "./cache";
 import jwt_decode from 'jwt-decode';
 
 const fetch = require(`node-fetch`)
