@@ -106,6 +106,18 @@ select, option {
     color: black;
 }
 
+label, input {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    /*width: auto;*/
+    opacity: 1;
+}
+
 /* layout & nav */
 .layout {
     scrollbar-gutter: stable both-edges;

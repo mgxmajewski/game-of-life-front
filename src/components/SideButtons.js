@@ -1,5 +1,13 @@
 import React from 'react';
-import '../styles/buttons.css'
+import {
+    sideGridController,
+    controlButton,
+    controlButtonSide,
+    insertFirst__row,
+    insertLast__row,
+    rowAffectedQuantity,
+    rowForm,
+} from '../styles/grid-edit-controls.module.css'
 
 const SideButtons = props => {
 
@@ -14,21 +22,21 @@ const SideButtons = props => {
     const deleteLastRow = 'delete-last-row'
 
     return (
-        <div className="side-grid-controller">
+        <div className={sideGridController}>
             <button
-                className="control-button control-button--side insert-first__row"
+                className={`${controlButton} ${controlButtonSide} ${insertFirst__row}`}
                 onClick={e => changeSizeHandler(e, addFirstRow, rowsAffected)}
             >
                 &#8593;
             </button>
             <button
-                className="control-button control-button--side delete-first__row"
+                className={`${controlButton} ${controlButtonSide}`}
                 onClick={e => changeSizeHandler(e, deleteFirstRow, rowsAffected)}
             >
                 &#8595;
             </button>
-            <form className="row-form">
-                <div className="row-affected-quantity">
+            <form className={rowForm}>
+                <div className={rowAffectedQuantity}>
                     <label htmlFor="row-quantity">
                         rows
                         <input
@@ -45,13 +53,14 @@ const SideButtons = props => {
                 </div>
             </form>
             <button
-                className="control-button control-button--side delete-last__row"
+                className={`${controlButton} ${controlButtonSide}`}
+
                 onClick={e => changeSizeHandler(e, deleteLastRow, rowsAffected)}
             >
                 &#8593;
             </button>
             <button
-                className="control-button control-button--side insert-last__row"
+                className={`${controlButton} ${controlButtonSide} ${insertLast__row}`}
                 onClick={e => changeSizeHandler(e, addLastRow, rowsAffected)}
             >
                 &#8595;

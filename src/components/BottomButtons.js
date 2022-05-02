@@ -1,5 +1,13 @@
 import React from 'react';
-import '../styles/buttons.css'
+import {bottomGridController,
+    controlButton,
+    controlButtonBottom,
+    insertFirst__col,
+    columnForm,
+    colAffectedQuantity,
+    insertLast__col,
+
+} from '../styles/grid-edit-controls.module.css'
 
 const BottomButtons = props => {
 
@@ -15,21 +23,21 @@ const BottomButtons = props => {
     const deleteLastCol = 'delete-last-col'
 
     return (
-        <div className="bottom-grid-controller">
+        <div className={bottomGridController}>
             <button
-                className="control-button control-button--bottom insert-first__col"
+                className={`${controlButton} ${controlButtonBottom} ${insertFirst__col}`}
                 onClick={e => changeSizeHandler(e, addFirstCol, columnsAffected)}
             >
                 &#8592;
             </button>
             <button
-                className="control-button control-button--bottom delete-first__col"
+                className={`${controlButton} ${controlButtonBottom}`}
                 onClick={e => changeSizeHandler(e, deleteFirstCol, columnsAffected)}
             >
                 &#8594;
             </button>
-            <form className="column-form">
-                <div className="col-affected-quantity">
+            <form className={columnForm}>
+                <div className={colAffectedQuantity}>
                     <label htmlFor="col-quantity">
                         columns
                         <input
@@ -46,13 +54,13 @@ const BottomButtons = props => {
                 </div>
             </form>
             <button
-                className="control-button control-button--bottom delete-last__col"
+                className={`${controlButton} ${controlButtonBottom}`}
                 onClick={e=> changeSizeHandler(e, deleteLastCol, columnsAffected)}
             >
                 &#8592;
             </button>
             <button
-                className="control-button control-button--bottom insert-last__col"
+                className={`${controlButton} ${controlButtonBottom} ${insertLast__col}`}
                 onClick={e => changeSizeHandler(e, addLastCol, columnsAffected)}
             >
                 &#8594;
