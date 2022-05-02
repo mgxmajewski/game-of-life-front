@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Link} from "gatsby";
 import {header, copyParagraph} from "../styles/home.module.css";
-import {btn} from "../styles/global.css";
+import {btn} from "../styles/global.module.css";
 
 
 const IndexPage = () => {
