@@ -53,9 +53,20 @@ const IndexPage = () => {
                     originally discovered in the 1940s by Stanisław Ulam and John von Neumann (Manhattan Project).
                     Another
                     famous cellular automaton is Rule 30.
-                    More on the topic you can find in Stephen Wolfram's (creator of Wolfram Mathematica) book A New Kind
-                    of
-                    Science or interview with hum by Lex Fridman(link to interview).
+                    More on the topic you can find in Stephen Wolfram's (creator of Wolfram Mathematica) book
+                    <a
+                        href="https://www.wolframscience.com/nks/"
+                        target="_blank" rel="noreferrer"
+                        style={{textDecoration: "none"}}>
+                        A New Kind of Science
+                    </a>
+                    or interview with hum by Lex Fridman(
+                    <a href="https://www.youtube.com/watch?v=VguG_y05Xe8"
+                       target="_blank" rel="noreferrer"
+                       style={{textDecoration: "none"}}>
+                        link to the interview
+                    </a>
+                    ).
                 </p>
                 <div className={simpleSeparator}></div>
                 <div className={`${tabSeparator} ${tabSeparatorMediumHigher}`}>
@@ -64,7 +75,7 @@ const IndexPage = () => {
                 </div>
                 <p className={mainCopyParagraph}>
                     Back to Conway's Game of Life. It is a relatively simple set of rules.
-                    First of all, cells can be either dead or alive and their behavior over time is*:
+                    First of all, cells can be either dead or alive and their behavior over time is:
                     <ol>
                         <li>Any live cell with two or three live neighbors survives.</li>
                         <li>Any dead cell with three live neighbors becomes a live cell.</li>
@@ -91,7 +102,16 @@ const IndexPage = () => {
                 <p className={mainCopyParagraph}>
                     Another interesting video is an interview with John Conway, an English mathematician who invented
                     the
-                    Game of Life (link to the interview).
+                    Game of Life (
+                    <a
+                        href="https://www.youtube.com/watch?v=R9Plq-D1gEk"
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{textDecoration: "none"}}
+                    >
+                        link to the interview
+                    </a>
+                    ).
                 </p>
             </section>
         </>
