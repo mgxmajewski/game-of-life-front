@@ -43,7 +43,7 @@ const IndexPage = () => {
                     <div className={tabSeparator__line}></div>
                 </div>
                 <p className={mainCopyParagraph}>
-                    There is an alternative name for cellular automaton, iterative arrays which gives more intuition
+                    There is an alternative name for cellular automata, iterative arrays which gives more intuition
                     about
                     what it is. A most basic simplified explanation would be that it is a set of rules describing how
                     cells
