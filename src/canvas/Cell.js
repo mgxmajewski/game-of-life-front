@@ -7,7 +7,7 @@ export class Cell {
         this.row = row;
         this.col = col;
         this.alive = null;
-        this.colorAlive = '#00adff';
+        this.colorAlive = '#00abff';
         this.colorDead = '#000127FF';
     }
 
