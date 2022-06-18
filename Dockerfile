@@ -6,7 +6,8 @@ RUN npm install -g gatsby-cli
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-RUN npm install
+COPY yarn.lock ./
+RUN yarn install
 COPY . .
 EXPOSE 9000
 CMD ["gatsby", "build"]
