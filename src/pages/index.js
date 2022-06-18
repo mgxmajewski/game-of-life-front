@@ -58,7 +58,7 @@ const IndexPage = () => {
                         href="https://www.wolframscience.com/nks/"
                         target="_blank" rel="noreferrer"
                         style={{textDecoration: "none"}}>
-                        A New Kind of Science
+                        &nbsp;A New Kind of Science&nbsp;
                     </a>
                     or interview with hum by Lex Fridman(
                     <a href="https://www.youtube.com/watch?v=VguG_y05Xe8"
