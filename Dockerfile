@@ -8,5 +8,6 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 COPY . .
-CMD ["gatsby", "build"]
 EXPOSE 9000
+CMD ["gatsby", "build"]
+CMD ["gatsby", "serve", "-H", "0.0.0.0"]

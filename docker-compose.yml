@@ -6,4 +6,3 @@ services:
     build: .
     ports:
       - "9000:9000"
-    command: "gatsby serve -H 0.0.0.0 -p 9000"
