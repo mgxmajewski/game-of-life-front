@@ -8,4 +8,5 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN yarn install
 COPY . .
+CMD ["gatsby", "build"]
 EXPOSE 9000
