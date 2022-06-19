@@ -10,5 +10,5 @@ COPY yarn.lock ./
 RUN yarn install
 COPY . .
 EXPOSE 9000
-CMD ["gatsby", "build"]
-CMD ["gatsby", "serve", "-H", "0.0.0.0"]
+RUN gatsby build
+CMD ["gatsby", "serve", "-H", "0.0.0.0", "-p", "9000"]
